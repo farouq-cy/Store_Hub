@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo-white.png">
+    <!--link css-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--link FontAwsome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Maged Shop | All Product</title>
+</head>
+<body>
+    <header>
+        <div class="container top_nav">
+                <a href="#"><h1 class="title">Maged Emel Shop</h1></a>
+                <form class="search" action="">
+                    <input type="search" placeholder="Search For Products...">
+                    <button type="submit">Search</button>
+                </form>
+            <div class="cart_header">
+                <div class="icon_cart" onclick="openCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="count_item">0</span>
+                </div>
+                <div class="total_price">
+                    <p>My Cart</p>
+                    <p class="price_cart_head">$0</p>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="links container">
+                <i onclick="openMenu()" class="fa-solid fa-bars btn_open_menu"></i>
+                <ul>
+                    <span onclick="closeMenu()" class="bg_overlay"></span>
+                    <i onclick="closeMenu()"class="fa-regular fa-circle-xmark btn_close_menu"></i>
+                    <a href="#"><h1 class="title_menu">Maged Emel Shop</h1></a>
+                    <li><a href="index.html" >Home</a></li>
+                    <li class="active"><a href="#">All Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="login_signup">
+                    <button id="toggledark" onclick="darktoggle()">DarkMode</button>
+                    <a href="login.html">Login <i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="signup.html">Sign Up <i class="fa-solid fa-user-plus"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>
+                My Cart 
+                <span class="item_in_cart">
+                    (0Item in cart)
+                </span>
+            </h3>
+                <span class="close_cart" onclick="closeCart()"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+        <div class="items_in_cart">
+
+            
+        </div>
+            <div class="bottom_cart">
+                <div class="total">
+                    <p>
+                        Cart Subtotal
+                    </p>
+                    <p class="price_cart_total">
+                    </p>
+                </div>
+                <div class="button_cart">
+                    <a href="cheakout.html" class="btn_cart ">
+                        Proceed to Checkout
+                    </a>
+                    <button class="btn_cart trabs_bg" onclick="closeCart()">Shop More </button>
+                </div>
+            </div>
+    </div>
+
+    <div class="top_page">
+        <div class="container">
+            <h1>
+                Experience the Future of Technology With out Topico.
+            </h1>
+
+            <p>
+                Find everything you need to transform your home into a smart , Connected space , Our Topico store offers a wide range of devices to fit your needs
+            </p>
+        </div>
+    </div>
+
+    <section class="allproduct">
+        <div class="container">
+
+            <span class="btn_filter" onclick="openCloseFilter()">
+                Filter <i class="fa-solid fa-filter"></i>
+            </span>
+            <div class="filter">
+                <h2>Filter</h2>
+
+                <div class="filter_item">
+                    <h4>Categorie</h4>
+                    <div class="content">
+
+                        <div class="item">
+                            <span>Phone</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>Tablet</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>LapTop</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>TV</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>Head Phone</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>Smart Watch</span> 
+                            <input type="checkbox">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="filter_item">
+                    <h4>Brand</h4>
+                    <div class="content">
+
+                        <div class="item">
+                            <span>Apple</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>Samsung</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>Lenovo</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>Oppo</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>Toshiba</span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span>Realme</span> 
+                            <input type="checkbox">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="filter_item">
+                    <h4>Color</h4>
+                    <div class="content">
+
+                        <div class="item">
+                            <span class="color" style="background: red;"></span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span class="color" style="background: green;"></span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span class="color" style="background: yellow;"></span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span class="color" style="background: blue;"></span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span class="color" style="background: orangered;"></span> 
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="item">
+                            <span class="color" style="background: black;"></span> 
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div id="products_dev" class="products_dev">
+
+            </div>
+        </div>
+
+        <div class="pagination">
+
+            <span class="btn_page prev"><i class="fa-solid fa-backward-step"></i></span>
+            <a href="#">
+                <span class="num_page active">1</span>
+            </a>
+            <a href="#">
+                <span class="num_page">2</span>
+            </a>
+            <a href="#">
+                <span class="num_page">3</span>
+            </a>
+            <span class="btn_page next"><i class="fa-solid fa-forward-step"></i></span>
+        </div>
+        
+    </section>
+
+    <div class="back_to_top">
+        <p>Back To Top</p>
+    </div>
+
+    <footer>
+        <div class="container">
+
+            <div class="big_row">
+                <a href="#"><h1 class="title">Maged Emel Shop</h1></a>
+                <div class="hot_line">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="text">
+                        <h5>Hotline Free 24/24:</h5>
+                        <h6>+201551803645</h6>
+                    </div>
+
+                </div>
+
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, explicabo?</p>
+            </div>
+
+            <div class="row">
+                <h4>FAQs & Help</h4>
+
+                <div class="links">
+                    <a href="#">F.A.Q.'s</a>
+                    <a href="#">Ordering Tracking</a>
+                    <a href="#">Contacts</a>
+                    <a href="#">Events</a>
+                    <a href="#">Help Center</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Shopping & Delivery</h4>
+
+                <div class="links">
+                    <a href="#">Delivery Information</a>
+                    <a href="#">Discount</a>
+                    <a href="#">Payment & Shipping</a>
+                    <a href="#">Estimated Delivery</a>
+                    <a href="#">Shipping Guide</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Information</h4>
+
+                <div class="links">
+                    <a href="#">Popular</a>
+                    <a href="#">Our Services</a>
+                    <a href="#">Your Account</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Condition</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_footer">
+            <div class="container">
+                <p>Copyright &copy;<span> MagedEmel.</span>all right reserved</p>
+
+                <div class="payment">
+                    <img src="img/payment-1.png" alt="">
+                    <img src="img/payment-2.png" alt="">
+                    <img src="img/payment-3.png" alt="">
+                    <img src="img/payment-4.png" alt="">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/allProducts.js"></script>
+</body>
+</html>

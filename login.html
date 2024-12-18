@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo-white.png">
+    <!--link css-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/login_sign.css">
+
+    <!--link FontAwsome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Maged Shop | Login</title>
+</head>
+<body>
+    <header>
+        <div class="container top_nav">
+                <a href="#"><h1 class="title">Maged Emel Shop</h1></a>
+                <form class="search" action="">
+                    <input type="search" placeholder="Search For Products...">
+                    <button type="submit">Search</button>
+                </form>
+            <div class="cart_header">
+                <div class="icon_cart" onclick="openCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="count_item">0</span>
+                </div>
+                <div class="total_price">
+                    <p>My Cart</p>
+                    <p class="price_cart_head">$0</p>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="links container">
+                <i onclick="openMenu()" class="fa-solid fa-bars btn_open_menu"></i>
+                <ul>
+                    <span onclick="closeMenu()" class="bg_overlay"></span>
+                    <i onclick="closeMenu()"class="fa-regular fa-circle-xmark btn_close_menu"></i>
+                    <a href="#"><h1 class="title_menu">Maged Emel Shop</h1></a>
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="allproduct.html">All Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="login_signup">
+                    <button id="toggledark" onclick="darktoggle()">DarkMode</button>
+                    <a href="signup.html" >Sign Up <i class="fa-solid fa-user-plus"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>
+                My Cart 
+                <span class="item_in_cart">
+                    (0Item in cart)
+                </span>
+            </h3>
+                <span class="close_cart" onclick="closeCart()"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+        <div class="items_in_cart">
+
+            
+        </div>
+            <div class="bottom_cart">
+                <div class="total">
+                    <p>
+                        Cart Subtotal
+                    </p>
+                    <p class="price_cart_total">
+                    </p>
+                </div>
+                <div class="button_cart">
+                    <a href="cheakout.html" class="btn_cart ">
+                        Proceed to Checkout
+                    </a>
+                    <button class="btn_cart trabs_bg" onclick="closeCart()">Shop More </button>
+                </div>
+            </div>
+    </div>
+
+    <section class="signin sec_form">
+        <div class="form_container">
+            <p class="title_">Welcome Back</p>
+
+            <form action="" class="form">
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <p class="page_link">
+                    <a href="" class="page_link_lable">Forget Password?</a>
+                </p>
+                
+                <button class="form_btn">
+                    Login
+                </button>
+            </form>
+
+            <p class="signup_label">
+                Don't have an Account? <a href="signup.html" class="signup_link">Sign up</a>
+            </p>
+
+
+            <div class="btns_container">
+                <div class="apple_login_btn">
+                    <i class="fa-brands fa-apple"></i>
+                    <span>Login With Apple</span>
+                </div>
+
+                <div class="google_login_btn">
+                    <i class="fa-brands fa-google"></i>
+                    <span>Login With Google</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+
+            <div class="big_row">
+                <a href="#"><h1 class="title">Maged Emel Shop</h1></a>
+                <div class="hot_line">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="text">
+                        <h5>Hotline Free 24/24:</h5>
+                        <h6>+201551803645</h6>
+                    </div>
+
+                </div>
+
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, explicabo?</p>
+            </div>
+
+            <div class="row">
+                <h4>FAQs & Help</h4>
+
+                <div class="links">
+                    <a href="#">F.A.Q.'s</a>
+                    <a href="#">Ordering Tracking</a>
+                    <a href="#">Contacts</a>
+                    <a href="#">Events</a>
+                    <a href="#">Help Center</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Shopping & Delivery</h4>
+
+                <div class="links">
+                    <a href="#">Delivery Information</a>
+                    <a href="#">Discount</a>
+                    <a href="#">Payment & Shipping</a>
+                    <a href="#">Estimated Delivery</a>
+                    <a href="#">Shipping Guide</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Information</h4>
+
+                <div class="links">
+                    <a href="#">Popular</a>
+                    <a href="#">Our Services</a>
+                    <a href="#">Your Account</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Condition</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_footer">
+            <div class="container">
+                <p>Copyright &copy;<span> MagedEmel.</span>all right reserved</p>
+
+                <div class="payment">
+                    <img src="img/payment-1.png" alt="">
+                    <img src="img/payment-2.png" alt="">
+                    <img src="img/payment-3.png" alt="">
+                    <img src="img/payment-4.png" alt="">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
