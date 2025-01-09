@@ -22,3 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         moonIcon.className = moonIcon.className == "bx bxs-moon" ? "bx bx-moon" : "bx bxs-moon";
     }
 })
+
+document.getElementById("showLinks").addEventListener("click", () => {
+    document.getElementById("showLinks").classList.toggle("active");
+})
