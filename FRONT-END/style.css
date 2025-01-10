@@ -21,6 +21,7 @@
 }
 body.dark {
   --text-color: #fff;
+  --main-color: #db4444;
 }
 
 header {
