@@ -18,11 +18,13 @@
   --main-color: #9f1239;
   --dark-toogle: #222;
   --text-color: #222;
+  --white-color: #fff;
 }
 
 body.dark {
   --text-color: #fff;
   --main-color: #db4444;
+  --white-color: #222;
 }
 
 header {
@@ -90,7 +92,6 @@ nav form i:hover {
   color: var(--main-color);
   cursor: pointer;
 }
-
 
 /* Toogle Dark Mode */
 .toggle {
@@ -339,7 +340,59 @@ footer .container h5:hover {
     font-size: 15px;
   }
 }
-
+/* Start index*/
+.slider .container {
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.side_bar {
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  border: 1px solid var(--text-color);
+  box-shadow: 2px 3px 5px #777;
+}
+.side_bar a {
+  margin: 10px 0;
+  border-bottom: 1px solid var(--text-color);
+  color: var(--text-color);
+}
+.side_bar h2 {
+  color: var(--main-color);
+}
+.side_bar a:hover {
+  color: var(--main-color);
+}
+.swiper {
+  width: 70%;
+  border: 1px solid var(--white-color);
+  box-shadow: 2px 3px 5px #777;
+}
+.swiper .swiper-wrapper img {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  color: var(--text-color);
+  background-color: var(--main-color);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+}
+@media (max-width: 900px) {
+  .slider .container{
+    flex-direction: column;
+  }
+}
+/* End index*/
 /*      --Start Cart--    */
 
 /* Breadcrumb Cart */
