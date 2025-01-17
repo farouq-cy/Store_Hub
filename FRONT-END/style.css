@@ -878,7 +878,7 @@ footer .container h5:hover {
 }
 
 /*      --End About--   */
-/*     --Start Error Page--   */
+/*      --Start Error Page--  */
 :root {
   --breadcrumb-color-home: grey;
   --breadcrumb-color-about: #333;
@@ -894,10 +894,6 @@ body.light .breadcrumb .a1 {
 
 body.light .breadcrumb .a2 {
   color: var(--breadcrumb-color-about);
-}
-
-body.light .breadcrumb .a2 {
-  color: var(--breadcrumb-separator-color);
 }
 
 body.dark .breadcrumb .a1 {
@@ -916,12 +912,9 @@ body.dark .breadcrumb .a2 {
   margin-left: 140px;
   margin-top: 60px;
 }
-
-.breadcrumb .a1,
-.a2 {
+.breadcrumb .a1,.a2 {
   margin-right: 5px;
 }
-
 .dark .notfound {
   color: #fff;
 }
@@ -955,5 +948,3 @@ body.dark .breadcrumb .a2 {
 .btn-back:hover {
   background-color: #c0392b;
 }
-
-/*     --End Error Page--   */
