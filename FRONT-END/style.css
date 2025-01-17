@@ -400,6 +400,20 @@ footer .container h5:hover {
     width: 100%;
   }
 }
+.offer .container .dayOffers{
+  display: flex;
+  align-items: center;
+}
+.offer .container .dayOffers .shape{
+  background: var(--main-color);
+  width: 20px;
+  height: 45px;
+  border-radius: 7px;
+  margin-right: 10px;
+}
+.offer .container .dayOffers h3{
+  color: var(--main-color)
+}
 /* End index*/
 /*      --Start Cart--    */
 
