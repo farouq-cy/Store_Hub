@@ -26,6 +26,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.getElementById("showLinks").addEventListener("click", () => {
-  document.getElementById("showLinks").classList.toggle("active");
+// Start Swiper
+const swiper = new Swiper(".swiper", {
+  loop: true,
+
+  pagination: {
+    el: ".swiper-pagination",
+    dynamicBullests: true,
+    clickable: true,
+  },
+  autoplay: {
+    delay: 1500,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
 });
+// End Swiper
