@@ -375,21 +375,29 @@ footer .container h5:hover {
   display: block;
   margin: 0 auto;
 }
+
 .swiper-button-next:after,
 .swiper-button-prev:after {
   color: var(--text-color);
   background-color: var(--main-color);
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 0 0 auto;
+  font-size: 1.5rem !important;
 }
 @media (max-width: 900px) {
-  .slider .container{
+  .slider .container {
     flex-direction: column;
+  }
+  .slider .container .side_bar {
+    margin-bottom: 20px;
+  }
+  .slider .container .swiper {
+    width: 100%;
   }
 }
 /* End index*/
