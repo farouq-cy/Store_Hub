@@ -21,241 +21,8 @@
 />
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-    <title>Store Hub | Main</title>
-    <style>
-  body.dark {
-  background-color: #111;
-  color: #eee; 
-}
-:root {
-        --breadcrumb-color-home: grey; 
-        --breadcrumb-color-about: #333;
-   --breadcrumb-color-home-dark: #ccc;
-   --breadcrumb-color-about-dark: #fff;
-    --breadcrumb-separator-color: black; 
-    --breadcrumb-separator-color-dark: #ccc; 
-  }
-
-  body.light .breadcrumb .home {
-    color: var( --breadcrumb-color-home);
-  }
-
-  body.light .breadcrumb .about {
-    color: var( --breadcrumb-color-about);
-  }
-
-  body.light .breadcrumb .separator {
-    color: var(--breadcrumb-separator-color);
-  }
-
-  body.dark .breadcrumb .home {
-    color: var(--breadcrumb-color-home-dark);
-  }
-  body.dark .breadcrumb .about {
-    color: var(--breadcrumb-color-about-dark);
-  }
-
-  body.dark .breadcrumb .separator {
-    color: var(--breadcrumb-separator-color-dark);
-  }
-  
-  .breadcrumb {
-  display: flex;
-  align-items: center; 
-  font-size: 18px;
-  font-weight: 500;
-  margin-left: 140px ;
-  margin-top: 60px;
-} 
-
-.breadcrumb .home {
-  color: grey; 
-}
-
-.breadcrumb .separator {
-  margin: 0 5px; 
-  color: #000; 
-}
-
-.breadcrumb .about {
-  color: #333; 
-}
-
-      .about-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 50px;
-  background-color: #f9f9f9;
-}
-
-.team {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-
-.team-member {
-  text-align: center;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.team-member:hover {
-  transform: scale(1.05); /* تأثير تكبير عند المرور */
-}
-
-.team-member img {
-  width: 150px; 
-  height: 150px; 
-  object-fit: cover; 
-  border-radius: 50%; 
-  margin-bottom: 15px;
-}
-
-.team-member h3 {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.team-member p {
-  font-size: 16px;
-  color: #666;
-}
-body.dark .team-member{
-  background-color: #000;
-}
-body.dark .team-member h3 {
-  color: white;
-}
-
-body.dark .team-member p {
-  color: #ddd;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-  list-style: none;
-  padding: 0;
-}
-
-.social-links li {
-  font-size: 18px;
-}
-
-.social-links li a {
-  color: #555;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.social-links li a .fa-instagram:hover {
-  color: #e71c37; 
-}
-.social-links li a .fa-twitter:hover {
-  color: #1c52e7; 
-}
-.social-links li a .fa-linkedin:hover {
-  color: #1c52e7; 
-}
-.features {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 50px 20px;
-  background-color: #f9f9f9; 
-}
-.features {
-  display: flex;
-  justify-content: space-around;
-  padding: 40px;
-  flex-wrap: wrap;
-  gap: 70px;
-  margin-bottom: 50px;
-}
-
-.feature-box {
-    text-align: center;
-    padding: 25px;
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 250px;
+    <title>Store Hub | About</title>
     
-   
-}
-
-.feature-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-}
-
-.feature-box i {
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    font-size: 35px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #333; /* لون جديد */
-  color: #fff;
-}
-
-.feature-box i:hover {
-    transform: scale(1.1);
-    background-color: #000;
-}
-
-.feature-box h3 {
-    font-size: 22px;
-    margin: 15px 0;
-    color: #333;
-    font-weight: 600;
-}
-
-.feature-box p {
-    font-size: 14px;
-    color: #777;
-}
-body.dark .features {
-  background-color: #222;
-}
-
-body.dark .feature-box {
-  background-color: #333;
-  color: #ddd;
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* تخفيف الظلال */
-}
-
-body.dark .feature-box h3 {
-  color: #fff;
-}
-
-body.dark .feature-box p {
-  color: #ccc;
-}
-
-body.dark .feature-box i {
-  background-color: #555;
-  color: #fff;
-}
-    </style>
   </head>
   <body class="light">
     <!--Header-->
@@ -266,13 +33,13 @@ body.dark .feature-box i {
           <div class="linkes">
             <a href="#" class="active"><p>Home</p></a>
             <a href="#"><p>All Product</p></a>
-            <a href="#"><p>About</p></a>
+            <a href="about.html"><p>About</p></a>
             <a href="#"><p>Contact</p></a>
           </div>
           <form>
             <input type="search" placeholder="Seacrch" class="seacrch" />
             <i class="fa-regular fa-heart"></i>
-            <i class="fa-solid fa-cart-shopping"></i>
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
             <i class="fa-regular fa-user"></i>
             <input type="checkbox" id="toggle">
 
@@ -285,7 +52,7 @@ body.dark .feature-box i {
         </nav>
       </div>
     </header>
-    <div class="breadcrumb">
+    <div class="breadcrumb-about">
       <a href="index.html" class="a1">Home</a>
       <span class="a2">/</span>
       <a href="about.html" class="a2">About</a>
@@ -307,8 +74,8 @@ body.dark .feature-box i {
               </ul>
           </div>
           <div class="team-member">
-            <img src="./images/mariam.jpg" alt="Mariam Ayman">
-            <h3>Mariam Ayman</h3>
+            <img src="./images/menna.jpg" alt="menna mohammed">
+            <h3>Menna Allah Mohamed</h3>
             <p>Front_end developer</p>
             <ul class="social-links">
               <ul class="social-links">
