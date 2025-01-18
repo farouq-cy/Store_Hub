@@ -48,3 +48,43 @@ const swiper = new Swiper(".swiper", {
   },
 });
 // End Swiper
+
+let days = document.querySelector(".day");
+let hour = document.querySelector(".hour");
+let minut = document.querySelector(".minut");
+let second = document.querySelector(".second");
+
+function updateClock() {
+  let dayValue = parseInt(days.innerText);
+  let hourValue = parseInt(hour.innerText);
+  let minutValue = parseInt(minut.innerText);
+  let secondValue = parseInt(second.innerText);
+
+  secondValue--;
+
+  if (secondValue < 0) {
+    secondValue = 59;
+    minutValue--;
+  }
+
+  if (minutValue < 0) {
+    minutValue = 59;
+    hourValue--;
+  }
+
+  if (hourValue < 0) {
+    hourValue = 23;
+    dayValue--;
+  }
+
+  if (dayValue < 0) {
+    dayValue = 2;
+  }
+
+  days.innerText = dayValue < 10 ? "0" + dayValue : dayValue;
+  hour.innerText = hourValue < 10 ? "0" + hourValue : hourValue;
+  minut.innerText = minutValue < 10 ? "0" + minutValue : minutValue;
+  second.innerText = secondValue < 10 ? "0" + secondValue : secondValue;
+}
+
+setInterval(updateClock, 1000);

@@ -400,19 +400,51 @@ footer .container h5:hover {
     width: 100%;
   }
 }
-.offer .container .dayOffers{
+.offer .container .dayOffers {
   display: flex;
   align-items: center;
 }
-.offer .container .dayOffers .shape{
+.offer .container .dayOffers .shape {
   background: var(--main-color);
   width: 20px;
   height: 45px;
   border-radius: 7px;
   margin-right: 10px;
 }
-.offer .container .dayOffers h3{
-  color: var(--main-color)
+.offer .container .dayOffers h3 {
+  color: var(--main-color);
+}
+/* .timer {
+  display: flex;
+  flex-direction: column;
+} */
+.timer .container{
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.timer .container h2{
+  font-size:30px ;
+}
+.timer .date {
+  display: flex;
+  justify-content: space-between;
+}
+.timer .dateAndClock{
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+}
+.timer .date h3 {
+  font-size: 16px;
+  margin: 0 5px;
+}
+.timer .clock {
+  display: flex;
+  justify-content: space-between;
+}
+.timer .clock h2 {
+  font-size: 35px;
 }
 /* End index*/
 /*      --Start Cart--    */
@@ -987,7 +1019,8 @@ body.dark .breadcrumb .a2 {
   margin-left: 140px;
   margin-top: 60px;
 }
-.breadcrumb .a1,.a2 {
+.breadcrumb .a1,
+.a2 {
   margin-right: 5px;
 }
 .dark .notfound {
@@ -1018,7 +1051,6 @@ body.dark .breadcrumb .a2 {
   border: none;
   cursor: pointer;
 }
-
 
 .btn-back:hover {
   background-color: #c0392b;
