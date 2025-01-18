@@ -1,118 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
-  <title>Store Hub | Main</title>
-</head>
+    <!--Link Swiper-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <title>Store Hub | Main</title>
+  </head>
 
-<body class="light">
-  <!--Header-->
-  <header>
-    <div class="container">
-      <nav>
-        <h1>STOREHUB</h1>
-        <div class="linkes">
-          <a href="#" class="active">
-            <p>Home</p>
+  <body class="light">
+    <!--Header-->
+    <header>
+      <div class="container">
+        <nav>
+          <h1>STOREHUB</h1>
+          <div class="linkes">
+            <a href="#" class="active">
+              <p>Home</p>
+            </a>
+            <a href="#">
+              <p>All Product</p>
+            </a>
+            <a href="about.html">
+              <p>About</p>
+            </a>
+            <a href="#">
+              <p>Contact</p>
+            </a>
+          </div>
+          <form>
+            <input type="search" placeholder="Seacrch" class="seacrch" />
+            <i class="fa-regular fa-heart"></i>
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <i class="fa-regular fa-user"></i>
+            <input type="checkbox" id="toggle" />
+
+            <label class="toggle" for="toggle">
+              <i class="bx bxs-sun"></i>
+              <i class="bx bx-moon"></i>
+              <span class="ball"></span>
+            </label>
+          </form>
+        </nav>
+      </div>
+    </header>
+
+    <!--Section One-->
+    <section class="slider">
+      <div class="container">
+        <div class="side_bar">
+          <a href="#">Men's Fashion</a> 
+          <a href="#">Woman's Fashion</a>
+          <a href="#">Electronics</a>
+          <a href="#">Medicine</a>
+          <a href="#">Phone & Tablet</a>
+          <a href="#">Sportes & Outdoor</a>
+          <a href="#">Fashion & Clothings</a>
+          <a href="#">TV & Audio</a>
+        </div>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="#"><img src="images/game.png" alt=""></a>
+            </div>
+            <div class="swiper-slide">
+              <a href="">
+                <img src="images/lcd.png" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="">
+              <img src="images/game.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!--Section Two-->
+    <section class="offer">
+      <div class="container">
+        <div class="dayOffers">
+          <span class="shape">.</span>
+          <h3>Today's</h3>
+        </div>
+      </div>
+    </section>
+    <!--Footer-->
+    <footer>
+      <div class="container">
+        <div class="foot1">
+          <h3>STOREHUB</h3>
+          <a href="#">
+            <p>Subscribe</p>
+          </a>
+          <a href="#">
+            <p>Get 10% off your first order</p>
+          </a>
+          <input
+            type="email"
+            class="seacrch"
+            placeholder="Enter Your Email : "
+          />
+        </div>
+        <div class="foot2">
+          <h3>Support</h3>
+          <a href="#">
+            <p>NATU - NEW ASSUIT</p>
+          </a>
+          <a href="#">
+            <p>StoreHub@gmail.com</p>
+          </a>
+          <a href="#">
+            <p>+201551803645</p>
+          </a>
+          <a href="#">
+            <p>+201551954315</p>
+          </a>
+        </div>
+        <div class="foot3">
+          <h3>Account</h3>
+          <a href="#">
+            <p>My Account</p>
+          </a>
+          <a href="#">
+            <p>Login / Register</p>
+          </a>
+          <a href="cart.html">
+            <p>Cart</p>
           </a>
           <a href="#">
             <p>All Product</p>
           </a>
-          <a href="about.html">
-            <p>About</p>
+          <a href="#">
+            <p>Shop</p>
+          </a>
+        </div>
+        <div class="foot4">
+          <h3>Quick Link</h3>
+          <a href="#">
+            <p>Privacy Policy</p>
+          </a>
+          <a href="#">
+            <p>Terms Of Use</p>
+          </a>
+          <a href="#">
+            <p>FAQ</p>
           </a>
           <a href="#">
             <p>Contact</p>
           </a>
         </div>
-        <form>
-          <input type="search" placeholder="Seacrch" class="seacrch" />
-          <i class="fa-regular fa-heart"></i>
-          <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-          <i class="fa-regular fa-user"></i>
-          <input type="checkbox" id="toggle" />
-
-          <label class="toggle" for="toggle">
-            <i class="bx bxs-sun"></i>
-            <i class="bx bx-moon"></i>
-            <span class="ball"></span>
-          </label>
-        </form>
-      </nav>
-    </div>
-  </header>
-  <!--Footer-->
-  <footer>
-    <div class="container">
-      <div class="foot1">
-        <h3>STOREHUB</h3>
-        <a href="#">
-          <p>Subscribe</p>
-        </a>
-        <a href="#">
-          <p>Get 10% off your first order</p>
-        </a>
-        <input type="email" class="seacrch" placeholder="Enter Your Email : " />
+        <div class="foot5"></div>
       </div>
-      <div class="foot2">
-        <h3>Support</h3>
-        <a href="#">
-          <p>NATU - NEW ASSUIT</p>
-        </a>
-        <a href="#">
-          <p>StoreHub@gmail.com</p>
-        </a>
-        <a href="#">
-          <p>+201551803645</p>
-        </a>
-        <a href="#">
-          <p>+201551954315</p>
-        </a>
-      </div>
-      <div class="foot3">
-        <h3>Account</h3>
-        <a href="#">
-          <p>My Account</p>
-        </a>
-        <a href="#">
-          <p>Login / Register</p>
-        </a>
-        <a href="cart.html">
-          <p>Cart</p>
-        </a>
-        <a href="#">
-          <p>All Product</p>
-        </a>
-        <a href="#">
-          <p>Shop</p>
-        </a>
-      </div>
-      <div class="foot4">
-        <h3>Quick Link</h3>
-        <a href="#">
-          <p>Privacy Policy</p>
-        </a>
-        <a href="#">
-          <p>Terms Of Use</p>
-        </a>
-        <a href="#">
-          <p>FAQ</p>
-        </a>
-        <a href="#">
-          <p>Contact</p>
-        </a>
-      </div>
-      <div class="foot5"></div>
-    </div>
-  </footer>
-  <script src="main.js"></script>
-</body>
-
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/swiper.js"></script>
+  </body>
 </html>
