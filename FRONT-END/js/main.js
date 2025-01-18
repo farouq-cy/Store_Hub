@@ -81,9 +81,9 @@ function updateClock() {
     dayValue = 2;
   }
 
-  days.innerText = dayValue < 10 ? "0" + dayValue : dayValue;
-  hour.innerText = hourValue < 10 ? "0" + hourValue : hourValue;
-  minut.innerText = minutValue < 10 ? "0" + minutValue : minutValue;
+  days.innerText = dayValue < 10 ? "0" + dayValue + ":" : dayValue + ":";
+  hour.innerText = hourValue < 10 ? "0" + hourValue + ":" : hourValue + ":";
+  minut.innerText = minutValue < 10 ? "0" + minutValue + ":" : minutValue + ":";
   second.innerText = secondValue < 10 ? "0" + secondValue : secondValue;
 }
 

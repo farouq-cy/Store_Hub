@@ -414,10 +414,6 @@ footer .container h5:hover {
 .offer .container .dayOffers h3 {
   color: var(--main-color);
 }
-/* .timer {
-  display: flex;
-  flex-direction: column;
-} */
 .timer .container{
   display: flex;
   align-items: center;
@@ -429,6 +425,12 @@ footer .container h5:hover {
 .timer .date {
   display: flex;
   justify-content: space-between;
+}
+.timer .date h3, .timer .clock h2{
+  color: var(--text-color);
+}
+.timer .container > h2{
+  color: var(--main-color);
 }
 .timer .dateAndClock{
   display: flex;
