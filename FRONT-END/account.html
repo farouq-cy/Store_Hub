@@ -9,10 +9,9 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
-    <title>Store Hub | Cart</title>
+    <title>Store Hub | Account</title>
 </head>
-
-<body class="light cartt">
+ <body class="light">
     <!--Header-->
     <header>
         <div class="container">
@@ -36,9 +35,9 @@
                     <input type="search" placeholder="Seacrch" class="seacrch" />
                     <i class="fa-regular fa-heart"></i>
                     <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                    <a href="account.html"><i class="fa-regular fa-user"></i></a>
+                    <a href="account.html" ><i class="fa-solid fa-circle-user icon-account"></i></a>
                     <input type="checkbox" id="toggle">
-
+    
                     <label class="toggle" for="toggle">
                         <i class="bx bxs-sun"></i>
                         <i class="bx bx-moon"></i>
@@ -49,85 +48,71 @@
         </div>
     </header>
 
-    <main class="cart-container">
-        <div class="breadcrumb-cart">
+    <div class="breadcrumb-account">
+        <div class="bread">
             <a href="index.html" class="a1">Home</a>
-            <span class="a2">/</span>
-            <a href="cart.html" class="a2">Cart</a>
+            <span class="check">/</span>
+            <a href="account.html" class="check">My Account</a>
         </div>
+        <div class="check">Welcome! <span>StoreHub Team!</span></div>
+    </div>
 
-        <div class="cart-grid">
-            <div class="cart-header">
-                <div>Product</div>
-                <div>Price</div>
-                <div>Quantity</div>
-                <div>Subtotal</div>
-            </div>
+    <div class="container-account">
+        <aside class="sidebar-account">
+            <p>Manage My Account<p>
+            <ul class="sidebar-menu-account">
+                <li class="active">My Profile</li>
+                <li>Address Book</li>
+                <li>My Payment Options</li>
+            </ul>
+            <p>My Orders</p>
+            <ul class="sidebar-menu-account">
+                <li>My Returns</li>
+                <li>My Cancellations</li>
+            </ul>
+            <p>My Wishlist</p>
+        </aside>
 
-            <div class="cart-item-row">
-                <div class="product-info">
-                    <i class="fa-solid fa-circle-xmark remove"></i>
-                    <img src="images/lcd.png" alt="LCD Monitor">
-                    <span>LCD Monitor</span>
+        <div class="profile-form">
+            <p class="form-title">Edit Your Profile</p>
+            <form class="account-forms">
+                <div class="form-grid">
+                    <div class="form-account">
+                        <label>First Name</label>
+                        <input type="text" placeholder="StoreHub" required>
+                    </div>
+                    <div class="form-account">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Team" required>
+                    </div>
+                    <div class="form-account">
+                        <label>Email</label>
+                        <input type="email" placeholder="StoreHub@gmail.com" required>
+                    </div>
+                    <div class="form-account">
+                        <label>Address</label>
+                        <input type="text" placeholder="ASSUIT" required>
+                    </div>
                 </div>
-                <div>$650</div>
-                <div>
-                    <input type="number" class="quantity-input" value="1">
+                <div class="form-account">
+                    <label>Password Changes</label>
+                    <input type="password" placeholder="Current Password" required>
                 </div>
-                <div>$650</div>
-            </div>
-
-            <div class="cart-item-row">
-                <div class="product-info">
-                    <img src="images/game.png" alt="HI Gamepad">
-                    <span>HI Gamepad</span>
+                <div class="form-account">
+                    <input type="password" placeholder="New Password" required> 
                 </div>
-                <div>$550</div>
-                <div>
-                    <input type="number" class="quantity-input" value="2">
+                <div class="form-account">
+                    <input type="password" placeholder="Confirm New Password" required>
                 </div>
-                <div>$1100</div>
-            </div>
+        
+                <div class="form-actions">
+                    <button type="button" class="btn-account btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-account btn-save">Save Changes</button>
+                </div>
+            </form>
         </div>
-
-        <!--Button -->
-        <div class="cart-buttons">
-            <button class="btn btnn">Return To Shop</button>
-            <button class="btn btnn">Update Cart</button>
-        </div>
-
-
-        <div class="cart-bottom-section">
-            <div class="left-section">
-                <!--Coupon-->
-                <div class="coupon-section">
-                    <input type="text" class="coupon-input" placeholder="Coupon Code">
-                    <button class="btn btn-primary ">Apply Coupon</button>
-                </div>
-            </div>
-
-            <!--Total-->
-            <div class="cart-total">
-                <h3>Cart Total</h3>
-                <div class="total-row row1">
-                    <span>Subtotal:</span>
-                    <span>$1750</span>
-                </div>
-                <div class="total-row row2">
-                    <span>Shipping:</span>
-                    <span>Free</span>
-                </div>
-                <div class="total-row">
-                    <span>Total:</span>
-                    <span>$1750</span>
-                </div>
-                <button class="btn btn-primary " style=" width: 100%; margin-top: 20px;">
-                    Process to checkout
-                </button>
-            </div>
-        </div>
-    </main>
-
+    </div>        
+    
     <!--Footer-->
     <footer>
         <div class="container">
@@ -192,7 +177,10 @@
             <div class="foot5"></div>
         </div>
     </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
-</body>
-
+    <script src="js/swiper.js"></script>
+ </body>
+    
 </html>
