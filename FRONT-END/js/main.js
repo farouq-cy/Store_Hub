@@ -1,4 +1,5 @@
 "use strict";
+// Start DarkMode
 const body = document.querySelector("body");
 const toggle = document.querySelector("#toggle");
 const sunIcon = document.querySelector(".toggle .bxs-sun");
@@ -25,8 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
       moonIcon.className == "bx bxs-moon" ? "bx bx-moon" : "bx bxs-moon";
   }
 });
+// End DarkMode
 
-// Start Swiper
+// Start Swiper Section 1
 const swiper = new Swiper(".swiper", {
   loop: true,
 
@@ -43,7 +45,9 @@ const swiper = new Swiper(".swiper", {
     el: ".swiper-scrollbar",
   },
 });
-// End Swiper
+// End Swiper Section 1
+
+// Start Timer
 let daysElement = document.querySelector(".day");
 let hourElement = document.querySelector(".hour");
 let minutElement = document.querySelector(".minut");
@@ -89,3 +93,5 @@ function startTimer() {
 }
 
 startTimer();
+// End Timer
+
