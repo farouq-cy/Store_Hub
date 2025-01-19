@@ -284,11 +284,11 @@ footer .container h5:hover {
     margin: 10px;
   }
 
-  nav form i {
+  nav form.header-form i {
     font-size: 20px;
   }
 
-  form {
+  form.header-form {
     width: 50%;
     text-align: center;
   }
@@ -1099,8 +1099,9 @@ body.dark .breadcrumb .a2 {
 
 /* container checkout */
 .container-checkout {
+  width: 80%;
+  margin: 0 auto;
   display: flex;
-  padding: 32px 9%;
   gap: 64px;
   align-items: flex-start;
 }
@@ -1109,7 +1110,6 @@ body.dark .breadcrumb .a2 {
 .billing {
   flex: 1;
 }
-
 
 .billing h2 {
   margin-bottom: 32px;
@@ -1343,5 +1343,25 @@ input[type="checkbox"]:checked::after {
 .place-order-btn:hover {
   background: #e07575;
 }
-
+@media (max-width: 1000px) {
+  .container-checkout{
+    flex-direction: column-reverse;
+  }
+  form.cheakout-form{
+    width: 100%;
+  }
+  .cheakout-form .form-group{
+    width: 90%;
+    margin: 10px auto;
+  }
+  .billing{
+    width: 100%;
+  }
+  .billing form input[type="text"]{
+    width: 100%;
+  }
+  .order-summary{
+    width: 100%;
+  }
+}
 /*      --End CheckOut--   */
