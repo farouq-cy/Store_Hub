@@ -45,53 +45,46 @@ const swiper = new Swiper(".swiper", {
     el: ".swiper-scrollbar",
   },
 });
-// End Swiper Section 1
+// End Swiper
 
 // Start Timer
-let daysElement = document.querySelector(".day");
-let hourElement = document.querySelector(".hour");
-let minutElement = document.querySelector(".minut");
-let secondElement = document.querySelector(".second");
+let days = document.querySelector(".day");
+let hour = document.querySelector(".hour");
+let minut = document.querySelector(".minut");
+let second = document.querySelector(".second");
 
-function getTimeDifference(endTime) {
-  const now = new Date().getTime();
-  const diff = endTime - now;
-  const totalSeconds = Math.floor(diff / 1000);
-  const seconds = totalSeconds % 60;
-  const totalMinutes = Math.floor(totalSeconds / 60);
-  const minutes = totalMinutes % 60;
-  const totalHours = Math.floor(totalMinutes / 60);
-  const hours = totalHours % 24;
-  const totalDays = Math.floor(totalHours / 24);
+function updateClock() {
+  let dayValue = parseInt(days.innerText);
+  let hourValue = parseInt(hour.innerText);
+  let minutValue = parseInt(minut.innerText);
+  let secondValue = parseInt(second.innerText);
 
-  return { days: totalDays, hours, minutes, seconds };
-}
+  secondValue--;
 
-function startTimer() {
-  let endTime = localStorage.getItem("timerEndTime");
-
-  if (!endTime) {
-    endTime = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
-    localStorage.setItem("timerEndTime", endTime);
-  } else {
-    endTime = parseInt(endTime, 10);
+  if (secondValue < 0) {
+    secondValue = 59;
+    minutValue--;
   }
 
-  setInterval(() => {
-    const { days, hours, minutes, seconds } = getTimeDifference(endTime);
+  if (minutValue < 0) {
+    minutValue = 59;
+    hourValue--;
+  }
 
-    daysElement.innerText = days < 10 ? "0" + days + ":" : days + ":";
-    hourElement.innerText = hours < 10 ? "0" + hours + ":" : hours + ":";
-    minutElement.innerText = minutes < 10 ? "0" + minutes + ":" : minutes + ":";
-    secondElement.innerText = seconds < 10 ? "0" + seconds : seconds;
+  if (hourValue < 0) {
+    hourValue = 23;
+    dayValue--;
+  }
 
-    if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
-      endTime = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
-      localStorage.setItem("timerEndTime", endTime);
-    }
-  }, 1000);
+  if (dayValue < 0) {
+    dayValue = 2;
+  }
+
+  days.innerText = dayValue < 10 ? "0" + dayValue + ":" : dayValue + ":";
+  hour.innerText = hourValue < 10 ? "0" + hourValue + ":" : hourValue + ":";
+  minut.innerText = minutValue < 10 ? "0" + minutValue + ":" : minutValue + ":";
+  second.innerText = secondValue < 10 ? "0" + secondValue : secondValue;
 }
 
-startTimer();
+setInterval(updateClock, 1000);
 // End Timer
-
