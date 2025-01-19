@@ -139,6 +139,7 @@ input#toggle {
 .light .toggle {
   background: linear-gradient(145deg, #e1e1e1, #fff);
   box-shadow: 3px 3px 4px #e6e6e6, -3px -3px 4px #ffffff;
+  z-index: 100;
 }
 
 .light .toggle .bxs-sun {
@@ -361,6 +362,7 @@ footer .container h5:hover {
   margin: 10px 0;
   border-bottom: 1px solid var(--text-color);
   color: var(--text-color);
+  transition: 0.3s;
 }
 
 .side_bar h2 {
@@ -373,7 +375,7 @@ footer .container h5:hover {
 
 .swiper {
   width: 70%;
-  border: 1px solid var(--white-color);
+  border: 2px solid var(--white-color);
   box-shadow: 2px 3px 5px #777;
 }
 
@@ -396,6 +398,7 @@ footer .container h5:hover {
 
   .slider .container .swiper {
     width: 100%;
+    height: 400px;
   }
 }
 
@@ -459,7 +462,25 @@ footer .container h5:hover {
 .timer .clock h2 {
   font-size: 35px;
 }
-
+.timer .container{
+  position: relative;
+}
+.timer .container .mySwiper .btn_swip {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: var(--main-color);
+  color: #fff;
+  font-weight: bold;
+  padding: 0 18px;
+  border-radius: 5px;
+}
+.timer .container .mySwiper .btn_swip::after {
+  font-size: 25px;
+}
+.timer .container .mySwiper .btn_swip.swiper-button-prev{
+  left: calc(100% - 90px)
+}
 /* End index*/
 /*      --Start Cart--    */
 
