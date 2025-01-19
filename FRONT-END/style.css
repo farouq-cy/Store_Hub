@@ -462,9 +462,11 @@ footer .container h5:hover {
 .timer .clock h2 {
   font-size: 35px;
 }
-.timer .container{
+
+.timer .container {
   position: relative;
 }
+
 .timer .container .mySwiper .btn_swip {
   position: absolute;
   top: 35px;
@@ -475,12 +477,15 @@ footer .container h5:hover {
   padding: 0 18px;
   border-radius: 5px;
 }
+
 .timer .container .mySwiper .btn_swip::after {
   font-size: 25px;
 }
-.timer .container .mySwiper .btn_swip.swiper-button-prev{
+
+.timer .container .mySwiper .btn_swip.swiper-button-prev {
   left: calc(100% - 90px)
 }
+
 /* End index*/
 /*      --Start Cart--    */
 
@@ -563,6 +568,7 @@ footer .container h5:hover {
   align-items: center;
   justify-content: center;
   font-size: 16px;
+  color: var(--main-color);
   cursor: pointer;
 }
 
@@ -583,7 +589,6 @@ footer .container h5:hover {
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
   color: rgba(0, 0, 0, 1);
   border-radius: 4px;
   background: #fafafa;
@@ -593,6 +598,7 @@ footer .container h5:hover {
 
 .btnn {
   transition: 0.3s;
+  border: 1px solid rgba(0, 0, 0, 1);
 }
 
 .btnn:hover {
@@ -601,7 +607,7 @@ footer .container h5:hover {
 }
 
 .btn-primary {
-  background: #db4444;
+  background: var(--main-color);
   color: white;
 }
 
@@ -689,6 +695,10 @@ footer .container h5:hover {
 
 .dark .cart-buttons .btnn:hover {
   background-color: #ede7e7;
+}
+
+.dark .btn-primary {
+  background: var(--main-color);
 }
 
 /* Media Queries Cart*/
@@ -1364,25 +1374,32 @@ input[type="checkbox"]:checked::after {
 .place-order-btn:hover {
   background: #e07575;
 }
+
 @media (max-width: 1000px) {
-  .container-checkout{
+  .container-checkout {
     flex-direction: column-reverse;
   }
-  form.cheakout-form{
+
+  form.cheakout-form {
     width: 100%;
   }
-  .cheakout-form .form-group{
+
+  .cheakout-form .form-group {
     width: 90%;
     margin: 10px auto;
   }
-  .billing{
+
+  .billing {
     width: 100%;
   }
-  .billing form input[type="text"]{
+
+  .billing form input[type="text"] {
     width: 100%;
   }
-  .order-summary{
+
+  .order-summary {
     width: 100%;
   }
 }
+
 /*      --End CheckOut--   */
