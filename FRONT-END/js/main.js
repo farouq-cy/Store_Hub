@@ -89,15 +89,41 @@ function updateClock() {
 setInterval(updateClock, 1000);
 // End Timer
 
+// Start swiper product in section Four
 window.onload = function () {
   var x = new Swiper(".products", {
     slidesPerView: 4,
-    spaceBetween: 15,
-    autoplay: { delay: 1500 },
+    spaceBetween: 30,
+    autoplay: { delay: 3000 },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
     loop: true,
+    breakpoints:{
+      1600:{
+        slidesPerView: 5,
+      },
+      1200:{
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+      700:{
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      0:{
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+    }
   });
 };
+// End swiper product in section Four
+
+// Add and remove class active on icon Heart
+document.querySelectorAll("#iconheart").forEach(function (icon) {
+  icon.addEventListener("click", function () {
+    this.classList.toggle("active");
+  });
+});
