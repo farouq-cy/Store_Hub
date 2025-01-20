@@ -211,8 +211,7 @@ footer .container h3 {
 footer .container p:hover,
 footer .container h5:hover {
   color: var(--main-color);
-  position: relative;
-  left: 10px;
+  transform: translateX(10px);
 }
 
 .linkesRes {
@@ -427,7 +426,7 @@ footer .container h5:hover {
   align-items: center;
   text-align: left;
 }
-.timer .container .flex{
+.timer .container .flex {
   display: flex;
 }
 .timer .container .flex > h2 {
@@ -487,23 +486,23 @@ footer .container h5:hover {
 .timer .container .mySwiper .btn_swip.swiper-button-prev {
   left: calc(100% - 90px);
 }
-@media (max-width:640px) {
-  .timer .container .flex{
+@media (max-width: 640px) {
+  .timer .container .flex {
     flex-direction: column;
     align-items: center;
   }
-  .timer .container .flex > h2{
+  .timer .container .flex > h2 {
     font-size: 25px;
     margin-bottom: 10px;
   }
-  .timer .container .dateAndClock{
+  .timer .container .dateAndClock {
     margin: 0;
   }
-  .timer .container .flex .dateAndClock h3{
+  .timer .container .flex .dateAndClock h3 {
     font-size: 15px;
     text-align: left;
   }
-  .timer .container .flex .dateAndClock h2{
+  .timer .container .flex .dateAndClock h2 {
     font-size: 25px;
     text-align: center;
   }
@@ -523,18 +522,25 @@ footer .container h5:hover {
   position: relative;
 }
 .pro-div .products .product .pro .img {
-  width: 80%;
+  width: 100%;
   height: 150px;
   display: flex;
   align-items: center;
+  overflow: hidden;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.09);
+  background-color: rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
 }
 .pro-div .products .product .pro .img img {
-  width: 80%;
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
   display: block;
   margin: 0 auto;
-  z-index: 99;
+}
+.pro-div .products .product .pro .img img[src="images/chair.png"],
+.pro-div .products .product .pro .img img[src="images/game.png"] {
+  width: 50%;
 }
 .pro-div .products .product .pro .detailes {
   width: 80%;
@@ -560,32 +566,23 @@ footer .container h5:hover {
   color: #ffc918;
 }
 .pro-div .container .pro .icons {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
   z-index: 100;
   top: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.pro-div .container .pro:hover .icons ,
-.pro-div .container .pro:hover .addcart{
-  opacity: 1;
-  visibility: visible;
-  cursor: pointer;
 }
 .pro-div .container .pro .icons .icon {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 20%;
+  width: 15%;
 }
 .pro-div .container .pro .icons .icon i {
-  background-color: var(--dark-color);
-  color: var(--white-color);
+  background-color: var(--white-color);
+  color: var(--dark-color);
   margin: 10px;
   width: 100%;
   height: 30px;
@@ -607,25 +604,133 @@ footer .container h5:hover {
 }
 .pro-div .container .pro .icons .sall {
   background-color: var(--main-color);
-  width: 30%;
+  width: 25%;
   height: 25px;
   text-align: center;
-  color: var(--white-color);
+  color: #fff;
   border-radius: 10px;
   position: relative;
   bottom: 35px;
 }
-.pro-div .container .pro .addcart{
+.pro-div .container .pro .addcart {
   position: absolute;
-  bottom: 38%;
+  bottom: 36%;
   background-color: var(--dark-color);
-  width: 80%;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
   color: var(--white-color);
   font-weight: bold;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: 0.3s;
+}
+.pro-div .container .pro .addcart:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.pro-div .container .pro:hover .addcart {
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+}
+.pro-div .container .pro i {
+  cursor: pointer;
+}
+section .bttnAllProduct {
+  padding: 20px 0 40px;
+  border-bottom: 2px solid var(--main-color);
+}
+section .bttnAllProduct button {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 256px;
+  height: 56px;
+  border-radius: 4px;
+  background-color: #9f1239;
+  color: #fff;
+}
+#browseCat .container{
+  padding-bottom: 30px;
+  border-bottom: 2px solid var(--main-color);
+}
+section .container .browseCat .categText {
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: left;
+}
+section .container .browseCat .categText .shape {
+  width: 20px;
+  height: 40px;
+  background-color: var(--main-color);
+  border-radius: 8px;
+  margin-right: 20px;
+}
+section .container .browseCat .categText h3 {
+  font-size: 16px;
+  color: var(--main-color);
+}
+section .container .browseCat h3 {
+  margin: 20px 0;
+  font-size: 35px;
+  color: var(--dark-color);
+}
+section#browseCat .container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#browseCat .container .mySwiper .btn_swip::after {
+  font-size: 25px;
+}
+#browseCat .container .browseCat .catbtnswap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#browseCat .container .browseCat .catbtnswap > div {
+  background: var(--main-color);
+  color: #fff;
+  font-weight: bold;
+  padding: 0 18px;
+  border-radius: 5px;
+  top: 80px;
+}
+#browseCat .container .mySwiper .btn_swip.swiper-button-prev {
+  left: calc(100% - 90px);
+}
+#browseCat .container .categ .cat {
+  height: 120px;
+  background-color: rgba(0, 0, 0, 0.07);
+  border: 1px solid var(--dark-color);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+#browseCat .container .categ .cat h2 {
+  font-size: 30px;
+  color: var(--text-color);
+  transition: 0.3s;
+}
+#browseCat .container .categ .cat i {
+  color: var(--text-color);
+  font-size: 30px;
+  transition: 0.3s;
+}
+#browseCat .container .categ .cat:hover {
+  transform: translateY(-10px);
+  background-color: var(--main-color);
+}
+#browseCat .container .categ .cat:hover h2,
+#browseCat .container .categ .cat:hover i {
+  color: var(--white-color);
 }
 /* End index*/
 /*      --Start Cart--    */

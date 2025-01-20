@@ -10,13 +10,14 @@
 }
 
 :root {
-  --main-color: #63e24a;
+  --main-color: #f3a024;
   --dark-color: #222222;
   --parg-color: #666666;
   --dark-red-color: #d01418;
   --border-color: #6666662a;
   --name-item: #0066c0;
   --nav-color: #fff;
+  --realnav: #fff;
 }
 
 .login_signup button {

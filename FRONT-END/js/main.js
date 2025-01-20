@@ -90,40 +90,74 @@ setInterval(updateClock, 1000);
 // End Timer
 
 // Start swiper product in section Four
-window.onload = function () {
-  var x = new Swiper(".products", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    autoplay: { delay: 3000 },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+var x = new Swiper(".products", {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  autoplay: { delay: 3000 },
+  navigation: {
+    nextEl: ".btSwapProNext",
+    prevEl: ".btSwapProPrev",
+  },
+  loop: true,
+  breakpoints: {
+    1600: {
+      slidesPerView: 5,
     },
-    loop: true,
-    breakpoints:{
-      1600:{
-        slidesPerView: 5,
-      },
-      1200:{
-        slidesPerView: 4,
-        spaceBetween: 30,
-      },
-      700:{
-        slidesPerView: 3,
-        spaceBetween: 20,
-      },
-      0:{
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-    }
-  });
-};
+    1200: {
+      slidesPerView: 4,
+      spaceBetween: 25,
+    },
+    700: {
+      slidesPerView: 3,
+      spaceBetween: 15,
+    },
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+  },
+});
+
 // End swiper product in section Four
 
 // Add and remove class active on icon Heart
 document.querySelectorAll("#iconheart").forEach(function (icon) {
   icon.addEventListener("click", function () {
     this.classList.toggle("active");
+    if (this.classList.contains("active")) {
+      this.style.color = "white";
+    } else {
+      this.style.color = "black";
+    }
   });
+});
+
+// Start Swiper Search by Category
+
+var x = new Swiper(".categs", {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  autoplay: { delay: 2000 },
+  navigation: {
+    nextEl: ".btnSwapNext",
+    prevEl: ".BtnSwapPrev",
+  },
+  loop: true,
+  breakpoints: {
+    1600: {
+      slidesPerView: 5,
+    },
+    1200: {
+      slidesPerView: 4,
+      spaceBetween: 25,
+    },
+    700: {
+      slidesPerView: 3,
+      spaceBetween: 15,
+    },
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+  },
 });
