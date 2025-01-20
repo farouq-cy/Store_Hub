@@ -1505,8 +1505,12 @@ input[type="checkbox"]:checked::after {
   padding: 12px;
   border-radius: 4px;
   background: #F5F5F5;
+  transition: 0.3s
 }
 
+.form-account input:focus {
+  scale: 1.05;
+}
 .form-actions {
   display: flex;
   justify-content: flex-end;
