@@ -788,13 +788,8 @@ footer .container h5:hover {
 
 .btnn:hover {
   color: white;
-}
-
-/*.btnn:hover {
-  background-color: #eee;
   scale: 1.1;
-  color: var(--text-color);
-}*/
+}
 
 .btn-primary {
   background: var(--main-color);
