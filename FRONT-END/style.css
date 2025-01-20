@@ -1557,6 +1557,7 @@ input[type="checkbox"]:checked::after {
 
 .form-account input:focus {
   scale: 1.05;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .form-actions {
   display: flex;
