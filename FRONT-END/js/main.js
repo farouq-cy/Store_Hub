@@ -88,3 +88,16 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 // End Timer
+
+window.onload = function () {
+  var x = new Swiper(".products", {
+    slidesPerView: 4,
+    spaceBetween: 15,
+    autoplay: { delay: 1500 },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    loop: true,
+  });
+};

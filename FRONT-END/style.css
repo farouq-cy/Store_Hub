@@ -19,12 +19,14 @@
   --dark-toogle: #222;
   --text-color: #222;
   --white-color: #fff;
+  --dark-color : #222;
 }
 
 body.dark {
   --text-color: #fff;
   --main-color: #db4444;
   --white-color: #222;
+  --dark-color: #fff;
 }
 
 header {
@@ -486,6 +488,51 @@ footer .container h5:hover {
   left: calc(100% - 90px)
 }
 
+/* start swipper*/
+.pro-div .products .product{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pro-div .products .product .pro{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.pro-div .products .product .pro .img{
+  width: 80%;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.09);
+}
+.pro-div .products .product .pro .img img{
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+.pro-div .products .product .pro .detailes{
+  width: 80%;
+  margin-top: 10px;
+  color: var(--dark-color);
+  text-align: left;
+}
+.pro-div .products .product .pro .detailes h5{
+  font-size: 14px;
+}
+.pro-div .products .product .pro .detailes div{
+  margin: 5px 0;
+}
+.pro-div .products .product .pro .detailes .sallery .new-sall{
+  margin-right: 20px;
+  color: var(--main-color);
+}
+.pro-div .products .product .pro .detailes .sallery .old-sall{
+  text-decoration: line-through;
+  color: var(--dark-color);
+}
+.pro-div .products .product .pro .detailes .stars i{
+  color: #ffc918
+}
 /* End index*/
 /*      --Start Cart--    */
 
