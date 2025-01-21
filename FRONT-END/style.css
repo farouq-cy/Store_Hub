@@ -595,7 +595,8 @@ footer .container h5:hover {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .pro-div .container .pro:hover .icons ,
-.pro-div .container .pro:hover .addcart{
+.pro-div .container .pro:hover .addcart,
+.BestSellingProducts .container .bttom .pro:hover .addcart{
   opacity: 1;
   visibility: visible;
   cursor: pointer;
@@ -631,7 +632,8 @@ footer .container h5:hover {
   cursor: pointer;
 }
 
-.pro-div .container .pro .icons .icon i.active {
+.pro-div .container .pro .icons .icon i.active,
+.BestSellingProducts .container .bttom .pro .icons .icon i.active{
   background-color: var(--main-color);
 }
 
@@ -645,7 +647,8 @@ footer .container h5:hover {
   position: relative;
   bottom: 35px;
 }
-.pro-div .container .pro .addcart{
+.pro-div .container .pro .addcart,
+.BestSellingProducts .container .bttom .pro .addcart{
   position: absolute;
   bottom: 36%;
   background-color: var(--dark-color);
@@ -659,11 +662,13 @@ footer .container h5:hover {
   visibility: hidden;
   transition: 0.3s;
 }
-.pro-div .container .pro .addcart:hover {
+.pro-div .container .pro .addcart:hover,
+.BestSellingProducts .container .bttom .pro .addcart:hover {
   background-color: var(--main-color);
   color: #fff;
 }
-.pro-div .container .pro:hover .addcart {
+.pro-div .container .pro:hover .addcart,
+.BestSellingProducts .container .bttom .pro:hover .addcar {
   opacity: 1;
   visibility: visible;
   cursor: pointer;

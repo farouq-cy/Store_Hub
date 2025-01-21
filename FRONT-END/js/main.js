@@ -113,10 +113,11 @@ var x = new Swiper(".products", {
 document.querySelectorAll("#iconheart").forEach((icon) => {
   icon.addEventListener("click", function () {
     this.classList.toggle("active");
-    if (this.classList.contains("active")) {
+    if (this.classList.contains("active") && document.body.classList.contains("light")) {
       this.style.color = "black";
-    } else {
-      this.style.color = "white";
+    }
+    if(!this.classList.contains("active") && document.body.classList.contains("dark")){
+      this.style.color = "white"
     }
   });
 });
