@@ -53,32 +53,20 @@ let hour = document.querySelector(".hour");
 let minut = document.querySelector(".minut");
 let second = document.querySelector(".second");
 
+if (!localStorage.getItem("startTime")) {
+  localStorage.setItem("startTime", Date.now());
+}
+
 function updateClock() {
-  let dayValue = parseInt(days.innerText);
-  let hourValue = parseInt(hour.innerText);
-  let minutValue = parseInt(minut.innerText);
-  let secondValue = parseInt(second.innerText);
+  let startTime = parseInt(localStorage.getItem("startTime"));
+  let currentTime = Date.now();
+  let elapsedTime = currentTime - startTime;
 
-  secondValue--;
-
-  if (secondValue < 0) {
-    secondValue = 59;
-    minutValue--;
-  }
-
-  if (minutValue < 0) {
-    minutValue = 59;
-    hourValue--;
-  }
-
-  if (hourValue < 0) {
-    hourValue = 23;
-    dayValue--;
-  }
-
-  if (dayValue < 0) {
-    dayValue = 2;
-  }
+  let totalSeconds = Math.floor(elapsedTime / 1000);
+  let dayValue = Math.floor(totalSeconds / (24 * 60 * 60)) % 3;
+  let hourValue = Math.floor(totalSeconds / (60 * 60)) % 24;
+  let minutValue = Math.floor(totalSeconds / 60) % 60;
+  let secondValue = totalSeconds % 60;
 
   days.innerText = dayValue < 10 ? "0" + dayValue + ":" : dayValue + ":";
   hour.innerText = hourValue < 10 ? "0" + hourValue + ":" : hourValue + ":";
@@ -87,6 +75,7 @@ function updateClock() {
 }
 
 setInterval(updateClock, 1000);
+
 // End Timer
 
 // Start swiper product in section Four
@@ -112,7 +101,7 @@ var x = new Swiper(".products", {
       spaceBetween: 15,
     },
     0: {
-      slidesPerView: 1,
+      slidesPerView: 2,
       spaceBetween: 10,
     },
   },
@@ -121,13 +110,13 @@ var x = new Swiper(".products", {
 // End swiper product in section Four
 
 // Add and remove class active on icon Heart
-document.querySelectorAll("#iconheart").forEach(function (icon) {
+document.querySelectorAll("#iconheart").forEach((icon) => {
   icon.addEventListener("click", function () {
     this.classList.toggle("active");
     if (this.classList.contains("active")) {
-      this.style.color = "white";
-    } else {
       this.style.color = "black";
+    } else {
+      this.style.color = "white";
     }
   });
 });
@@ -156,7 +145,7 @@ var x = new Swiper(".categs", {
       spaceBetween: 15,
     },
     0: {
-      slidesPerView: 1,
+      slidesPerView: 2,
       spaceBetween: 10,
     },
   },
