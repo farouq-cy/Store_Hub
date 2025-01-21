@@ -703,7 +703,9 @@ section .container .browseCat .categText {
   align-items: center;
   justify-content: left;
 }
-section .container .browseCat .categText .shape {
+section .container .browseCat .categText .shape ,
+.offer .container .dayOffers .shape,
+.BestSellingProducts .container .top .shape-text .shape{
   width: 20px;
   height: 40px;
   background-color: var(--main-color);
