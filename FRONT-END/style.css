@@ -419,7 +419,7 @@ footer .container h5:hover {
   align-items: center;
   text-align: left;
 }
-.timer .container .flex {
+.timer .container .flex{
   display: flex;
 }
 
@@ -480,23 +480,23 @@ footer .container h5:hover {
 .timer .container .mySwiper .btn_swip.swiper-button-prev {
   left: calc(100% - 90px);
 }
-@media (max-width: 640px) {
-  .timer .container .flex {
+@media (max-width:640px) {
+  .timer .container .flex{
     flex-direction: column;
     align-items: center;
   }
-  .timer .container .flex > h2 {
+  .timer .container .flex > h2{
     font-size: 25px;
     margin-bottom: 10px;
   }
-  .timer .container .dateAndClock {
+  .timer .container .dateAndClock{
     margin: 0;
   }
-  .timer .container .flex .dateAndClock h3 {
+  .timer .container .flex .dateAndClock h3{
     font-size: 15px;
     text-align: left;
   }
-  .timer .container .flex .dateAndClock h2 {
+  .timer .container .flex .dateAndClock h2{
     font-size: 25px;
     text-align: center;
   }
@@ -539,6 +539,7 @@ footer .container h5:hover {
   display: block;
   margin: 0 auto;
 }
+
 .pro-div .products .product .pro .img img[src="images/chair.png"],
 .pro-div .products .product .pro .img img[src="images/game.png"],
 .BestSellingProducts .container .bttom .pro .img img[src="images/game.png"],
@@ -593,10 +594,8 @@ footer .container h5:hover {
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.pro-div .container .pro:hover .icons,
-.pro-div .container .pro:hover .addcart,
-.BestSellingProducts .container .bttom .pro:hover .icons,
-.BestSellingProducts .container .bttom .pro:hover .addcart {
+.pro-div .container .pro:hover .icons ,
+.pro-div .container .pro:hover .addcart{
   opacity: 1;
   visibility: visible;
   cursor: pointer;
@@ -646,8 +645,7 @@ footer .container h5:hover {
   position: relative;
   bottom: 35px;
 }
-.pro-div .container .pro .addcart,
-.BestSellingProducts .container .bttom .pro .addcart {
+.pro-div .container .pro .addcart{
   position: absolute;
   bottom: 36%;
   background-color: var(--dark-color);
@@ -661,25 +659,24 @@ footer .container h5:hover {
   visibility: hidden;
   transition: 0.3s;
 }
-.pro-div .container .pro .addcart:hover,
-.BestSellingProducts .container .bttom .pro .addcart:hover {
+.pro-div .container .pro .addcart:hover {
   background-color: var(--main-color);
   color: #fff;
 }
-.pro-div .container .pro:hover .addcart,
-.BestSellingProducts .container .bttom .pro:hover .addcart {
+.pro-div .container .pro:hover .addcart {
   opacity: 1;
   visibility: visible;
   cursor: pointer;
 }
-.pro-div .container .pro i,
-.BestSellingProducts .container .bttom .pro i {
+.pro-div .container .pro i {
   cursor: pointer;
 }
+
 section .bttnAllProduct {
   padding-bottom: 50px;
   border-bottom: 2px solid var(--main-color);
 }
+
 section .bttnAllProduct button {
   display: block;
   text-align: center;
@@ -690,22 +687,18 @@ section .bttnAllProduct button {
   background-color: var(--main-color);
   color: #fff;
 }
-section .bttnAllProduct button:hover {
-  cursor: pointer;
-}
-#browseCat .container {
-  padding-bottom: 50px;
+#browseCat .container{
+  padding-bottom: 30px;
   border-bottom: 2px solid var(--main-color);
 }
+
 section .container .browseCat .categText {
   display: flex;
   width: 30%;
   align-items: center;
   justify-content: left;
 }
-section .container .browseCat .categText .shape,
-.offer .container .dayOffers .shape,
-.BestSellingProducts .container .top .shape-text .shape {
+section .container .browseCat .categText .shape {
   width: 20px;
   height: 40px;
   background-color: var(--main-color);
@@ -714,15 +707,18 @@ section .container .browseCat .categText .shape,
   display: inline-block;
   color: var(--main-color);
 }
+
 section .container .browseCat .categText h3 {
   font-size: 16px;
   color: var(--main-color);
 }
+
 section .container .browseCat h3 {
   margin: 20px 0;
   font-size: 35px;
   color: var(--dark-color);
 }
+
 section#browseCat .container {
   position: relative;
   display: flex;
@@ -732,12 +728,14 @@ section#browseCat .container {
 #browseCat .container .mySwiper .btn_swip::after {
   font-size: 25px;
 }
+
 #browseCat .container .browseCat .catbtnswap {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#browseCat .container .browseCat .catbtnswap > div {
+
+#browseCat .container .browseCat .catbtnswap>div {
   background: var(--main-color);
   color: #fff;
   font-weight: bold;
@@ -745,9 +743,11 @@ section#browseCat .container {
   border-radius: 5px;
   top: 80px;
 }
+
 #browseCat .container .mySwiper .btn_swip.swiper-button-prev {
   left: calc(100% - 100px);
 }
+
 #browseCat .container .categ .cat {
   height: 120px;
   background-color: rgba(0, 0, 0, 0.07);
@@ -759,20 +759,24 @@ section#browseCat .container {
   border-radius: 3px;
   transition: 0.3s;
 }
+
 #browseCat .container .categ .cat h2 {
   font-size: 30px;
   color: var(--text-color);
   transition: 0.3s;
 }
+
 #browseCat .container .categ .cat i {
   color: var(--text-color);
   font-size: 30px;
   transition: 0.3s;
 }
+
 #browseCat .container .categ .cat:hover {
   transform: translateY(-10px);
   background-color: var(--main-color);
 }
+
 #browseCat .container .categ .cat:hover h2,
 #browseCat .container .categ .cat:hover i {
   color: var(--white-color);
@@ -1924,10 +1928,30 @@ input[type="checkbox"]:checked::after {
 .btn-cancel {
   background: transparent;
   color: var(--text-color);
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
 }
 
 .btn-cancel:hover {
-  background: #ddd;
+  color: white;
+}
+
+.btn-cancel::before {
+  content: '';
+  padding: 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, var(--main-color) 0%, #e07575 100%);
+  transition: 0.9s;
+  display: block;
+  z-index: -1;
+}
+
+.btn-cancel:hover::before {
+  padding: 100%;
+
 }
 
 .btn-save {
@@ -1958,10 +1982,6 @@ input[type="checkbox"]:checked::after {
 
 .dark .form-account input {
   background: #ddd;
-}
-
-.dark .btn-cancel:hover {
-  background: #999;
 }
 
 /* Media Query Account */
