@@ -2080,6 +2080,7 @@ input[type="checkbox"]:checked::after {
 .contact .cont-text .lin1 {
   color: #ada6a6;
   text-decoration: none;
+  margin-right: 5px;
 }
 
 .contact .cont-text .lin2 {
@@ -2229,7 +2230,7 @@ input[type="checkbox"]:checked::after {
   gap: 10px;
   margin-top: 10px;
   background-color: var(--main-color);
-  color: var(--white-color);
+  color: white;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
@@ -2252,15 +2253,20 @@ input[type="checkbox"]:checked::after {
   color: var(--main-color);
 }
 
+.dark .contact .contact-container .contact-form,
+.dark .contact .contact-container .contact-info {
+  box-shadow: 0px 1px 13px 0px rgba(255, 254, 254, 0.05);
+}
+
 .dark .contact .container .contact-info,
 .dark .contact .container .contact-form {
   background: #151d2a;
 }
 
-.dark.contact .contact-container .contact-info:hover,
-.dark.contact .contact-container .contact-form:hover {
+.dark .contact .contact-container .contact-info:hover,
+.dark .contact .contact-container .contact-form:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 13px 0px rgba(255, 254, 254, 0.103);
 }
 
 .dark .contact .contact-container .contact-info .info p,
