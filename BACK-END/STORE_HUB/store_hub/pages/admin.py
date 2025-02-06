@@ -17,8 +17,9 @@ class UserAdmin(admin.ModelAdmin):
 # تسجيل نموذج Product
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'price', 'color', 'rating', 'total_likes')
+    list_display = ('id', 'name', 'price', 'color', 'rating','image', 'total_likes')
     search_fields = ('name', 'color')
+    list_display_links = ['name']
 
 # تسجيل نموذج Order
 @admin.register(Order)
@@ -26,6 +27,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'Product', 'Customer', 'Quantity', 'Status', 'OrderDate')  # الحقول المعروضة في القائمة
     list_filter = ('Status', 'OrderDate')  # الفلاتر
     search_fields = ('Product__ProductName', 'Customer__username')  # إمكانية البحث
+    list_display_links = ['Product']
 
 # تسجيل نموذج Report
 @admin.register(Report)
@@ -40,3 +42,6 @@ class DeliveryAssignmentAdmin(admin.ModelAdmin):
     list_display = ('id', 'Order', 'DeliveryAgent', 'Status', 'AssignedDate')  # الحقول المعروضة في القائمة
     list_filter = ('Status', 'AssignedDate')  # الفلاتر
     search_fields = ('Order__id', 'DeliveryAgent__username')  # إمكانية البحث
+
+admin.site.site_header = 'STOREHUB'
+admin.site.site_title = "STOREHUB"
