@@ -2185,6 +2185,7 @@ input[type="checkbox"]:checked::after {
   width: 100%;
   height: auto;
   gap: 16px;
+  margin: 20px;
 }
 
 .contact .contact-container .contact-form .form input {
@@ -2196,10 +2197,6 @@ input[type="checkbox"]:checked::after {
   height: 50px;
   background-color: #f5f5f5;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact .contact-container .form-message {
-  min-width: 100%;
 }
 
 .contact .contact-container .form-message textarea {
@@ -2215,12 +2212,10 @@ input[type="checkbox"]:checked::after {
   resize: vertical;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.contact .contact-container .contact-form .form input:hover,
 .contact .contact-container .contact-form .form input:focus,
-.contact .contact-container .form-message textarea:focus,
-.contact .contact-container .form-message textarea:hover {
-  border-color: #e74c3c;
-  box-shadow: 0px 0px 5px #e74c3c;
+.contact .contact-container .form-message textarea:focus {
+  scale: 1.04;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .contact .contact-container .contact-button {
@@ -2326,11 +2321,9 @@ input[type="checkbox"]:checked::after {
     margin-bottom: 20px;
   }
 
-  .contact .contact-container .contact-form {
-    width: 100%;
-  }
-
-  .contact .contact-container .contact-form .form {
+  .contact .contact-container .contact-form,
+  .contact .contact-container .contact-form .form,
+  .contact .contact-container .contact-form .form-message textarea {
     width: 100%;
   }
 
@@ -2339,13 +2332,13 @@ input[type="checkbox"]:checked::after {
     margin-bottom: 10px;
   }
 
-  .contact .contact-container .contact-form .form-message textarea {
-    width: 100%;
-  }
-
   .contact .contact-container .contact-button {
     width: 100%;
     margin: 20px auto 0;
   }
 }
 /* ==> End Contact <== */
+
+/* ==> Start Login <== */
+
+/* ==> End Login <== */
