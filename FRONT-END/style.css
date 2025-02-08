@@ -2370,6 +2370,149 @@ input[type="checkbox"]:checked::after {
   background: url("login-img.jpg") no-repeat center center / cover;
 }
 
+.sign .sign-container .sign-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+.sign .sign-container .sign-form h6 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.sign .sign-container .sign-form p {
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.sign .sign-container .sign-form .input-box {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  min-width: 350px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.sign .sign-container .sign-form input,
+.sign .sign-container .sign-form select {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-bottom: 2px solid #555;
+  padding-right: 25px;
+  transition: 0.5s;
+}
+
+.sign .sign-container .sign-form .input-box input:focus,
+.sign .sign-container .sign-form .input-box input:valid,
+.sign .sign-container .sign-form .input-box select:focus {
+  border-bottom: 2px solid var(--main-color);
+}
+
+.sign .sign-container .sign-form label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--dark-color);
+  transition: 0.5s;
+}
+
+.sign .sign-container .sign-form i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 18px;
+  transform: translateY(-50%);
+  transition: 0.5s;
+}
+
+.sign .sign-container .sign-form .input-box input:focus ~ label,
+.sign .sign-container .sign-form .input-box input:valid ~ label,
+.sign .sign-container .sign-form .input-box select:focus ~ label {
+  top: -5px;
+  font-size: 14px;
+  color: var(--main-color);
+}
+
+.sign .sign-container .sign-form .input-box input:focus ~ i,
+.sign .sign-container .sign-form .input-box input:valid ~ i,
+.sign .sign-container .sign-form .input-box select:focus ~ i {
+  top: -5px;
+  color: var(--main-color);
+}
+
+.input-box button {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  min-width: 350px;
+  height: 55px;
+  border-radius: 25px;
+  border: 2px solid var(--main-color);
+  cursor: pointer;
+  background-color: #fafafa;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--main-color);
+  overflow: hidden;
+  transition: color 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.input-box button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--main-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.input-box button:hover::before {
+  transform: scaleX(1);
+}
+
+.input-box button:hover {
+  color: white;
+}
+
+.input-box button span {
+  position: relative;
+  z-index: 2;
+}
+
+.already-account {
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.already-account a {
+  color: var(--dark-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.already-account a:hover {
+  color: var(--main-color);
+}
+
 /* ==> End Sign and Login <== */
-
-
