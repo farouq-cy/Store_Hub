@@ -2348,4 +2348,28 @@ input[type="checkbox"]:checked::after {
     margin: 20px auto 0;
   }
 }
+
 /* ==> End Contact <== */
+
+/* ==> Start Sign and Login <== */
+.sign {
+  height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign .sign-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.sign .sign-container .sign-image {
+  flex: 1;
+  background: url("login-img.jpg") no-repeat center center / cover;
+}
+
+/* ==> End Sign and Login <== */
+
+
