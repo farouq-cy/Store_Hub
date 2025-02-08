@@ -2351,7 +2351,8 @@ input[type="checkbox"]:checked::after {
 
 /* ==> End Contact <== */
 
-/* ==> Start Sign and Login <== */
+/* ==> Start Sign <== */
+
 .sign {
   height: 120vh;
   display: flex;
@@ -2454,7 +2455,7 @@ input[type="checkbox"]:checked::after {
   color: var(--main-color);
 }
 
-.input-box button {
+.sign .sign-container .sign-form .input-box button {
   position: relative;
   display: block;
   width: 100%;
@@ -2473,7 +2474,7 @@ input[type="checkbox"]:checked::after {
   z-index: 1;
 }
 
-.input-box button::before {
+.sign .sign-container .sign-form .input-box button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -2487,39 +2488,39 @@ input[type="checkbox"]:checked::after {
   z-index: 0;
 }
 
-.input-box button:hover::before {
+.sign .sign-container .sign-form .input-box button:hover::before {
   transform: scaleX(1);
 }
 
-.input-box button:hover {
+.sign .sign-container .sign-form .input-box button:hover {
   color: white;
 }
 
-.input-box button span {
+.sign .sign-container .sign-form .input-box button span {
   position: relative;
   z-index: 2;
 }
 
-.already-account {
+.sign .sign-container .sign-form .already-account {
   font-size: 16px;
   margin-top: 15px;
 }
 
-.already-account a {
+.sign .sign-container .sign-form .already-account a {
   color: var(--dark-color);
   text-decoration: none;
   font-weight: 500;
 }
 
-.already-account a:hover {
+.sign .sign-container .sign-form .already-account a:hover {
   color: var(--main-color);
 }
 
 /* Dark */
 
-.dark .sign-form h6,
-.dark .sign-form p,
-.dark .already-account,
+.dark .sign .sign-container .sign-form h6,
+.dark .sign .sign-container .sign-form p,
+.dark .sign .sign-container .sign-form .already-account,
 .dark .sign .sign-container .sign-form i,
 .dark .sign .sign-container .sign-form input,
 .dark .sign .sign-container .sign-form select {
@@ -2530,7 +2531,7 @@ input[type="checkbox"]:checked::after {
   background: #151d2a;
 }
 
-.dark .input-box button {
+.dark .sign .sign-container .sign-form .input-box button {
   background: #151d2a;
 }
 
@@ -2566,14 +2567,15 @@ input[type="checkbox"]:checked::after {
     font-size: 16px;
   }
 
-  .input-box button {
+  .sign .sign-container .sign-form .input-box button {
     font-size: 16px;
   }
 
-  .already-account {
+  .sign .sign-container .sign-form .already-account {
     text-align: center;
   }
 }
 
+/* ==> End Sign  <== */
 
-/* ==> End Sign and Login <== */
+
