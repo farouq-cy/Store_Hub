@@ -2351,27 +2351,31 @@ input[type="checkbox"]:checked::after {
 
 /* ==> End Contact <== */
 
-/* ==> Start Sign <== */
+/* ==> Start Sign And Login <== */
 
-.sign {
+.sign,
+.login {
   height: 120vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.sign .sign-container {
+.sign .sign-container,
+.login .login-container {
   display: flex;
   width: 100%;
   height: 100%;
 }
 
-.sign .sign-container .sign-image {
+.sign-image,
+.login-image {
   flex: 1;
   background: url("images/login.jpg") no-repeat center center / cover;
 }
 
-.sign .sign-container .sign-form {
+.sign .sign-container .sign-form,
+.login .login-container .login-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2379,18 +2383,21 @@ input[type="checkbox"]:checked::after {
   flex-direction: column;
 }
 
-.sign .sign-container .sign-form h6 {
+.sign-form h6,
+ .login-form h6 {
   font-size: 30px;
   font-weight: 500;
   margin-bottom: 20px;
 }
 
-.sign .sign-container .sign-form p {
+.sign-form p,
+ .login-form p {
   font-size: 14px;
   margin-bottom: 30px;
 }
 
-.sign .sign-container .sign-form .input-box {
+.sign-form .input-box,
+ .login-form .input-box {
   position: relative;
   width: 100%;
   max-width: 600px;
@@ -2401,8 +2408,9 @@ input[type="checkbox"]:checked::after {
   margin-top: 20px;
 }
 
-.sign .sign-container .sign-form input,
-.sign .sign-container .sign-form select {
+.sign-form input,
+.sign-form select,
+ .login-form input {
   width: 100%;
   height: 100%;
   background: transparent;
@@ -2415,13 +2423,16 @@ input[type="checkbox"]:checked::after {
   transition: 0.5s;
 }
 
-.sign .sign-container .sign-form .input-box input:focus,
-.sign .sign-container .sign-form .input-box input:valid,
-.sign .sign-container .sign-form .input-box select:focus {
+.sign-form .input-box input:focus,
+.sign-form .input-box input:valid,
+.sign-form .input-box select:focus,
+ .login-form .input-box input:focus,
+ .login-form .input-box input:valid {
   border-bottom: 2px solid var(--main-color);
 }
 
-.sign .sign-container .sign-form label {
+.sign-form label,
+ .login-form label {
   position: absolute;
   top: 50%;
   left: 0;
@@ -2431,7 +2442,8 @@ input[type="checkbox"]:checked::after {
   transition: 0.5s;
 }
 
-.sign .sign-container .sign-form i {
+.sign-form i,
+ .login-form i {
   position: absolute;
   top: 50%;
   right: 0;
@@ -2440,22 +2452,27 @@ input[type="checkbox"]:checked::after {
   transition: 0.5s;
 }
 
-.sign .sign-container .sign-form .input-box input:focus ~ label,
-.sign .sign-container .sign-form .input-box input:valid ~ label,
-.sign .sign-container .sign-form .input-box select:focus ~ label {
+.sign-form .input-box input:focus ~ label,
+.sign-form .input-box input:valid ~ label,
+.sign-form .input-box select:focus ~ label,
+ .login-form .input-box input:focus ~ label,
+ .login-form .input-box input:valid ~ label {
   top: -5px;
   font-size: 14px;
   color: var(--main-color);
 }
 
-.sign .sign-container .sign-form .input-box input:focus ~ i,
-.sign .sign-container .sign-form .input-box input:valid ~ i,
-.sign .sign-container .sign-form .input-box select:focus ~ i {
+.sign-form .input-box input:focus ~ i,
+.sign-form .input-box input:valid ~ i,
+.sign-form .input-box select:focus ~ i,
+ .login-form .input-box input:focus ~ i,
+ .login-form .input-box input:valid ~ i {
   top: -5px;
   color: var(--main-color);
 }
 
-.sign .sign-container .sign-form .input-box button {
+.sign-form .input-box button,
+ .login-form .input-box button {
   position: relative;
   display: block;
   width: 100%;
@@ -2474,7 +2491,8 @@ input[type="checkbox"]:checked::after {
   z-index: 1;
 }
 
-.sign .sign-container .sign-form .input-box button::before {
+.sign-form .input-box button::before,
+ .login-form .input-box button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -2488,94 +2506,109 @@ input[type="checkbox"]:checked::after {
   z-index: 0;
 }
 
-.sign .sign-container .sign-form .input-box button:hover::before {
+.sign-form .input-box button:hover::before,
+ .login-form .input-box button:hover::before {
   transform: scaleX(1);
 }
 
-.sign .sign-container .sign-form .input-box button:hover {
+.sign-form .input-box button:hover,
+ .login-form .input-box button:hover {
   color: white;
 }
 
-.sign .sign-container .sign-form .input-box button span {
+.sign-form .input-box button span,
+.login-form .input-box button span {
   position: relative;
   z-index: 2;
 }
 
-.sign .sign-container .sign-form .already-account {
+.sign-form .already-account,
+.login-form .forgt-passwd {
   font-size: 16px;
   margin-top: 15px;
 }
 
-.sign .sign-container .sign-form .already-account a {
+.sign-form .already-account a,
+.login-form .forgt-passwd a {
   color: var(--dark-color);
   text-decoration: none;
   font-weight: 500;
 }
 
-.sign .sign-container .sign-form .already-account a:hover {
+.sign-form .already-account a:hover,
+.login-form .forgt-passwd a:hover {
   color: var(--main-color);
 }
 
 /* Dark */
 
-.dark .sign .sign-container .sign-form h6,
-.dark .sign .sign-container .sign-form p,
-.dark .sign .sign-container .sign-form .already-account,
-.dark .sign .sign-container .sign-form i,
-.dark .sign .sign-container .sign-form input,
-.dark .sign .sign-container .sign-form select {
+.dark .sign-form h6,
+.dark .login-form h6,
+.dark .sign-form p,
+.dark .login-form p,
+.dark .sign-form .already-account,
+.dark .login-form .forgt-passwd,
+.dark .sign-form i,
+.dark .login-form i,
+.dark .sign-form input,
+.dark .sign-form select,
+.dark .login-form input {
   color: var(--text-color);
 }
 
-.dark .sign .sign-container .sign-form select option {
+.dark .sign-form select option {
   background: #151d2a;
 }
 
-.dark .sign .sign-container .sign-form .input-box button {
+.dark .input-box button {
   background: #151d2a;
 }
 
 /* Responsive */
 
 @media (max-width: 1024px) {
-  .sign {
+  .sign,
+  .login {
     height: auto;
     padding: 50px 20px;
   }
 
-  .sign .sign-container {
+  .sign .sign-container,
+  .login .login-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .sign .sign-container .sign-image {
+  .sign .sign-container .sign-image,
+  .login .login-container .login-image {
     display: none;
   }
 
-  .sign .sign-container .sign-form {
+  .sign .sign-container .sign-form,
+  .login .login-container .login-form {
     width: 100%;
     max-width: 400px;
   }
 
-  .sign .sign-container .sign-form .input-box {
+  .input-box {
     width: 100%;
     max-width: 500px;
   }
 
-  .sign .sign-container .sign-form input,
-  .sign .sign-container .sign-form select {
+  .sign-form input,
+  .sign-form select,
+  .login-form input {
     font-size: 16px;
   }
 
-  .sign .sign-container .sign-form .input-box button {
+  .input-box button {
     font-size: 16px;
   }
 
-  .sign .sign-container .sign-form .already-account {
+  .sign-form .already-account,
+  .login-form .forgt-passwd {
     text-align: center;
   }
 }
 
-/* ==> End Sign  <== */
-
-
+/* ==> End Sign And Login  <== */
