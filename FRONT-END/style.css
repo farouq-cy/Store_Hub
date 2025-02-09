@@ -2384,20 +2384,20 @@ input[type="checkbox"]:checked::after {
 }
 
 .sign-form h6,
- .login-form h6 {
+.login-form h6 {
   font-size: 30px;
   font-weight: 500;
   margin-bottom: 20px;
 }
 
 .sign-form p,
- .login-form p {
+.login-form p {
   font-size: 14px;
   margin-bottom: 30px;
 }
 
 .sign-form .input-box,
- .login-form .input-box {
+.login-form .input-box {
   position: relative;
   width: 100%;
   max-width: 600px;
@@ -2410,7 +2410,7 @@ input[type="checkbox"]:checked::after {
 
 .sign-form input,
 .sign-form select,
- .login-form input {
+.login-form input {
   width: 100%;
   height: 100%;
   background: transparent;
@@ -2426,13 +2426,13 @@ input[type="checkbox"]:checked::after {
 .sign-form .input-box input:focus,
 .sign-form .input-box input:valid,
 .sign-form .input-box select:focus,
- .login-form .input-box input:focus,
- .login-form .input-box input:valid {
+.login-form .input-box input:focus,
+.login-form .input-box input:valid {
   border-bottom: 2px solid var(--main-color);
 }
 
 .sign-form label,
- .login-form label {
+.login-form label {
   position: absolute;
   top: 50%;
   left: 0;
@@ -2443,7 +2443,7 @@ input[type="checkbox"]:checked::after {
 }
 
 .sign-form i,
- .login-form i {
+.login-form i {
   position: absolute;
   top: 50%;
   right: 0;
@@ -2455,8 +2455,8 @@ input[type="checkbox"]:checked::after {
 .sign-form .input-box input:focus ~ label,
 .sign-form .input-box input:valid ~ label,
 .sign-form .input-box select:focus ~ label,
- .login-form .input-box input:focus ~ label,
- .login-form .input-box input:valid ~ label {
+.login-form .input-box input:focus ~ label,
+.login-form .input-box input:valid ~ label {
   top: -5px;
   font-size: 14px;
   color: var(--main-color);
@@ -2465,14 +2465,14 @@ input[type="checkbox"]:checked::after {
 .sign-form .input-box input:focus ~ i,
 .sign-form .input-box input:valid ~ i,
 .sign-form .input-box select:focus ~ i,
- .login-form .input-box input:focus ~ i,
- .login-form .input-box input:valid ~ i {
+.login-form .input-box input:focus ~ i,
+.login-form .input-box input:valid ~ i {
   top: -5px;
   color: var(--main-color);
 }
 
 .sign-form .input-box button,
- .login-form .input-box button {
+.login-form .input-box button {
   position: relative;
   display: block;
   width: 100%;
@@ -2492,7 +2492,7 @@ input[type="checkbox"]:checked::after {
 }
 
 .sign-form .input-box button::before,
- .login-form .input-box button::before {
+.login-form .input-box button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -2507,12 +2507,12 @@ input[type="checkbox"]:checked::after {
 }
 
 .sign-form .input-box button:hover::before,
- .login-form .input-box button:hover::before {
+.login-form .input-box button:hover::before {
   transform: scaleX(1);
 }
 
 .sign-form .input-box button:hover,
- .login-form .input-box button:hover {
+.login-form .input-box button:hover {
   color: white;
 }
 
