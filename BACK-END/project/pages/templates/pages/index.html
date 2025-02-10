@@ -1,0 +1,561 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet" />
+
+    <!--Link Swiper-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <title>Store Hub | Main</title>
+  </head>
+
+  <body class="light">
+    <!--Section One-->
+    <section class="slider">
+      <div class="container">
+        <div class="side_bar">
+          <a href="#">Men's Fashion</a>
+          <a href="#">Woman's Fashion</a>
+          <a href="#">Electronics</a>
+          <a href="#">Medicine</a>
+          <a href="#">Phone & Tablet</a>
+          <a href="#">Sportes & Outdoor</a>
+          <a href="#">Fashion & Clothings</a>
+          <a href="#">TV & Audio</a>
+        </div>
+        {% for product in product %}
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href=""><img src=" {{ product.image }} " alt="{{ product.name }}" /></a>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!--Section Two-->
+    <section class="offer">
+      <div class="container">
+        <div class="dayOffers">
+          <span class="shape">.</span>
+          <h3>Today's</h3>
+        </div>
+      </div>
+    </section>
+
+    <!--Section There-->
+    <section class="timer">
+      <div class="container">
+        <div class="flex">
+          <h2>FLASH SALES</h2>
+          <div class="dateAndClock">
+            <div class="date">
+              <h3>Days</h3>
+              <h3>Hours</h3>
+              <h3>Minute</h3>
+              <h3>Second</h3>
+            </div>
+            <div class="clock">
+              <h2 class="day">00:</h2>
+              <h2 class="hour">00:</h2>
+              <h2 class="minut">00:</h2>
+              <h2 class="second">00</h2>
+            </div>
+          </div>
+        </div>
+        <div class="mySwiper">
+          <div class="swiper-button-next btn_swip btSwapProNext"></div>
+          <div class="swiper-button-prev btn_swip btSwapProPrev"></div>
+        </div>
+      </div>
+    </section>
+
+    <!--Swiper Section Four-->
+    <section class="pro-div">
+      <div class="container">
+        <div class="products mySwiper">
+          <div class="product swiper-wrapper">
+            <div class="swiper-slide pro">
+              <div class="icons">
+                <div class="sall"><span>-40%</span></div>
+                <div class="icon">
+                  <i class="fa-regular fa-heart" id="iconheart"></i>
+                  <i class="fa-regular fa-eye"></i>
+                </div>
+              </div>
+              <div class="addcart">
+                <div class="text">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
+              <div class="img">
+                <a href="#">
+                  <img src="images/game.png" alt="" />
+                </a>
+              </div>
+              <div class="detailes">
+                <h5>HAVIT HV-G92 Gamepad</h5>
+                <div class="sallery">
+                  <span class="new-sall">$120</span>
+                  <span class="old-sall">$160</span>
+                </div>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <span>(88)</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide pro">
+              <div class="icons">
+                <div class="sall"><span>-35%</span></div>
+                <div class="icon">
+                  <i class="fa-regular fa-heart" id="iconheart"></i>
+                  <i class="fa-regular fa-eye"></i>
+                </div>
+              </div>
+              <div class="addcart">
+                <div class="text">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
+              <div class="img">
+                <a href="#">
+                  <img src="images/keyboard.png" alt="" />
+                </a>
+              </div>
+              <div class="detailes">
+                <h5>AK-900 Wired Keyboard</h5>
+                <div class="sallery">
+                  <span class="new-sall">$960</span>
+                  <span class="old-sall">$1160</span>
+                </div>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <span>(88)</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide pro">
+              <div class="icons">
+                <div class="sall"><span>-30%</span></div>
+                <div class="icon">
+                  <i class="fa-regular fa-heart" id="iconheart"></i>
+                  <i class="fa-regular fa-eye"></i>
+                </div>
+              </div>
+              <div class="addcart">
+                <div class="text">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
+              <div class="img">
+                <a href="#">
+                  <img src="images/lcd.png" alt="" />
+                </a>
+              </div>
+              <div class="detailes">
+                <h5>IPS LCD Gaming Monitor</h5>
+                <div class="sallery">
+                  <span class="new-sall">$370</span>
+                  <span class="old-sall">$400</span>
+                </div>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <span>(88)</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide pro">
+              <div class="icons">
+                <div class="sall"><span>-25%</span></div>
+                <div class="icon">
+                  <i class="fa-regular fa-heart" id="iconheart"></i>
+                  <i class="fa-regular fa-eye"></i>
+                </div>
+              </div>
+              <div class="addcart">
+                <div class="text">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
+              <div class="img">
+                <a href="#">
+                  <img src="images/chair.png" alt="" />
+                </a>
+              </div>
+              <div class="detailes">
+                <h5>S-Series Comfort Chair</h5>
+                <div class="sallery">
+                  <span class="new-sall">$375</span>
+                  <span class="old-sall">$400</span>
+                </div>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <span>(88)</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide pro">
+              <div class="icons">
+                <div class="sall"><span>-40%</span></div>
+                <div class="icon">
+                  <i class="fa-regular fa-heart" id="iconheart"></i>
+                  <i class="fa-regular fa-eye"></i>
+                </div>
+              </div>
+              <div class="addcart">
+                <div class="text">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
+              <div class="img">
+                <a href="#">
+                  <img src="images/speaker.png" alt="" />
+                </a>
+              </div>
+              <div class="detailes">
+                <h5>HAVIT HV-G92 Gamepad</h5>
+                <div class="sallery">
+                  <span class="new-sall">$120</span>
+                  <span class="old-sall">$160</span>
+                </div>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <span>(88)</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide pro">
+              <div class="icons">
+                <div class="sall"><span>-40%</span></div>
+                <div class="icon">
+                  <i class="fa-regular fa-heart" id="iconheart"></i>
+                  <i class="fa-regular fa-eye"></i>
+                </div>
+              </div>
+              <div class="addcart">
+                <div class="text">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
+              <div class="img">
+                <a href="#">
+                  <img src="images/laptop.png" alt="" />
+                </a>
+              </div>
+              <div class="detailes">
+                <h5>HAVIT HV-G92 Gamepad</h5>
+                <div class="sallery">
+                  <span class="new-sall">$120</span>
+                  <span class="old-sall">$160</span>
+                </div>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <span>(88)</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide pro">
+              <div class="icons">
+                <div class="sall"><span>-40%</span></div>
+                <div class="icon">
+                  <i class="fa-regular fa-heart" id="iconheart"></i>
+                  <i class="fa-regular fa-eye"></i>
+                </div>
+              </div>
+              <div class="addcart">
+                <div class="text">
+                  <p>Add To Cart</p>
+                </div>
+              </div>
+              <div class="img">
+                <a href="#">
+                  <img src="images/car.png" alt="" />
+                </a>
+              </div>
+              <div class="detailes">
+                <h5>HAVIT HV-G92 Gamepad</h5>
+                <div class="sallery">
+                  <span class="new-sall">$120</span>
+                  <span class="old-sall">$160</span>
+                </div>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <span>(88)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Section Five-->
+    <section>
+      <div class="container">
+        <div class="bttnAllProduct">
+          <a href="#">
+            <button>View All Products</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!--Section Six-->
+    <section id="browseCat">
+      <div class="container">
+        <div class="browseCat">
+          <div class="categText">
+            <span class="shape">.</span>
+            <h3>Categories</h3>
+          </div>
+          <div class="catbtnswap mySwiper">
+            <h3>Browse By Category</h3>
+            <div class="swiper-button-next btn_swip btnSwapNext"></div>
+            <div class="swiper-button-prev btn_swip BtnSwapPrev"></div>
+          </div>
+        </div>
+        <div class="categs mySwiper">
+          <div class="categ swiper-wrapper">
+            <div class="categ swiper-slide">
+              <div class="cat">
+                <h2>Phones</h2>
+                <i class="fa-solid fa-mobile"></i>
+              </div>
+            </div>
+            <div class="categ swiper-slide">
+              <div class="cat">
+                <h2>Computers</h2>
+                <i class="fa-solid fa-tv"></i>
+              </div>
+            </div>
+            <div class="categ swiper-slide">
+              <div class="cat">
+                <h2>Camera</h2>
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div>
+            <div class="categ swiper-slide">
+              <div class="cat">
+                <h2>HeadPhones</h2>
+                <i class="fa-solid fa-headphones"></i>
+              </div>
+            </div>
+            <div class="categ swiper-slide">
+              <div class="cat">
+                <h2>Gaming</h2>
+                <i class="fa-solid fa-keyboard"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Section Seven-->
+    <section class="BestSellingProducts">
+      <div class="container">
+        <div class="top">
+          <div class="shape-text">
+            <span class="shape">.</span>
+            <h5 class="txt">This Month</h5>
+          </div>
+          <div class="bttn">
+            <h4>Best Selling Products</h4>
+            <a href="#">
+              <button>View All</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="bttom">
+          <div class="pro">
+            <div class="icons">
+              <div class="icon">
+                <i class="fa-regular fa-heart" id="iconheart"></i>
+                <i class="fa-regular fa-eye"></i>
+              </div>
+            </div>
+            <div class="addcart">
+              <div class="text">
+                <p>Add To Cart</p>
+              </div>
+            </div>
+            <div class="img">
+              <a href="#">
+                <img src="images/game.png" alt="" />
+              </a>
+            </div>
+            <div class="detailes">
+              <h5>HAVIT HV-G92 Gamepad</h5>
+              <div class="sallery">
+                <span class="new-sall">$120</span>
+                <span class="old-sall">$160</span>
+              </div>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span>(88)</span>
+              </div>
+            </div>
+          </div>
+          <div class="pro">
+            <div class="icons">
+              <div class="icon">
+                <i class="fa-regular fa-heart" id="iconheart"></i>
+                <i class="fa-regular fa-eye"></i>
+              </div>
+            </div>
+            <div class="addcart">
+              <div class="text">
+                <p>Add To Cart</p>
+              </div>
+            </div>
+            <div class="img">
+              <a href="#">
+                <img src="images/keyboard.png" alt="" />
+              </a>
+            </div>
+            <div class="detailes">
+              <h5>AK-900 Wired Keyboard</h5>
+              <div class="sallery">
+                <span class="new-sall">$960</span>
+                <span class="old-sall">$1160</span>
+              </div>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span>(88)</span>
+              </div>
+            </div>
+          </div>
+          <div class="pro">
+            <div class="icons">
+              <div class="icon">
+                <i class="fa-regular fa-heart" id="iconheart"></i>
+                <i class="fa-regular fa-eye"></i>
+              </div>
+            </div>
+            <div class="addcart">
+              <div class="text">
+                <p>Add To Cart</p>
+              </div>
+            </div>
+            <div class="img">
+              <a href="#">
+                <img src="images/lcd.png" alt="" />
+              </a>
+            </div>
+            <div class="detailes">
+              <h5>IPS LCD Gaming Monitor</h5>
+              <div class="sallery">
+                <span class="new-sall">$370</span>
+                <span class="old-sall">$400</span>
+              </div>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span>(88)</span>
+              </div>
+            </div>
+          </div>
+          <div class="pro">
+            <div class="icons">
+              <div class="icon">
+                <i class="fa-regular fa-heart" id="iconheart"></i>
+                <i class="fa-regular fa-eye"></i>
+              </div>
+            </div>
+            <div class="addcart">
+              <div class="text">
+                <p>Add To Cart</p>
+              </div>
+            </div>
+            <div class="img">
+              <a href="#">
+                <img src="images/chair.png" alt="" />
+              </a>
+            </div>
+            <div class="detailes">
+              <h5>S-Series Comfort Chair</h5>
+              <div class="sallery">
+                <span class="new-sall">$375</span>
+                <span class="old-sall">$400</span>
+              </div>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span>(88)</span>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Footer-->
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+  
+</html>
+{% endblock content %}
