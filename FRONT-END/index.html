@@ -22,7 +22,40 @@
   </head>
 
   <body class="light">
-    
+    <header>
+      <div class="container">
+        <nav>
+          <h1>STOREHUB</h1>
+          <div class="linkes">
+            <a href="{% url 'index' %}" >
+              <p>Home</p>
+            </a>
+            <a href="">
+              <p>All Product</p>
+            </a>
+            <a href="{% url 'about' %}">
+              <p>About</p>
+            </a>
+            <a href="{% url 'contact' %}">
+              <p>Contact</p>
+            </a>
+          </div>
+          <form class="header-form">
+            <input type="search" placeholder="Seacrch" class="seacrch" />
+            <i class="fa-regular fa-heart"></i>
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="account.html"><i class="fa-regular fa-user"></i></a>
+            <input type="checkbox" id="toggle" />
+
+            <label class="toggle" for="toggle">
+              <i class="bx bxs-sun"></i>
+              <i class="bx bx-moon"></i>
+              <span class="ball"></span>
+            </label>
+          </form>
+        </nav>
+      </div>
+    </header>
 
     <!--Section One-->
     <section class="slider">
