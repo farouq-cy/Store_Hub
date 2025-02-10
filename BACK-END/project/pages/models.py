@@ -132,14 +132,10 @@ class FlashSale(models.Model):
     #سعر المنتج القديم و السعر بعد الخصم يورثه من كلاس برودكت
     old_price = models.DecimalField(max_digits=10, decimal_places=2)
     new_price = models.DecimalField(max_digits=10, decimal_places=2)
-    rating = models.FloatField(
-        default=0,
-    )
-    #التقييم يورثه من كلاس برودكت
+    rating = models.DecimalField(max_digits=2, decimal_places=1)
     def __str__(self):
         return self.product.name
 
     class Meta:
         verbose_name = "فلاش سيل"
         verbose_name_plural = "فلاش سيلات"
-        ordering = ['-rating']

@@ -25,31 +25,32 @@
   </head>
 
   <body class="light">
-    <!--Section One-->
-    <section class="slider">
-      <div class="container">
-        <div class="side_bar">
-          <a href="#">Men's Fashion</a>
-          <a href="#">Woman's Fashion</a>
-          <a href="#">Electronics</a>
-          <a href="#">Medicine</a>
-          <a href="#">Phone & Tablet</a>
-          <a href="#">Sportes & Outdoor</a>
-          <a href="#">Fashion & Clothings</a>
-          <a href="#">TV & Audio</a>
+   <!-- Section One -->
+<section class="slider">
+  <div class="container">
+    <div class="side_bar">
+      <a href="#">Men's Fashion</a>
+      <a href="#">Woman's Fashion</a>
+      <a href="#">Electronics</a>
+      <a href="#">Medicine</a>
+      <a href="#">Phone & Tablet</a>
+      <a href="#">Sportes & Outdoor</a>
+      <a href="#">Fashion & Clothings</a>
+      <a href="#">TV & Audio</a>
+    </div>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {% for product in products %}
+        <div class="swiper-slide">
+          <a href="#"><img src="{{ product.image.url }}" alt="{{ product.name }}" /></a>
         </div>
-        {% for product in product %}
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <a href=""><img src=" {{ product.image }} " alt="{{ product.name }}" /></a>
-            </div>
-          </div>
-          {% endfor %}
-          <div class="swiper-pagination"></div>
-        </div>
+        {% endfor %}
       </div>
-    </section>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
 
     <!--Section Two-->
     <section class="offer">
@@ -93,9 +94,12 @@
       <div class="container">
         <div class="products mySwiper">
           <div class="product swiper-wrapper">
+            {% for pro in flash_sales %}
             <div class="swiper-slide pro">
               <div class="icons">
-                <div class="sall"><span>-40%</span></div>
+                <div class="sall">
+                  <span class="discount"></span>
+                </div>
                 <div class="icon">
                   <i class="fa-regular fa-heart" id="iconheart"></i>
                   <i class="fa-regular fa-eye"></i>
@@ -108,233 +112,33 @@
               </div>
               <div class="img">
                 <a href="#">
-                  <img src="images/game.png" alt="" />
+                  <img src="{{ pro.product.image.url }}" alt="{{ pro.product.name }}" />
                 </a>
               </div>
               <div class="detailes">
-                <h5>HAVIT HV-G92 Gamepad</h5>
+                <h5>{{ pro.product.name }}</h5>
                 <div class="sallery">
-                  <span class="new-sall">$120</span>
-                  <span class="old-sall">$160</span>
+                  <span class="new-sall">${{ pro.new_price }}</span>
+                  <span class="old-sall">${{ pro.old_price }}</span>
                 </div>
                 <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(88)</span>
+                  {% for _ in "12345"|make_list %}
+                    {% if forloop.counter <= pro.rating|floatformat:0 %}
+                      <i class="fa-solid fa-star"></i>
+                    {% else %}
+                      <i class="fa-regular fa-star"></i>
+                    {% endif %}
+                  {% endfor %}
+                  <span>({{ pro.rating|floatformat:1 }})</span>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide pro">
-              <div class="icons">
-                <div class="sall"><span>-35%</span></div>
-                <div class="icon">
-                  <i class="fa-regular fa-heart" id="iconheart"></i>
-                  <i class="fa-regular fa-eye"></i>
-                </div>
-              </div>
-              <div class="addcart">
-                <div class="text">
-                  <p>Add To Cart</p>
-                </div>
-              </div>
-              <div class="img">
-                <a href="#">
-                  <img src="images/keyboard.png" alt="" />
-                </a>
-              </div>
-              <div class="detailes">
-                <h5>AK-900 Wired Keyboard</h5>
-                <div class="sallery">
-                  <span class="new-sall">$960</span>
-                  <span class="old-sall">$1160</span>
-                </div>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(88)</span>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide pro">
-              <div class="icons">
-                <div class="sall"><span>-30%</span></div>
-                <div class="icon">
-                  <i class="fa-regular fa-heart" id="iconheart"></i>
-                  <i class="fa-regular fa-eye"></i>
-                </div>
-              </div>
-              <div class="addcart">
-                <div class="text">
-                  <p>Add To Cart</p>
-                </div>
-              </div>
-              <div class="img">
-                <a href="#">
-                  <img src="images/lcd.png" alt="" />
-                </a>
-              </div>
-              <div class="detailes">
-                <h5>IPS LCD Gaming Monitor</h5>
-                <div class="sallery">
-                  <span class="new-sall">$370</span>
-                  <span class="old-sall">$400</span>
-                </div>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(88)</span>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide pro">
-              <div class="icons">
-                <div class="sall"><span>-25%</span></div>
-                <div class="icon">
-                  <i class="fa-regular fa-heart" id="iconheart"></i>
-                  <i class="fa-regular fa-eye"></i>
-                </div>
-              </div>
-              <div class="addcart">
-                <div class="text">
-                  <p>Add To Cart</p>
-                </div>
-              </div>
-              <div class="img">
-                <a href="#">
-                  <img src="images/chair.png" alt="" />
-                </a>
-              </div>
-              <div class="detailes">
-                <h5>S-Series Comfort Chair</h5>
-                <div class="sallery">
-                  <span class="new-sall">$375</span>
-                  <span class="old-sall">$400</span>
-                </div>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(88)</span>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide pro">
-              <div class="icons">
-                <div class="sall"><span>-40%</span></div>
-                <div class="icon">
-                  <i class="fa-regular fa-heart" id="iconheart"></i>
-                  <i class="fa-regular fa-eye"></i>
-                </div>
-              </div>
-              <div class="addcart">
-                <div class="text">
-                  <p>Add To Cart</p>
-                </div>
-              </div>
-              <div class="img">
-                <a href="#">
-                  <img src="images/speaker.png" alt="" />
-                </a>
-              </div>
-              <div class="detailes">
-                <h5>HAVIT HV-G92 Gamepad</h5>
-                <div class="sallery">
-                  <span class="new-sall">$120</span>
-                  <span class="old-sall">$160</span>
-                </div>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(88)</span>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide pro">
-              <div class="icons">
-                <div class="sall"><span>-40%</span></div>
-                <div class="icon">
-                  <i class="fa-regular fa-heart" id="iconheart"></i>
-                  <i class="fa-regular fa-eye"></i>
-                </div>
-              </div>
-              <div class="addcart">
-                <div class="text">
-                  <p>Add To Cart</p>
-                </div>
-              </div>
-              <div class="img">
-                <a href="#">
-                  <img src="images/laptop.png" alt="" />
-                </a>
-              </div>
-              <div class="detailes">
-                <h5>HAVIT HV-G92 Gamepad</h5>
-                <div class="sallery">
-                  <span class="new-sall">$120</span>
-                  <span class="old-sall">$160</span>
-                </div>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(88)</span>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide pro">
-              <div class="icons">
-                <div class="sall"><span>-40%</span></div>
-                <div class="icon">
-                  <i class="fa-regular fa-heart" id="iconheart"></i>
-                  <i class="fa-regular fa-eye"></i>
-                </div>
-              </div>
-              <div class="addcart">
-                <div class="text">
-                  <p>Add To Cart</p>
-                </div>
-              </div>
-              <div class="img">
-                <a href="#">
-                  <img src="images/car.png" alt="" />
-                </a>
-              </div>
-              <div class="detailes">
-                <h5>HAVIT HV-G92 Gamepad</h5>
-                <div class="sallery">
-                  <span class="new-sall">$120</span>
-                  <span class="old-sall">$160</span>
-                </div>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(88)</span>
-                </div>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
     </section>
+    
 
     <!--Section Five-->
     <section>
@@ -528,7 +332,7 @@
             </div>
             <div class="img">
               <a href="#">
-                <img src="images/chair.png" alt="" />
+                <img src="" alt="" />
               </a>
             </div>
             <div class="detailes">

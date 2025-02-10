@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Product, Order, Report, DeliveryAssignment
+from .models import User, Product, Order, Report, DeliveryAssignment, FlashSale
 
 # تسجيل نموذج User
 @admin.register(User)
@@ -72,6 +72,10 @@ class DeliveryAssignmentAdmin(admin.ModelAdmin):
     @admin.action(description="Mark selected assignments as Delivered")
     def mark_as_delivered(self, request, queryset):
         queryset.update(Status='Delivered')
+
+@admin.register(FlashSale)
+class FlashSaleAdmin(admin.ModelAdmin):
+    list_display = ('product', 'start_date', 'end_date', 'old_price', 'new_price', 'rating')
 
 # إعدادات عامة للـ Admin
 admin.site.site_header = 'STOREHUB'
