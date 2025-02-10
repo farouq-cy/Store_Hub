@@ -62,82 +62,83 @@
       </div>
     </section>
 
-    <!--Section There-->
-    <section class="timer">
-      <div class="container">
-        <div class="flex">
-          <h2>FLASH SALES</h2>
-          <div class="dateAndClock">
-            <div class="date">
-              <h3>Days</h3>
-              <h3>Hours</h3>
-              <h3>Minute</h3>
-              <h3>Second</h3>
-            </div>
-            <div class="clock">
-              <h2 class="day">00:</h2>
-              <h2 class="hour">00:</h2>
-              <h2 class="minut">00:</h2>
-              <h2 class="second">00</h2>
-            </div>
+  <!--Section There-->
+  <section class="timer">
+    <div class="container">
+      <div class="flex">
+        <h2>FLASH SALES</h2>
+        <div class="dateAndClock">
+          <div class="date">
+            <h3>Days</h3>
+            <h3>Hours</h3>
+            <h3>Minute</h3>
+            <h3>Second</h3>
+          </div>
+          <div class="clock">
+            <h2 class="day">00:</h2>
+            <h2 class="hour">00:</h2>
+            <h2 class="minut">00:</h2>
+            <h2 class="second">00</h2>
           </div>
         </div>
-        <div class="mySwiper">
-          <div class="swiper-button-next btn_swip btSwapProNext"></div>
-          <div class="swiper-button-prev btn_swip btSwapProPrev"></div>
-        </div>
       </div>
-    </section>
+      <div class="mySwiper">
+        <div class="swiper-button-next btn_swip btSwapProNext"></div>
+        <div class="swiper-button-prev btn_swip btSwapProPrev"></div>
+      </div>
+    </div>
+  </section>
 
-    <!--Swiper Section Four-->
-    <section class="pro-div">
-      <div class="container">
-        <div class="products mySwiper">
-          <div class="product swiper-wrapper">
-            {% for pro in flash_sales %}
-            <div class="swiper-slide pro">
-              <div class="icons">
-                <div class="sall">
-                  <span class="discount"></span>
-                </div>
-                <div class="icon">
-                  <i class="fa-regular fa-heart" id="iconheart"></i>
-                  <i class="fa-regular fa-eye"></i>
-                </div>
+  <!--Swiper Section Four-->
+  <section class="pro-div">
+    <div class="container">
+      <div class="products mySwiper">
+        <div class="product swiper-wrapper">
+          {% for pro in flash_sales %}
+          <div class="swiper-slide pro">
+            <div class="icons">
+              <div class="sall">
+                <span class="discount"></span>
               </div>
-              <div class="addcart">
-                <div class="text">
-                  <p>Add To Cart</p>
-                </div>
-              </div>
-              <div class="img">
-                <a href="#">
-                  <img src="{{ pro.product.image.url }}" alt="{{ pro.product.name }}" />
-                </a>
-              </div>
-              <div class="detailes">
-                <h5>{{ pro.product.name }}</h5>
-                <div class="sallery">
-                  <span class="new-sall">${{ pro.new_price }}</span>
-                  <span class="old-sall">${{ pro.old_price }}</span>
-                </div>
-                <div class="stars">
-                  {% for _ in "12345"|make_list %}
-                    {% if forloop.counter <= pro.rating|floatformat:0 %}
-                      <i class="fa-solid fa-star"></i>
-                    {% else %}
-                      <i class="fa-regular fa-star"></i>
-                    {% endif %}
-                  {% endfor %}
-                  <span>({{ pro.rating|floatformat:1 }})</span>
-                </div>
+              <div class="icon">
+                <i class="fa-regular fa-heart" id="iconheart"></i>
+                <i class="fa-regular fa-eye"></i>
               </div>
             </div>
-            {% endfor %}
+            <div class="addcart">
+              <div class="text">
+                <p>Add To Cart</p>
+              </div>
+            </div>
+            <div class="img">
+              <a href="#">
+                <img src="{{ pro.product.image.url }}" alt="{{ pro.product.name }}" />
+              </a>
+            </div>
+            <div class="detailes">
+              <h5>{{ pro.product.name }}</h5>
+              <div class="sallery">
+                <span class="new-sall">${{ pro.new_price }}</span>
+                <span class="old-sall">${{ pro.old_price }}</span>
+              </div>
+              <div class="stars">
+                {% for _ in "12345"|make_list %}
+                  {% if forloop.counter <= pro.rating|floatformat:0 %}
+                    <i class="fa-solid fa-star"></i>
+                  {% else %}
+                    <i class="fa-regular fa-star"></i>
+                  {% endif %}
+                {% endfor %}
+                <span>({{ pro.rating|floatformat:1 }})</span>
+              </div>
+            </div>
           </div>
+          {% endfor %}
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
     
 
     <!--Section Five-->
@@ -353,12 +354,41 @@
         </div>
       </div>
     </section>
-
-    <!--Footer-->
-
-
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let endTime = "{{ max_time|date:'Y-m-d H:i:s' }}";
+    
+        if (endTime) {
+          endTime = new Date(endTime).getTime();
+    
+          function updateTimer() {
+            let now = new Date().getTime();
+            let timeLeft = endTime - now;
+    
+            if (timeLeft > 0) {
+              let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+              let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+              let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+              document.querySelector(".day").innerHTML = (days < 10 ? "0" : "") + days + ":";
+              document.querySelector(".hour").innerHTML = (hours < 10 ? "0" : "") + hours + ":";
+              document.querySelector(".minut").innerHTML = (minutes < 10 ? "0" : "") + minutes + ":";
+              document.querySelector(".second").innerHTML = (seconds < 10 ? "0" : "") + seconds;
+            } else {
+              document.querySelector(".timer").innerHTML = "<h2>FLASH SALES ENDED</h2>";
+            }
+          }
+    
+          setInterval(updateTimer, 1000);
+          updateTimer();
+        } else {
+          document.querySelector(".timer").innerHTML = "<h2>No Flash Sales Available</h2>";
+        }
+      });
+    </script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/test.js' %}"></script>
   </body>
   
 </html>

@@ -20,36 +20,7 @@ const swiper = new Swiper(".swiper", {
 });
 // End Swiper
 
-// Start Timer
-let days = document.querySelector(".day");
-let hour = document.querySelector(".hour");
-let minut = document.querySelector(".minut");
-let second = document.querySelector(".second");
 
-if (!localStorage.getItem("startTime")) {
-  localStorage.setItem("startTime", Date.now());
-}
-
-function updateClock() {
-  let startTime = parseInt(localStorage.getItem("startTime"));
-  let currentTime = Date.now();
-  let elapsedTime = currentTime - startTime;
-
-  let totalSeconds = Math.floor(elapsedTime / 1000);
-  let dayValue = Math.floor(totalSeconds / (24 * 60 * 60)) % 3;
-  let hourValue = Math.floor(totalSeconds / (60 * 60)) % 24;
-  let minutValue = Math.floor(totalSeconds / 60) % 60;
-  let secondValue = totalSeconds % 60;
-
-  days.innerText = dayValue < 10 ? "0" + dayValue + ":" : dayValue + ":";
-  hour.innerText = hourValue < 10 ? "0" + hourValue + ":" : hourValue + ":";
-  minut.innerText = minutValue < 10 ? "0" + minutValue + ":" : minutValue + ":";
-  second.innerText = secondValue < 10 ? "0" + secondValue : secondValue;
-}
-
-setInterval(updateClock, 1000);
-
-// End Timer
 
 // Start swiper product in section Four
 var x = new Swiper(".products", {

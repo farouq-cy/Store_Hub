@@ -1,9 +1,22 @@
 from django.shortcuts import render 
 from .models import *
-from django.db.models import Count
+from django.db.models import Count , Max
 def index(request):
+    # جلب المنتجات الأكثر إعجابًا
     top_products = Product.objects.annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]
-    return render(request, 'pages/index.html', {'products': top_products, 'flash_sales': FlashSale.objects.all()})
+    
+    # جلب جميع العروض
+    flash_sales = FlashSale.objects.all()
+
+    # تحديد أقرب وقت انتهاء بين كل العروض
+    max_time = flash_sales.aggregate(max_end_time=Max('end_date'))['max_end_time'] if flash_sales else None
+
+
+    return render(request, 'pages/index.html', {
+        'products': top_products,
+        'flash_sales': flash_sales,
+        'max_time': max_time
+    })
 
 def about(request):
     return render(request, 'pages/about.html')
