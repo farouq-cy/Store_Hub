@@ -1,4 +1,5 @@
 <footer>
+  {% load static %}
   <div class="container">
     <div class="foot1">
       <h3>STOREHUB</h3>
@@ -26,8 +27,10 @@
       <a href="#"><p>Privacy Policy</p></a>
       <a href="#"><p>Terms Of Use</p></a>
       <a href="#"><p>FAQ</p></a>
-      <a href="contact.html"><p>Contact</p></a>
+      <a href="{% url 'contact' %}"><p>Contact</p></a>
     </div>
   </div>
   <p style="text-align: center; padding-bottom: 8px;">Copyright &copy;<span> STOREHUB </span>all right reserved</p>
 </footer>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/test.js' %}"></script>

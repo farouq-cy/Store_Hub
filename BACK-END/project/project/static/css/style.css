@@ -132,8 +132,8 @@ input#toggle {
 }
 
 /*
-    -- Light Mode --
-*/
+      -- Light Mode --
+  */
 
 .light {
   background: #fafafa;
@@ -158,8 +158,8 @@ input#toggle {
 }
 
 /*
-    -- Dark Mode --
-*/
+      -- Dark Mode --
+  */
 
 .dark {
   background: #151d2a;
@@ -2070,6 +2070,7 @@ input[type="checkbox"]:checked::after {
 /*      --End Account--   */
 
 /* ==> Start Contact <== */
+
 .contact .cont-text {
   margin: 40px 0 40px 20px;
   padding: 20px;
@@ -2223,23 +2224,51 @@ input[type="checkbox"]:checked::after {
   box-shadow: 0px 0px 5px #e74c3c;
 }
 
-.contact .contact-container .contact-button {
+.contact-button button {
+  position: relative;
+  display: block;
   width: 100%;
   height: 56px;
   padding: 16px 48px;
   gap: 10px;
   margin-top: 10px;
-  background-color: var(--main-color);
-  color: white;
-  border-radius: 4px;
+  border-radius: 25px;
+  border: 2px solid var(--main-color);
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.6s ease, transform 0.6s ease;
+  background-color: #fafafa;
+  font-size: 17px;
+  font-weight: bold;
+  color: var(--main-color);
+  overflow: hidden;
+  transition: color 0.3s ease-in-out;
+  z-index: 1;
 }
 
-.contact .contact-container .contact-button:hover {
-  background-color: #e07575;
-  transform: scale(1.05);
+.contact-button button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--main-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.contact-button button:hover::before {
+  transform: scaleX(1);
+}
+
+.contact-button button:hover {
+  color: white;
+}
+
+.contact-button button span {
+  position: relative;
+  z-index: 2;
 }
 
 /* Contact Dark */
@@ -2277,6 +2306,9 @@ input[type="checkbox"]:checked::after {
 .dark .contact .contact-container .contact-form .form input,
 .dark .contact .contact-container .contact-form .form textarea {
   background: #eee;
+}
+.dark .contact-button button {
+  background: #151d2a;
 }
 
 /* Responsive Contact */
@@ -2348,4 +2380,267 @@ input[type="checkbox"]:checked::after {
     margin: 20px auto 0;
   }
 }
+
 /* ==> End Contact <== */
+
+/* ==> Start Sign And Login <== */
+
+.sign,
+.login {
+  height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign .sign-container,
+.login .login-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.sign-image,
+.login-image {
+  flex: 1;
+  background: url("images/login.jpg") no-repeat center center / cover;
+}
+
+.sign .sign-container .sign-form,
+.login .login-container .login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+.sign-form h6,
+.login-form h6 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.sign-form p,
+.login-form p {
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.sign-form .input-box,
+.login-form .input-box {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  min-width: 350px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.sign-form input,
+.sign-form select,
+.login-form input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-bottom: 2px solid #555;
+  padding-right: 25px;
+  transition: 0.5s;
+}
+
+.sign-form .input-box input:focus,
+.sign-form .input-box input:valid,
+.sign-form .input-box select:focus,
+.login-form .input-box input:focus,
+.login-form .input-box input:valid {
+  border-bottom: 2px solid var(--main-color);
+}
+
+.sign-form label,
+.login-form label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--dark-color);
+  transition: 0.5s;
+}
+
+.sign-form i,
+.login-form i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 18px;
+  transform: translateY(-50%);
+  transition: 0.5s;
+}
+
+.sign-form .input-box input:focus ~ label,
+.sign-form .input-box input:valid ~ label,
+.sign-form .input-box select:focus ~ label,
+.login-form .input-box input:focus ~ label,
+.login-form .input-box input:valid ~ label {
+  top: -5px;
+  font-size: 14px;
+  color: var(--main-color);
+}
+
+.sign-form .input-box input:focus ~ i,
+.sign-form .input-box input:valid ~ i,
+.sign-form .input-box select:focus ~ i,
+.login-form .input-box input:focus ~ i,
+.login-form .input-box input:valid ~ i {
+  top: -5px;
+  color: var(--main-color);
+}
+
+.sign-form .input-box button,
+.login-form .input-box button {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  min-width: 350px;
+  height: 55px;
+  border-radius: 25px;
+  border: 2px solid var(--main-color);
+  cursor: pointer;
+  background-color: #fafafa;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--main-color);
+  overflow: hidden;
+  transition: color 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.sign-form .input-box button::before,
+.login-form .input-box button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--main-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.sign-form .input-box button:hover::before,
+.login-form .input-box button:hover::before {
+  transform: scaleX(1);
+}
+
+.sign-form .input-box button:hover,
+.login-form .input-box button:hover {
+  color: white;
+}
+
+.sign-form .input-box button span,
+.login-form .input-box button span {
+  position: relative;
+  z-index: 2;
+}
+
+.sign-form .already-account,
+.login-form .forgt-passwd {
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.sign-form .already-account a,
+.login-form .forgt-passwd a {
+  color: var(--dark-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sign-form .already-account a:hover,
+.login-form .forgt-passwd a:hover {
+  color: var(--main-color);
+}
+
+/* Dark */
+
+.dark .sign-form h6,
+.dark .login-form h6,
+.dark .sign-form p,
+.dark .login-form p,
+.dark .sign-form .already-account,
+.dark .login-form .forgt-passwd,
+.dark .sign-form i,
+.dark .login-form i,
+.dark .sign-form input,
+.dark .sign-form select,
+.dark .login-form input {
+  color: var(--text-color);
+}
+
+.dark .sign-form select option {
+  background: #151d2a;
+}
+
+.dark .input-box button {
+  background: #151d2a;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .sign,
+  .login {
+    height: auto;
+    padding: 50px 20px;
+  }
+
+  .sign .sign-container,
+  .login .login-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sign .sign-container .sign-image,
+  .login .login-container .login-image {
+    display: none;
+  }
+
+  .sign .sign-container .sign-form,
+  .login .login-container .login-form {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .input-box {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .sign-form input,
+  .sign-form select,
+  .login-form input {
+    font-size: 16px;
+  }
+
+  .input-box button {
+    font-size: 16px;
+  }
+
+  .sign-form .already-account,
+  .login-form .forgt-passwd {
+    text-align: center;
+  }
+}
+
+/* ==> End Sign And Login  <== */

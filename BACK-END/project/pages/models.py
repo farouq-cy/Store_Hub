@@ -139,3 +139,17 @@ class FlashSale(models.Model):
     class Meta:
         verbose_name = "فلاش سيل"
         verbose_name_plural = "فلاش سيلات"
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.name}"
+
+    class Meta:
+        verbose_name = "رسالة"
+        verbose_name_plural = "رسائل"

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Product, Order, Report, DeliveryAssignment, FlashSale
+from .models import User, Product, Order, Report, DeliveryAssignment, FlashSale, ContactMessage
 
 # تسجيل نموذج User
 @admin.register(User)
@@ -76,6 +76,12 @@ class DeliveryAssignmentAdmin(admin.ModelAdmin):
 @admin.register(FlashSale)
 class FlashSaleAdmin(admin.ModelAdmin):
     list_display = ('product', 'start_date', 'end_date', 'old_price', 'new_price', 'rating')
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone', 'message', 'created_at')
+    list_filter = ('created_at',)
+    search_fields = ('name', 'email', 'phone', 'message')
 
 # إعدادات عامة للـ Admin
 admin.site.site_header = 'STOREHUB'

@@ -1,6 +1,7 @@
-from django.shortcuts import render 
+from django.shortcuts import render , redirect
 from .models import *
 from django.db.models import Count , Max
+from .forms import ContactForm
 def index(request):
     # جلب المنتجات الأكثر إعجابًا
     top_products = Product.objects.annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]
@@ -26,6 +27,24 @@ def login(request):
 
 def register(request):
     return render(request, 'pages/signup.html')
+
+def contact_view(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        message = request.POST.get('message')
+
+        ContactMessage.objects.create(
+            name=name,
+            email=email,
+            phone=phone,
+            message=message
+        )
+        
+        return redirect('contact')  # إعادة تحميل الصفحة بعد الإرسال
+
+    return render(request, 'pages/contact.html')
 
 
 
