@@ -66,7 +66,7 @@ setInterval(updateClock, 1000);
 // End Timer
 
 // Start swiper product in section Four
-var x = new Swiper(".products", {
+var x = new Swiper(".pro-div .container .products", {
   slidesPerView: 4,
   spaceBetween: 30,
   autoplay: { delay: 3000 },
