@@ -1,0 +1,131 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <title>Store Hub | About</title>
+    
+  </head>
+  <div class="breadcrumb-about">
+    <a href="{% url 'index' %}" class="a1">Home</a>
+    <span class="a2">/</span>
+    <a href="{% url 'about' %}" class="a2">About</a>
+</div>
+  <body class="light">
+  </div>
+    
+    <main class="about-section">
+        <div class="team">
+          <div class="team-member">
+            <img src="{% static 'images/mariam.jpg' %}" alt="Mariam Ayman">
+            <h3>Mariam Ayman</h3>
+            <p>Front_end developer</p>
+            <ul class="social-links">
+              <ul class="social-links">
+                
+                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/mariamayman147?igsh=MXh4dWp0cnYzemFveg==" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/mariam-ayman-0648922a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+              </ul>
+          </div>
+          <div class="team-member">
+            <img src="{% static 'images/menna.jpg' %}" alt="menna mohammed">
+            <h3>Menna Allah Mohamed</h3>
+            <p>Front_end developer</p>
+            <ul class="social-links">
+              <ul class="social-links">
+                
+                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+              </ul>
+          </div>
+          <div class="team-member">
+            <img src="{% static 'images/fady.jpg' %}" alt="Fady Ashraf">
+            <h3>Fady Ashraf</h3>
+            <p>Full-stack developer</p>
+            <ul class="social-links">
+              <ul class="social-links">
+                <li><a href="https://www.threads.net/@fady_foda1" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/fady_foda1?igsh=a3Q2Y3hxMGIwcHJz" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+              </ul>
+          </div>
+          <div class="team-member">
+            <img src="{% static 'images/maged.jpg' %}" alt="Mariam Ayman">
+            <h3>Maged Emel</h3>
+            <p>Front-End Developer</p>
+            <ul class="social-links">
+              <ul class="social-links">
+                
+                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/magooood.0/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/maged-emel-sobhy-a5b50a265/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+              </ul>
+          </div>
+          <div class="team-member">
+            <img src="{% static 'images/mariam.jpg' %}" alt="Mariam Ayman">
+            <h3>Mariam Ayman</h3>
+            <p>Front_end developer</p>
+            <ul class="social-links">
+              <ul class="social-links">
+                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+              </ul>
+          </div>
+          <div class="team-member">
+            <img src="{% static 'images/mariam.jpg' %}" alt="Mariam Ayman">
+            <h3>Mariam Ayman</h3>
+            <p>Front_end developer</p>
+            <ul class="social-links">
+              <ul class="social-links">
+                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+              </ul>
+          </div>
+         </div>
+          <section class="features">
+            <div class="feature-box">
+              <i class="fa-solid fa-truck"></i>
+              <h3>FREE AND FAST DELIVERY</h3>
+              <p>Free delivery for all orders over $140</p>
+            </div>
+            <div class="feature-box">
+              <i class="fa-solid fa-headset"></i>
+              <h3>24/7 CUSTOMER SERVICE</h3>
+              <p>Friendly 24/7 customer support</p>
+            </div>
+            <div class="feature-box">
+              <i class="fa-solid fa-shield"></i>
+              <h3>MONEY BACK GUARANTEE</h3>
+              <p>We return money within 30 days</p>
+            </div>
+          </section>
+    </main>
+    <script src="{% static 'js/test.js' %}"></script>
+  </body>
+</html>
+{% endblock content %}
