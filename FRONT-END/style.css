@@ -1581,7 +1581,7 @@ body.dark .breadcrumb .a2 {
 
 .form-group input:focus {
   scale: 1.05;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--main-color);
 }
 
 .dark .form-group input {
@@ -1914,7 +1914,7 @@ input[type="checkbox"]:checked::after {
 
 .form-account input:focus {
   scale: 1.05;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--main-color);
 }
 
 .form-actions {
@@ -2653,3 +2653,5 @@ input[type="checkbox"]:checked::after {
 }
 
 /* ==> End Sign And Login  <== */
+
+
