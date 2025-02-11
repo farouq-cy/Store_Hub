@@ -1,7 +1,11 @@
 from django.shortcuts import render , redirect
 from .models import *
-from django.db.models import Count , Max
+from django.db.models import Count , Max , Avg
 from .forms import ContactForm
+from .forms import SignUpForm
+from django.contrib import messages 
+from django.contrib.auth import login
+
 def index(request):
     # جلب المنتجات الأكثر إعجابًا
     top_products = Product.objects.annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]
@@ -19,14 +23,64 @@ def index(request):
         'max_time': max_time
     })
 
+
+
 def about(request):
     return render(request, 'pages/about.html')
+
+
+
+
+
 
 def login(request):
     return render(request, 'pages/login.html')
 
+
+
+
+
+
 def register(request):
-    return render(request, 'pages/signup.html')
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+
+            # تحقق من وجود اسم المستخدم والبريد الإلكتروني
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "اسم المستخدم هذا موجود بالفعل.")
+                return redirect('register')
+
+            if User.objects.filter(email=email).exists():
+                messages.error(request, "البريد الإلكتروني هذا مسجل بالفعل.")
+                return redirect('register')
+
+            # إذا لم يكن هناك خطأ، قم بإنشاء المستخدم
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password1'])  # تأكيد الباسورد
+            user.save()
+
+            print(f"User Created: {user.username}, {user.email}, {user.role}, {user.PhoneNumber}")
+
+            # تسجيل الدخول بعد التسجيل
+            login(request, user)
+
+            messages.success(request, "تم إنشاء الحساب بنجاح!")  # رسالة نجاح
+
+            return redirect('login')  # بعد التسجيل يمكنه الانتقال إلى صفحة تسجيل الدخول
+
+        else:
+            print("Form Errors:", form.errors)
+
+    else:
+        form = SignUpForm()
+
+    return render(request, 'pages/signUp.html', {'form': form})
+
+
+
 
 def contact_view(request):
     if request.method == "POST":
@@ -42,7 +96,7 @@ def contact_view(request):
             message=message
         )
         
-        return redirect('contact')  # إعادة تحميل الصفحة بعد الإرسال
+        return redirect('contact')
 
     return render(request, 'pages/contact.html')
 

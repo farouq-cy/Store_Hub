@@ -1,9 +1,13 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -18,126 +22,107 @@
     <title>Store Hub | Sign Up</title>
   </head>
   <body class="light">
-    <!--Header-->
-    <header>
-      <div class="container">
-        <nav>
-          <h1>STOREHUB</h1>
-          <div class="linkes">
-            <a href="#" class="active"><p>Home</p></a>
-            <a href="#"><p>All Product</p></a>
-            <a href="about.html"><p>About</p></a>
-            <a href="contact.html"><p>Contact</p></a>
-          </div>
-          <form class="header-form">
-            <input type="search" placeholder="Seacrch" class="seacrch" />
-            <i class="fa-regular fa-heart"></i>
-            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="account.html"><i class="fa-regular fa-user"></i></a>
-            <input type="checkbox" id="toggle" />
+    <style>
+      .input-box:hover {
+          background-color: #f0f0f0;
+          border-color: #007bff;
+      }
 
-            <label class="toggle" for="toggle">
-              <i class="bx bxs-sun"></i>
-              <i class="bx bx-moon"></i>
-              <span class="ball"></span>
-            </label>
-          </form>
-        </nav>
-      </div>
-    </header>
+      button:hover {
+          background-color: #0056b3;
+          color: white;
+      }
+
+      .alert {
+          color: #721c24;
+          background-color: #f8d7da;
+          border-color: #f5c6cb;
+          padding: 10px;
+          margin-bottom: 15px;
+      }
+
+      .error-message {
+          color: red;
+          font-size: 12px;
+          margin-top: 5px;
+      }
+    </style>
     <!-- Start Sign -->
     <div class="sign">
       <div class="sign-container">
-        <div class="sign-image"></div>
+        <div class="sign-image">
+          <img src="{% static 'images/login.png' %}" alt="Login Image">
+        </div>
         <div class="sign-form">
           <h6>Create an account</h6>
           <p>Enter your details below</p>
-          <form action="#">
+          
+          <!-- عرض رسائل الخطأ إذا كانت موجودة -->
+          {% if messages %}
+            <div class="messages">
+              {% for message in messages %}
+                <div class="alert alert-danger">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <form method="post">
+            {% csrf_token %}
+
             <div class="input-box">
-              <input type="text" required />
-              <label>Name</label>
+              <input type="text" name="username" id="id_username" required>
+              <label for="id_username">Name</label>
               <i class="fa-solid fa-user"></i>
             </div>
+
             <div class="input-box">
-              <input type="email" required />
-              <label>Email</label>
+              <input type="email" name="email" id="id_email" required>
+              <label for="id_email">Email</label>
               <i class="fa-solid fa-envelope"></i>
             </div>
+
             <div class="input-box">
-              <input type="tel" required inputmode="numeric" />
-              <label>Phone Number</label>
+              <input type="text" name="PhoneNumber" id="id_PhoneNumber" required>
+              <label for="id_PhoneNumber">Phone Number</label>
               <i class="fa-solid fa-phone"></i>
             </div>
+
             <div class="input-box">
-              <input type="password" required minlength="8" />
-              <label>Password</label>
+              <input type="password" name="password1" id="id_password1" required>
+              <label for="id_password1">Password</label>
               <i class="fa-solid fa-lock"></i>
             </div>
+
             <div class="input-box">
-              <input type="password" required minlength="8" />
-              <label>Confirm Password</label>
+              <input type="password" name="password2" id="id_password2" required>
+              <label for="id_password2">Confirm Password</label>
               <i class="fa-solid fa-lock"></i>
             </div>
+
             <div class="input-box">
-              <select required>
-                <option value="" disabled selected>Select Your Role</option>
-                <option value="Customer">Customer</option>
-                <option value="Sale">Seller</option>
-                <option value="Delivery">Delivery</option>
+              <select name="role" id="id_role" required>
+                  <option value=""></option>
+                  {% for value, label in form.role.field.choices %}
+                      <option value="{{ value }}">{{ label }}</option>
+                  {% endfor %}
               </select>
+              <label for="id_role">Select Your Role</label>
               <i class="fa-solid fa-user-tag"></i>
-            </div>
+          </div>
             <div class="input-box">
               <button type="submit"><span>Sign Up</span></button>
             </div>
+
             <div class="already-account">
-              Already have an account? <a href="login.html">Login</a>
+              Already have an account? <a href="{% url 'login' %}">Login</a>
             </div>
           </form>
         </div>
       </div>
     </div>
     <!-- End Sign -->
-    <!--Footer-->
-    <footer>
-      <div class="container">
-        <div class="foot1">
-          <h3>STOREHUB</h3>
-          <a href="#"><p>Subscribe</p></a>
-          <a href="#"><p>Get 10% off your first order</p></a>
-          <input
-            type="email"
-            class="seacrch"
-            placeholder="Enter Your Email : "
-          />
-        </div>
-        <div class="foot2">
-          <h3>Support</h3>
-          <a href="#"><p>NATU - NEW ASSUIT</p></a>
-          <a href="#"><p>StoreHub@gmail.com</p></a>
-          <a href="#"><p>+201551803645</p></a>
-          <a href="#"><p>+201551954315</p></a>
-        </div>
-        <div class="foot3">
-          <h3>Account</h3>
-          <a href="account.html"><p>My Account</p></a>
-          <a href="signUp.html"><p>Login / Register</p></a>
-          <a href="cart.html"><p>Cart</p></a>
-          <a href="#"><p>All Product</p></a>
-          <a href="#"><p>Shop</p></a>
-        </div>
-        <div class="foot4">
-          <h3>Quick Link</h3>
-          <a href="#"><p>Privacy Policy</p></a>
-          <a href="#"><p>Terms Of Use</p></a>
-          <a href="#"><p>FAQ</p></a>
-          <a href="contact.html"><p>Contact</p></a>
-        </div>
-      </div>
-      <p style="text-align: center; padding-bottom: 8px">
-        Copyright &copy;<span> STOREHUB </span>all right reserved
-      </p>
-    </footer>
-    <script src="js/main.js"></script>
+    
+    <script src="{% static 'js/test.js' %}"></script>
   </body>
 </html>
+{% endblock %}

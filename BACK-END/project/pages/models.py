@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
     
-# نموذج User
 class User(AbstractUser):
     ROLE_CHOICES = [
         ('user', 'User'),
@@ -28,7 +27,7 @@ class User(AbstractUser):
         help_text='Specific permissions for this user.',
     )
 
-    def _str_(self):
+    def __str__(self):  # تم تصحيح اسم الدالة هنا
         return self.username
 
     class Meta:
@@ -37,7 +36,7 @@ class User(AbstractUser):
 
 # نموذج Product
 class Product(models.Model):
-    name = models.CharField(max_length=255, verbose_name="اسم المنتج", blank=True, null=True, default="منتج بدون اسم")
+    name = models.CharField(max_length=255 ,verbose_name="اسم المنتج", blank=True, null=True, default="منتج بدون اسم")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="السعر", default=0.00)
     saler = models.ForeignKey(User, on_delete=models.CASCADE, related_name='products', null=True, blank=True)  # ربط المنتج بالـ Saler
     image = models.ImageField(upload_to='products/', default='default.jpg',verbose_name="صورة المنتج", blank=True, null=True)
