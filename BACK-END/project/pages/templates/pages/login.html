@@ -1,7 +1,8 @@
 {% extends 'pages/base.html' %}
-{% load static %}
+
 {% block content %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -28,22 +29,37 @@
         <div class="login-form">
           <h6>Login To Exclusive</h6>
           <p>Enter your details below</p>
-          <form action="#">
+
+          <!-- عرض رسائل الخطأ إذا كانت موجودة -->
+          {% if messages %}
+            <div class="messages">
+              {% for message in messages %}
+                <div class="alert alert-danger">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <form method="post">
+            {% csrf_token %}
+
             <div class="input-box">
-              <input type="text" required />
-              <label for="">Email or Phone Number</label>
+              {{ form.username }}
+              <label for="id_username">Email or Phone Number</label>
               <i class="fa-solid fa-envelope"></i>
             </div>
+
             <div class="input-box">
-              <input type="Password" required />
-              <label for="">Password</label>
+              {{ form.password }}
+              <label for="id_password">Password</label>
               <i class="fa-solid fa-lock"></i>
-            </div> 
+            </div>
+
             <div class="forgt-passwd">
               <a href="#">Forgot Password?</a>
             </div>
+
             <div class="input-box">
-              <button ><span>Login</span></button>
+              <button type="submit"><span>Login</span></button>
             </div>
           </form>
         </div>
@@ -53,4 +69,4 @@
     <script src="{% static 'js/fady.js' %}"></script>
   </body>
 </html>
-{% endblock content %}
+{% endblock %}

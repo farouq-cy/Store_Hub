@@ -9,251 +9,155 @@
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
-
-  <!--Link Swiper-->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <title>Store Hub | Main</title>
 </head>
+  <body class="light">
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <nav>
+          <h1>STOREHUB</h1>
+          <div class="linkes">
+            <a href="{% url 'index' %}" >
+              <p>Home</p>
+            </a>
+            <a href="">
+              <p>All Product</p>
+            </a>
+            <a href="{% url 'about' %}">
+              <p>About</p>
+            </a>
+            <a href="{% url 'contact' %}">
+              <p>Contact</p>
+            </a>
+          </div>
+          <form class="header-form">
+            <input type="search" placeholder="Seacrch" class="seacrch" />
+            <i class="fa-regular fa-heart"></i>
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="{% url 'register' %}"><i class="fa-regular fa-user"></i></a>
+            <input type="checkbox" id="toggle" />
 
-<body class="light">
-  <!--Header-->
-  <header>
-    <div class="container">
-      <nav>
-        <h1>STOREHUB</h1>
-        <div class="linkes">
-          <a href="#" class="active">
-            <p>Home</p>
-          </a>
-          <a href="allproduct.html">
-            <p>All Product</p>
-          </a>
-          <a href="about.html">
-            <p>About</p>
-          </a>
-          <a href="contact.html">
-            <p>Contact</p>
-          </a>
+            <label class="toggle" for="toggle">
+              <i class="bx bxs-sun"></i>
+              <i class="bx bx-moon"></i>
+              <span class="ball"></span>
+            </label>
+          </form>
+        </nav>
+      </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="top_page">
+      <div class="container">
+        <h1>Experience the Future of Technology With Our Topico.</h1>
+        <p>
+          Find everything you need to transform your home into a smart, connected space. Our Topico store offers a wide
+          range of devices to fit your needs.
+        </p>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="allproduct">
+      <div class="container">
+        <div class="filter">
+          <h2>Filter</h2>
+
+          <!-- Category Filter -->
+          <div class="filter_item">
+            <h4>Category</h4>
+            <div class="content">
+              <div class="item"><span>Men's Fashion</span><input type="checkbox"></div>
+              <div class="item"><span>Women's Fashion</span><input type="checkbox"></div>
+              <div class="item"><span>Electronics</span><input type="checkbox"></div>
+              <div class="item"><span>Medicine</span><input type="checkbox"></div>
+              <div class="item"><span>Phone & Tablet</span><input type="checkbox"></div>
+              <div class="item"><span>Sports & Outdoor</span><input type="checkbox"></div>
+              <div class="item"><span>Fashion & Clothing</span><input type="checkbox"></div>
+              <div class="item"><span>TV & Audio</span><input type="checkbox"></div>
+            </div>
+          </div>
+
+          <!-- Color Filter -->
+          <div class="filter_item">
+            <h4>Color</h4>
+            <div class="content">
+              <div class="item"><span class="color" style="background: red;"></span><input type="checkbox"></div>
+              <div class="item"><span class="color" style="background: green;"></span><input type="checkbox"></div>
+              <div class="item"><span class="color" style="background: yellow;"></span><input type="checkbox"></div>
+              <div class="item"><span class="color" style="background: blue;"></span><input type="checkbox"></div>
+              <div class="item"><span class="color" style="background: orangered;"></span><input type="checkbox"></div>
+              <div class="item"><span class="color" style="background: black;"></span><input type="checkbox"></div>
+            </div>
+          </div>
         </div>
-        <form class="header-form">
-          <input type="search" placeholder="Seacrch" class="seacrch" />
-          <i class="fa-regular fa-heart"></i>
-          <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-          <a href="account.html"><i class="fa-regular fa-user"></i></a>
-          <input type="checkbox" id="toggle" />
 
-          <label class="toggle" for="toggle">
-            <i class="bx bxs-sun"></i>
-            <i class="bx bx-moon"></i>
-            <span class="ball"></span>
-          </label>
-        </form>
-      </nav>
-    </div>
-  </header>
+        <!-- Product Cards -->
+        <div class="products_dev">
+          <div class="product-card">
+            <img src="images/camera.png" alt="Product 1" class="product-image" />
+            <div class="product-buttons">
+              <button title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
+              <button title="Like"><i class="fas fa-heart"></i></button>
+              <button title="Share"><i class="fas fa-share-alt"></i></button>
+            </div>
+            <h3 class="product-title">CAMERA</h3>
+            <div class="rating">★★★★☆</div>
+          </div>
+        </div>
+      </div>
 
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="pagination-btn" title="Previous Page"><i class="fas fa-angle-double-left"></i></button>
+        <button class="pagination-number active">1</button>
+        <button class="pagination-number">2</button>
+        <button class="pagination-number">3</button>
+        <button class="pagination-btn" title="Next Page"><i class="fas fa-angle-double-right"></i></button>
+      </div>
+    </section>
 
-  <div class="top_page">
-    <div class="container">
-      <h1>
-        Experience the Future of Technology With out Topico.
-      </h1>
-
-      <p>
-        Find everything you need to transform your home into a smart , Connected space , Our Topico store offers a wide
-        range of devices to fit your needs
+    <!-- Footer Section -->
+    <footer>
+      <div class="container">
+        <div class="foot1">
+          <h3>STOREHUB</h3>
+          <a href="#"><p>Subscribe</p></a>
+          <a href="#"><p>Get 10% off your first order</p></a>
+          <input type="email" class="search" placeholder="Enter Your Email : " />
+        </div>
+        <div class="foot2">
+          <h3>Support</h3>
+          <a href="#"><p>NATU - NEW ASSUIT</p></a>
+          <a href="#"><p>StoreHub@gmail.com</p></a>
+          <a href="#"><p>+201551803645</p></a>
+          <a href="#"><p>+201551954315</p></a>
+        </div>
+        <div class="foot3">
+          <h3>Account</h3>
+          <a href="account.html"><p>My Account</p></a>
+          <a href="#"><p>Login / Register</p></a>
+          <a href="cart.html"><p>Cart</p></a>
+          <a href="#"><p>All Product</p></a>
+          <a href="#"><p>Shop</p></a>
+        </div>
+        <div class="foot4">
+          <h3>Quick Link</h3>
+          <a href="#"><p>Privacy Policy</p></a>
+          <a href="#"><p>Terms Of Use</p></a>
+          <a href="#"><p>FAQ</p></a>
+          <a href="contact.html"><p>Contact</p></a>
+        </div>
+      </div>
+      <p style="text-align: center; padding-bottom: 8px">
+        Copyright &copy;<span> STOREHUB </span>all right reserved
       </p>
-    </div>
-  </div>
-  <div class="allproduct">
-    <div class="container">
-      <div class="filter">
-        <h2>Filter</h2>
-
-        <div class="filter_item">
-          <h4>Categorie</h4>
-          <div class="content">
-
-            <div class="item">
-              <span>Men's Fashion</span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span>Woman's Fashion</span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span>Electronics</span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span>Medicine</span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span>Phone & Tablet</span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span>Sportes & Outdoor</span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span>Fashion & Clothings</span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span>TV & Audio</span>
-              <input type="checkbox">
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="filter_item">
-          <h4>Color</h4>
-          <div class="content">
-
-            <div class="item">
-              <span class="color" style="background: red;"></span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span class="color" style="background: green;"></span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span class="color" style="background: yellow;"></span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span class="color" style="background: blue;"></span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span class="color" style="background: orangered;"></span>
-              <input type="checkbox">
-            </div>
-
-            <div class="item">
-              <span class="color" style="background: black;"></span>
-              <input type="checkbox">
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div class="products_dev">
-        <div class="product-card">
-          <img src="images/camera.png" alt="Product 1" class="product-image" />
-          <div class="product-buttons">
-            <button title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
-            <button title="Like"><i class="fas fa-heart"></i></button>
-            <button title="Share"><i class="fas fa-share-alt"></i></button>
-          </div>
-          <h3 class="product-title">CAMERA </h3>
-          <div class="rating">★★★★☆</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pagination">
-      <button class="pagination-btn" title="Previous Page">
-        <i class="fas fa-angle-double-left"></i>
-      </button>
-      <button class="pagination-number active">1</button>
-      <button class="pagination-number">2</button>
-      <button class="pagination-number">3</button>
-      <button class="pagination-btn" title="Next Page">
-        <i class="fas fa-angle-double-right"></i>
-      </button>
-    </div>
-
-  </div>
-
-  <!--Footer-->
-  <footer>
-    <div class="container">
-      <div class="foot1">
-        <h3>STOREHUB</h3>
-        <a href="#">
-          <p>Subscribe</p>
-        </a>
-        <a href="#">
-          <p>Get 10% off your first order</p>
-        </a>
-        <input type="email" class="seacrch" placeholder="Enter Your Email : " />
-      </div>
-      <div class="foot2">
-        <h3>Support</h3>
-        <a href="#">
-          <p>NATU - NEW ASSUIT</p>
-        </a>
-        <a href="#">
-          <p>StoreHub@gmail.com</p>
-        </a>
-        <a href="#">
-          <p>+201551803645</p>
-        </a>
-        <a href="#">
-          <p>+201551954315</p>
-        </a>
-      </div>
-      <div class="foot3">
-        <h3>Account</h3>
-        <a href="account.html">
-          <p>My Account</p>
-        </a>
-        <a href="#">
-          <p>Login / Register</p>
-        </a>
-        <a href="cart.html">
-          <p>Cart</p>
-        </a>
-        <a href="#">
-          <p>All Product</p>
-        </a>
-        <a href="#">
-          <p>Shop</p>
-        </a>
-      </div>
-      <div class="foot4">
-        <h3>Quick Link</h3>
-        <a href="#">
-          <p>Privacy Policy</p>
-        </a>
-        <a href="#">
-          <p>Terms Of Use</p>
-        </a>
-        <a href="#">
-          <p>FAQ</p>
-        </a>
-        <a href="contact.html">
-          <p>Contact</p>
-        </a>
-      </div>
-    </div>
-    <p style="text-align: center; padding-bottom: 8px">
-      Copyright &copy;<span> STOREHUB </span>all right reserved
-    </p>
-  </footer>
-
+    </footer>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
-  </body>
+</body>
 
 </html>

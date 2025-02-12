@@ -221,3 +221,8 @@ JAZZMIN_UI_TWEAKS = {
 #media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+CSRF_COOKIE_NAME = 'csrftoken'
+SESSION_COOKIE_NAME = 'sessionid'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'

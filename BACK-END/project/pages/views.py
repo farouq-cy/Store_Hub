@@ -1,10 +1,10 @@
 from django.shortcuts import render , redirect
 from .models import *
 from django.db.models import Count , Max , Avg
-from .forms import ContactForm
-from .forms import SignUpForm
+from .forms import *
 from django.contrib import messages 
 from django.contrib.auth import login
+from django.views.decorators.csrf import csrf_protect
 
 def index(request):
     # جلب المنتجات الأكثر إعجابًا
@@ -32,10 +32,21 @@ def about(request):
 
 
 
+@csrf_protect
+def login_view(request):
+    if request.method == 'POST':
+        form = CustomLoginForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            messages.success(request, 'You have successfully logged in!')
+            return redirect('index')  # أو أي صفحة تانية بعد تسجيل الدخول
+        else:
+            messages.error(request, 'Invalid login credentials!')
+    else:
+        form = CustomLoginForm()
 
-def login(request):
-    return render(request, 'pages/login.html')
-
+    return render(request, 'pages/login.html', {'form': form})
 
 
 
