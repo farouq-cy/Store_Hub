@@ -5,6 +5,8 @@ from .forms import *
 from django.contrib import messages 
 from django.contrib.auth import login
 from django.views.decorators.csrf import csrf_protect
+from django.http import JsonResponse
+from django.db.models import Q
 
 def index(request):
     # جلب المنتجات الأكثر إعجابًا
@@ -112,9 +114,54 @@ def contact_view(request):
     return render(request, 'pages/contact.html')
 
 
+
+
+
+
 def allproducts(request):
+    categories = Category.objects.all()
+    colors = [
+        ('red', 'Red'),
+        ('green', 'Green'),
+        ('yellow', 'Yellow'),
+        ('blue', 'Blue'),
+        ('orangered', 'OrangeRed'),
+        ('black', 'Black')
+    ]
+
     products = Product.objects.all()
-    return render(request, 'pages/allproduct.html', {'products': products})
+
+    # استلام البيانات من `GET` لو الفلترة مفعلة
+    selected_categories = request.GET.getlist('category')
+    selected_colors = request.GET.getlist('color')
+
+    # تحسين الفلترة باستخدام Q object
+    if selected_categories:
+        category_filter = Q()
+        for cat_id in selected_categories:
+            category_filter |= Q(category_id=cat_id)
+        products = products.filter(category_filter)
+
+    if selected_colors:
+        products = products.filter(color__in=selected_colors)
+
+    # إضافة قائمة من الأرقام للتكرار 5 مرات في القالب
+    star_range = products.aggregate(Max('rating'))['rating__max']
+    if star_range is None:  # التعامل مع حالة عدم وجود تقييمات
+        star_range = 5
+
+    # إضافة أي عناصر أخرى للـ context
+    context = {
+        'categories': categories,
+        'colors': colors,
+        'products': products,
+    }
+
+    # التحقق إذا كان الطلب هو AJAX
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return render(request, 'pages/allproduct_list.html', context)
+
+    return render(request, 'pages/allproduct.html', context)
 
 
 

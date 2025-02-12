@@ -78,7 +78,6 @@ class Product(models.Model):
     class Meta:
         verbose_name = "منتج"
         verbose_name_plural = "منتجات"
-        ordering = ['-rating']
 
     def _str_(self):
         return self.name
