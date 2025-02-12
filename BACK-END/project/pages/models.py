@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-    
+from django.contrib.auth.models import User
+
 class User(AbstractUser):
     ROLE_CHOICES = [
         ('user', 'User'),
@@ -34,19 +35,51 @@ class User(AbstractUser):
         verbose_name = "مستخدم"
         verbose_name_plural = "المستخدمين"
 
-# نموذج Product
+#نموذج Product
+class Category(models.Model):
+    name = models.CharField(max_length=50, unique=True, verbose_name="التصنيف")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "تصنيف"
+        verbose_name_plural = "تصنيفات"
+
+
 class Product(models.Model):
-    name = models.CharField(max_length=255 ,verbose_name="اسم المنتج", blank=True, null=True, default="منتج بدون اسم")
+    name = models.CharField(max_length=255, verbose_name="اسم المنتج", blank=True, null=True, default="منتج بدون اسم")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="السعر", default=0.00)
-    saler = models.ForeignKey(User, on_delete=models.CASCADE, related_name='products', null=True, blank=True)  # ربط المنتج بالـ Saler
-    image = models.ImageField(upload_to='products/', default='default.jpg',verbose_name="صورة المنتج", blank=True, null=True)
+    saler = models.ForeignKey(User, on_delete=models.CASCADE, related_name='products', null=True, blank=True)
+    image = models.ImageField(upload_to='products/', default='default.jpg', verbose_name="صورة المنتج", blank=True, null=True)
     color = models.CharField(max_length=50, verbose_name="اللون", blank=True, null=True)
     likes = models.ManyToManyField(User, related_name='product_likes', blank=True, verbose_name="اللايكات")
-    rating = models.FloatField(
-        default=0,
-        verbose_name="التقييم"
-    )
-    
+    color = models.CharField(max_length=50, choices=[
+        ('red', 'Red'),
+        ('green', 'Green'),
+        ('yellow', 'Yellow'),
+        ('blue', 'Blue'),
+        ('orangered', 'OrangeRed'),
+        ('black', 'Black')],
+        default="black", verbose_name="اللون")
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="التصنيف")
+    rating = models.FloatField(default=0, verbose_name="التقييم")
+
+    def __str__(self):
+        return self.name
+
+    def total_likes(self):
+        return self.likes.count()
+
+    def update_rating(self, new_rating):
+        self.rating = new_rating
+        self.save()
+
+    class Meta:
+        verbose_name = "منتج"
+        verbose_name_plural = "منتجات"
+        ordering = ['-rating']
+
     def _str_(self):
         return self.name
 
@@ -152,3 +185,4 @@ class ContactMessage(models.Model):
     class Meta:
         verbose_name = "رسالة"
         verbose_name_plural = "رسائل"
+

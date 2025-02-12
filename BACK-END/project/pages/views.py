@@ -112,7 +112,9 @@ def contact_view(request):
     return render(request, 'pages/contact.html')
 
 
-
+def allproducts(request):
+    products = Product.objects.all()
+    return render(request, 'pages/allproduct.html', {'products': products})
 
 
 

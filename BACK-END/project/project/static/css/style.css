@@ -2403,7 +2403,16 @@ input[type="checkbox"]:checked::after {
 .sign-image,
 .login-image {
   flex: 1;
-  background: url("images/login.jpg") no-repeat center center / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sign-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .sign .sign-container .sign-form,
@@ -2644,3 +2653,299 @@ input[type="checkbox"]:checked::after {
 }
 
 /* ==> End Sign And Login  <== */
+
+
+/* ==> Start All Product  <== */
+.top_page {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.top_page h1 {
+  font-size: 40px;
+  color: var(--main-color);
+  margin-bottom: 25px;
+}
+
+.top_page p {
+  font-size: 18px;
+  margin: auto;
+  color: #666666;
+  width: 60%;
+}
+
+
+.allproduct .container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  gap: 6%;
+  padding: 15px;
+}
+
+.allproduct .container .filter {
+  background: #fff;
+  color: var(--text-color);
+  width: 250px;
+  text-transform: capitalize;
+  padding: 20px 25px;
+  border: 1px solid #4646462a;
+  border-radius: 5px;
+}
+
+
+.allproduct .container .filter input:checked {
+  accent-color: var(--main-color);
+}
+
+.allproduct .container .filter h4 {
+  margin-bottom: 10px;
+  margin-top: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #6666662a;
+}
+.allproduct .container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  margin-bottom: 50px;
+  gap: 3%;
+  padding: 15px;
+}
+
+/* ضبط الفلتر ليكون في اليسار */
+.allproduct .container .filter {
+  background: #fff;
+  color: var(--text-color);
+  width: 230px;
+  text-transform: capitalize;
+  padding: 20px;
+  border: 1px solid #4646462a;
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.allproduct .container .filter h4 {
+  margin-bottom: 10px;
+  margin-top: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #6666662a;
+}
+
+.allproduct .container .filter .filter_item .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.allproduct .container .filter .filter_item .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.allproduct .container .filter .filter_item .item .color {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.allproduct .products_dev {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.product-card {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  background-color: #fff;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-buttons {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.product-buttons button {
+  background-color: wheat;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-buttons button:hover {
+  background-color: var(--main-color);
+}
+
+.product-card:hover .product-buttons {
+  opacity: 1;
+}
+
+.product-card:hover .product-image {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--main-color);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.product-image {
+  width: 125px;
+  height: 125px;
+  border-radius: 10px;
+}
+
+.product-title {
+  font-size: 15px;
+  margin: 10px 0;
+  color: var(--text-color);
+}
+
+.rating {
+  color: #f5c518;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.price {
+  margin: 10px 0;
+}
+
+.current-price {
+  color: #28a745;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.old-price {
+  color: #6c757d;
+  font-size: 16px;
+  text-decoration: line-through;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination-btn,
+.pagination-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn i {
+  font-size: 18px;
+}
+
+.pagination-btn:hover,
+.pagination-number:hover {
+  background-color: var(--main-color);
+  color: var(--text-color);
+}
+
+.pagination-number.active {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  pointer-events: none;
+}
+
+body.dark .top_page p {
+  color: #ddd;
+}
+body.dark .product-card,
+body.dark .pagination-btn,
+body.dark .pagination-number,
+body.dark .allproduct .filter {
+  background-color: #151d2a;
+}
+
+body.dark .product-card:hover,
+body.dark .product-buttons button {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(69, 68, 68, 0.225);
+}
+
+body.dark .product-card:hover .product-image {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+body.dark .discount-badge,
+body.dark .pagination-btn:hover,
+body.dark .pagination-number:hover,
+body.dark .pagination-number.active,
+body.dark .filter input:checked {
+  background-color: var(--main-color);
+}
+
+body.dark .pagination-btn,
+body.dark .pagination-number,
+.dark .allproduct .filter {
+  border: 1px solid #6c757d;
+}
+
+body.dark .product-buttons button:hover {
+  background-color: var(--main-color);
+}
+
+body.dark .product-card:hover .product-buttons {
+  opacity: 1;
+}
+/* ==> End All Product  <== */

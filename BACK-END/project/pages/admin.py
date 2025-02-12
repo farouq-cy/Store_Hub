@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Product, Order, Report, DeliveryAssignment, FlashSale, ContactMessage
+from .models import *
 
 # تسجيل نموذج User
 @admin.register(User)
@@ -23,7 +23,7 @@ class UserAdmin(admin.ModelAdmin):
 # تسجيل نموذج Product
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'price', 'color', 'rating', 'image', 'total_likes')  # الحقول المعروضة في القائمة
+    list_display = ('id', 'name', 'price', 'color', 'rating', 'image', 'total_likes', 'category')  # الحقول المعروضة في القائمة
     search_fields = ('name', 'color')  # إمكانية البحث
     list_display_links = ['name']  # الروابط القابلة للنقر
     list_filter = ('rating', 'color')  # الفلاتر
@@ -33,6 +33,13 @@ class ProductAdmin(admin.ModelAdmin):
     def total_likes(self, obj):
         return obj.likes.count()
     total_likes.short_description = 'Total Likes'  # عنوان العمود في الـ Admin
+
+
+admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name')
+    search_fields = ('name')
+
 
 # تسجيل نموذج Order
 @admin.register(Order)
@@ -82,6 +89,8 @@ class ContactMessageAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone', 'message', 'created_at')
     list_filter = ('created_at',)
     search_fields = ('name', 'email', 'phone', 'message')
+
+admin.site.register(Category)
 
 # إعدادات عامة للـ Admin
 admin.site.site_header = 'STOREHUB'
