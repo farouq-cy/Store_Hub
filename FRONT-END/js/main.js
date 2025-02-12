@@ -87,12 +87,18 @@ var x = new Swiper(".pro-div .container .products", {
       slidesPerView: 3,
       spaceBetween: 15,
     },
-    0: {
+    500:{
       slidesPerView: 2,
+      spaceBetween: 15,
+    },
+    0: {
+      slidesPerView: 1,
       spaceBetween: 10,
     },
   },
 });
+
+
 
 // End swiper product in section Four
 
@@ -132,8 +138,12 @@ var x = new Swiper(".categs", {
       slidesPerView: 3,
       spaceBetween: 15,
     },
-    0: {
+    500:{
       slidesPerView: 2,
+      spaceBetween: 15,
+    },
+    0: {
+      slidesPerView: 1,
       spaceBetween: 10,
     },
   },
