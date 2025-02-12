@@ -419,12 +419,11 @@ footer .container h5:hover {
   align-items: center;
   text-align: left;
 }
-
 .timer .container .flex {
   display: flex;
 }
 
-.timer .container .flex>h2 {
+.timer .container .flex > h2 {
   font-size: 30px;
   color: var(--main-color);
 }
@@ -481,27 +480,22 @@ footer .container h5:hover {
 .timer .container .mySwiper .btn_swip.swiper-button-prev {
   left: calc(100% - 90px);
 }
-
 @media (max-width: 640px) {
   .timer .container .flex {
     flex-direction: column;
     align-items: center;
   }
-
-  .timer .container .flex>h2 {
+  .timer .container .flex > h2 {
     font-size: 25px;
     margin-bottom: 10px;
   }
-
   .timer .container .dateAndClock {
     margin: 0;
   }
-
   .timer .container .flex .dateAndClock h3 {
     font-size: 15px;
     text-align: left;
   }
-
   .timer .container .flex .dateAndClock h2 {
     font-size: 25px;
     text-align: center;
@@ -517,8 +511,7 @@ footer .container h5:hover {
 }
 
 .pro-div .products .product .pro,
-.BestSellingProducts .container .bttom .pro,
-.ourproduct .container .products .pro {
+.BestSellingProducts .container .bttom .pro {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -527,8 +520,7 @@ footer .container h5:hover {
 }
 
 .pro-div .products .product .pro .img,
-.BestSellingProducts .container .bttom .pro .img,
-.ourproduct .container .products .pro .img {
+.BestSellingProducts .container .bttom .pro .img {
   width: 100%;
   height: 150px;
   display: flex;
@@ -540,9 +532,8 @@ footer .container h5:hover {
 }
 
 .pro-div .products .product .pro .img img,
-.BestSellingProducts .container .bttom .pro .img img,
-.ourproduct .container .products .pro .img img {
-  width: 80%;
+.BestSellingProducts .container .bttom .pro .img img {
+  width: 70%;
   height: 100%;
   object-fit: cover;
   display: block;
@@ -552,51 +543,42 @@ footer .container h5:hover {
 .pro-div .products .product .pro .img img[src="images/chair.png"],
 .pro-div .products .product .pro .img img[src="images/game.png"],
 .BestSellingProducts .container .bttom .pro .img img[src="images/game.png"],
-.BestSellingProducts .container .bttom .pro .img img[src="images/chair.png"],
-.ourproduct .container .products .pro .img img[src="images/chair.png"],
-.ourproduct .container .products .pro .img img[src="images/game.png"],
-.ourproduct .container .products .pro .img img[src="images/camera.png"]{
-  width: 60%;
+.BestSellingProducts .container .bttom .pro .img img[src="images/chair.png"] {
+  width: 50%;
 }
 
 .pro-div .products .product .pro .detailes,
-.BestSellingProducts .container .bttom .pro .detailes,
-.ourproduct .container .products .pro .detailes {
-  width: 90%;
+.BestSellingProducts .container .bttom .pro .detailes {
+  width: 80%;
   margin-top: 10px;
   color: var(--dark-color);
   text-align: left;
 }
 
 .pro-div .products .product .pro .detailes h5,
-.BestSellingProducts .container .bttom .pro .detailes h5,
-.ourproduct .container .products .pro .detailes h5 {
+.BestSellingProducts .container .bttom .pro .detailes h5 {
   font-size: 14px;
 }
 
 .pro-div .products .product .pro .detailes div,
-.BestSellingProducts .container .bttom .pro .detailes div ,
-.ourproduct .container .products .pro .detailes div{
+.BestSellingProducts .container .bttom .pro .detailes div {
   margin: 5px 0;
 }
 
 .pro-div .products .product .pro .detailes .sallery .new-sall,
-.BestSellingProducts .container .bttom .pro .detailes .sallery .new-sall,
-.ourproduct .container .products .pro .detailes .sallery .new-sall {
+.BestSellingProducts .container .bttom .pro .detailes .sallery .new-sall {
   margin-right: 20px;
   color: var(--main-color);
 }
 
 .pro-div .products .product .pro .detailes .sallery .old-sall,
-.BestSellingProducts .container .bttom .pro .detailes .sallery .old-sall,
-.ourproduct .container .products .pro .detailes .sallery .old-sall {
+.BestSellingProducts .container .bttom .pro .detailes .sallery .old-sall {
   text-decoration: line-through;
   color: var(--dark-color);
 }
 
 .pro-div .products .product .pro .detailes .stars i,
-.BestSellingProducts .container .bttom .pro .detailes .stars i,
-.ourproduct .container .products .pro .detailes .stars i {
+.BestSellingProducts .container .bttom .pro .detailes .stars i {
   color: #ffc918;
 }
 
@@ -612,18 +594,15 @@ footer .container h5:hover {
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
 .pro-div .container .pro:hover .icons,
 .pro-div .container .pro:hover .addcart,
-.BestSellingProducts .container .bttom .pro:hover .addcart,
-.ourproduct .container .products .pro:hover .addcart{
+.BestSellingProducts .container .bttom .pro:hover .addcart {
   opacity: 1;
   visibility: visible;
   cursor: pointer;
 }
 
-.pro-div .container .pro .icons .icon,
-.ourproduct .container .products .pro .icons .icon {
+.pro-div .container .pro .icons .icon {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -631,7 +610,6 @@ footer .container h5:hover {
 }
 
 .pro-div .container .pro .icons .icon i,
-.ourproduct .container .products .pro .icons .icon i,
 .BestSellingProducts .container .bttom .pro .icons .icon i {
   background-color: var(--white-color);
   color: var(--dark-color);
@@ -649,15 +627,13 @@ footer .container h5:hover {
 }
 
 .pro-div .container .pro .icons .icon i:hover,
-.ourproduct .container .products .pro .icons .icon i:hover,
-.BestSellingProducts .container .bttom .pro .icons .icon i:hover{
+.BestSellingProducts .container .bttom .pro .icons .icon i:hover {
   background-color: var(--main-color);
   cursor: pointer;
 }
 
 .pro-div .container .pro .icons .icon i.active,
-.BestSellingProducts .container .bttom .pro .icons .icon i.active,
-.ourproduct .container .products .pro .icons .icon i.active {
+.BestSellingProducts .container .bttom .pro .icons .icon i.active {
   background-color: var(--main-color);
 }
 
@@ -671,10 +647,8 @@ footer .container h5:hover {
   position: relative;
   bottom: 35px;
 }
-
 .pro-div .container .pro .addcart,
-.BestSellingProducts .container .bttom .pro .addcart,
-.ourproduct .container .products .pro .addcart {
+.BestSellingProducts .container .bttom .pro .addcart {
   position: absolute;
   bottom: 36%;
   background-color: var(--dark-color);
@@ -688,22 +662,17 @@ footer .container h5:hover {
   visibility: hidden;
   transition: 0.3s;
 }
-
 .pro-div .container .pro .addcart:hover,
-.ourproduct .container .products .pro .addcart:hover,
 .BestSellingProducts .container .bttom .pro .addcart:hover {
   background-color: var(--main-color);
   color: #fff;
 }
-
 .pro-div .container .pro:hover .addcart,
-.BestSellingProducts .container .bttom .pro:hover .addcart,
-.ourproduct .container .products .pro:hover .addcart {
+.BestSellingProducts .container .bttom .pro:hover .addcar {
   opacity: 1;
   visibility: visible;
   cursor: pointer;
 }
-
 .pro-div .container .pro i {
   cursor: pointer;
 }
@@ -722,13 +691,7 @@ section .bttnAllProduct button {
   border-radius: 4px;
   background-color: var(--main-color);
   color: #fff;
-  transition: 0.3s;
 }
-section .bttnAllProduct button:hover {
-  cursor: pointer;
-  transform: translateY(10px);
-}
-
 #browseCat .container {
   padding-bottom: 30px;
   border-bottom: 2px solid var(--main-color);
@@ -740,11 +703,9 @@ section .container .browseCat .categText {
   align-items: center;
   justify-content: left;
 }
-
 section .container .browseCat .categText .shape,
 .offer .container .dayOffers .shape,
-.BestSellingProducts .container .top .shape-text .shape,
-.ourproduct .container .ourprotext .shape {
+.BestSellingProducts .container .top .shape-text .shape {
   width: 20px;
   height: 40px;
   background-color: var(--main-color);
@@ -781,7 +742,7 @@ section#browseCat .container {
   align-items: center;
 }
 
-#browseCat .container .browseCat .catbtnswap>div {
+#browseCat .container .browseCat .catbtnswap > div {
   background: var(--main-color);
   color: #fff;
   font-weight: bold;
@@ -827,29 +788,24 @@ section#browseCat .container {
 #browseCat .container .categ .cat:hover i {
   color: var(--white-color);
 }
-
 .BestSellingProducts .container .top .shape-text {
   display: flex;
   align-items: center;
 }
-
 .BestSellingProducts .container .top .shape-text .txt {
   font-size: 16px;
   color: var(--main-color);
 }
-
 .BestSellingProducts .container .top .bttn {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 0;
 }
-
 .BestSellingProducts .container .top .bttn h4 {
   font-size: 35px;
   color: var(--dark-color);
 }
-
 .BestSellingProducts .container .top .bttn a button {
   width: 150px;
   height: 50px;
@@ -859,26 +815,20 @@ section#browseCat .container {
   font-size: 16px;
   transition: 0.3s;
 }
-
 .BestSellingProducts .container .top .bttn a button:hover {
   cursor: pointer;
   transform: translateY(-10px);
 }
-
 .BestSellingProducts .container .bttom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 50px;
 }
-
 .BestSellingProducts .container .bttom .pro .img,
-.BestSellingProducts .container .bttom .pro .addcart,
-.ourproduct .container .products .pro .img,
-.ourproduct .container .products .pro .addcart {
+.BestSellingProducts .container .bttom .pro .addcart {
   width: 95%;
 }
-
 .BestSellingProducts .container .bttom .pro .icons {
   position: absolute;
   width: 100%;
@@ -887,10 +837,7 @@ section#browseCat .container {
   justify-content: right;
   right: 15px;
 }
-
 .BestSellingProducts .container .bttom .pro .icons .icon {
-.BestSellingProducts .container .bttom .pro .icons .icon,
-.ourproduct .container .products .pro .icons .icon {
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -899,86 +846,13 @@ section#browseCat .container {
   visibility: hidden;
   transition: 0.3s ease;
 }
-
 .BestSellingProducts .container .bttom .pro:hover .icons .icon {
-.BestSellingProducts .container .bttom .pro:hover .icons .icon, 
-.ourproduct .container .products .pro:hover .icons .icon {
   opacity: 1;
   visibility: visible;
 }
-
 .BestSellingProducts .container {
   margin-bottom: 40px;
   border-bottom: 2px solid var(--main-color);
-}
-
-.ourproduct .container{
-  padding-bottom: 50px;
-  border-bottom: 2px solid var(--main-color);
-}
-.ourproduct .container .ourprotext {
-  display: flex;
-  align-items: center;
-  padding-bottom: 20px;
-}
-.ourproduct .container .ourprotext p {
-  color: var(--main-color);
-}
-.ourproduct .container h3 {
-  color: var(--dark-color);
-  font-size: 36px;
-}
-.ourproduct .container .products .pro{
-  width: 25%;
-}
-.ourproduct .container .products{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.ourproduct .container .products .pro{
-  margin: 30px 0;
-}
-.ourproduct .container a button{
-  display: block;
-  text-align: center;
-  margin: 25px auto 0;
-  width: 256px;
-  height: 56px;
-  border-radius: 4px;
-  background-color: var(--main-color);
-  color: #fff;
-  transition: 0.3s;
-}
-.ourproduct .container a button:hover{
-  cursor: pointer;
-  transform: translateY(-10px);
-}
-@media (max-width:850px) {
-  .ourproduct .container .products .pro{
-    width: 30%;
-  }
-}
-@media (max-width:700px) {
-  .ourproduct .container .products .pro{
-    width: 40%;
-  }
-}
-@media (max-width:600px) {
-  .ourproduct .container .products{
-    align-items: center;
-    justify-content: center;
-  }
-  .ourproduct .container .products .pro{
-    width: 80%;
-  }
-  .ourproduct .container .products .pro .img img{
-    width: 40% !important;
-  }
-  .ourproduct .container .products .pro .img img[src="images/keybad.png"]{
-    width: 100% !important;
-  }
 }
 /* End index*/
 /*      --Start Cart--    */
@@ -1104,9 +978,11 @@ section#browseCat .container {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to right,
-      var(--main-color) 0%,
-      #e07575 100%);
+  background-image: linear-gradient(
+    to right,
+    var(--main-color) 0%,
+    #e07575 100%
+  );
   transition: 0.9s;
   display: block;
   z-index: -1;
@@ -1705,7 +1581,7 @@ body.dark .breadcrumb .a2 {
 
 .form-group input:focus {
   scale: 1.05;
-  border: 1px solid var(--main-color);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .dark .form-group input {
@@ -2038,7 +1914,7 @@ input[type="checkbox"]:checked::after {
 
 .form-account input:focus {
   scale: 1.05;
-  border: 1px solid var(--main-color);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .form-actions {
@@ -2074,9 +1950,11 @@ input[type="checkbox"]:checked::after {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to right,
-      var(--main-color) 0%,
-      #e07575 100%);
+  background-image: linear-gradient(
+    to right,
+    var(--main-color) 0%,
+    #e07575 100%
+  );
   transition: 0.9s;
   display: block;
   z-index: -1;
@@ -2338,7 +2216,6 @@ input[type="checkbox"]:checked::after {
   resize: vertical;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
 .contact .contact-container .contact-form .form input:hover,
 .contact .contact-container .contact-form .form input:focus,
 .contact .contact-container .form-message textarea:focus,
@@ -2430,7 +2307,6 @@ input[type="checkbox"]:checked::after {
 .dark .contact .contact-container .contact-form .form textarea {
   background: #eee;
 }
-
 .dark .contact-button button {
   background: #151d2a;
 }
@@ -2467,7 +2343,6 @@ input[type="checkbox"]:checked::after {
     float: right;
   }
 }
-
 @media (min-width: 767px) and (max-width: 1115px) {
   .contact .cont-text {
     margin: 20px 0 20px 80px;
@@ -2618,21 +2493,21 @@ input[type="checkbox"]:checked::after {
   transition: 0.5s;
 }
 
-.sign-form .input-box input:focus~label,
-.sign-form .input-box input:valid~label,
-.sign-form .input-box select:focus~label,
-.login-form .input-box input:focus~label,
-.login-form .input-box input:valid~label {
+.sign-form .input-box input:focus ~ label,
+.sign-form .input-box input:valid ~ label,
+.sign-form .input-box select:focus ~ label,
+.login-form .input-box input:focus ~ label,
+.login-form .input-box input:valid ~ label {
   top: -5px;
   font-size: 14px;
   color: var(--main-color);
 }
 
-.sign-form .input-box input:focus~i,
-.sign-form .input-box input:valid~i,
-.sign-form .input-box select:focus~i,
-.login-form .input-box input:focus~i,
-.login-form .input-box input:valid~i {
+.sign-form .input-box input:focus ~ i,
+.sign-form .input-box input:valid ~ i,
+.sign-form .input-box select:focus ~ i,
+.login-form .input-box input:focus ~ i,
+.login-form .input-box input:valid ~ i {
   top: -5px;
   color: var(--main-color);
 }
@@ -2733,7 +2608,6 @@ input[type="checkbox"]:checked::after {
 /* Responsive */
 
 @media (max-width: 1024px) {
-
   .sign,
   .login {
     height: auto;
