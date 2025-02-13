@@ -13,106 +13,12 @@
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet" />
-    <title>Store Hub | Error</title>
-  </head>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+
+    <!--Link Swiper-->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-      rel="stylesheet" />
+      href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <title>Store Hub | Main</title>
-    <style>
-      :root {
-        --breadcrumb-color-home: grey;
-        --breadcrumb-color-about: #333;
-        --breadcrumb-color-home-dark: #ccc;
-        --breadcrumb-color-about-dark: #fff;
-        --breadcrumb-separator-color: black;
-        --breadcrumb-separator-color-dark: #ccc;
-      }
-
-      body.light .breadcrumb .home {
-        color: var(--breadcrumb-color-home);
-      }
-
-      body.light .breadcrumb .about {
-        color: var(--breadcrumb-color-about);
-      }
-
-      body.light .breadcrumb .separator {
-        color: var(--breadcrumb-separator-color);
-      }
-
-      body.dark .breadcrumb .home {
-        color: var(--breadcrumb-color-home-dark);
-      }
-      body.dark .breadcrumb .about {
-        color: var(--breadcrumb-color-about-dark);
-      }
-
-      body.dark .breadcrumb .separator {
-        color: var(--breadcrumb-separator-color-dark);
-      }
-
-      .breadcrumb {
-        display: flex;
-        align-items: center;
-        font-size: 18px;
-        font-weight: 500;
-        margin-left: 140px;
-        margin-top: 60px;
-      }
-
-      .breadcrumb .a1 {
-        color: grey;
-      }
-
-      .breadcrumb .separator {
-        margin: 0 5px;
-        color: #000;
-      }
-
-      .breadcrumb .a2 {
-        color: #333;
-      }
-      .dark .notfound {
-        color: #fff;
-      }
-      .notfound h1 {
-        font-size: 100px;
-        text-align: center;
-      }
-      .notfound p {
-        font-size: medium;
-        text-align: center;
-      }
-      .btn-back {
-        display: inline-block;
-        padding: 15px 30px;
-        background-color: #e74c3c;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-      }
-
-      .btn-back:hover {
-        background-color: #c0392b;
-      }
-    </style>
   </head>
 
   <body class="light">
@@ -122,10 +28,10 @@
         <nav>
           <h1>STOREHUB</h1>
           <div class="linkes">
-            <a href="index.html">
+            <a href="index.html" class="active">
               <p>Home</p>
             </a>
-            <a href="#">
+            <a href="allproduct.html">
               <p>All Product</p>
             </a>
             <a href="about.html">
@@ -152,21 +58,67 @@
       </div>
     </header>
 
-    <div class="breadcrumb">
-      <a href="index.html" class="a1">Home</a>
-      <span class="a2">/</span>
-      <a href="404error.html" class="a2">404 Error</a>
-    </div>
-
-    <div class="notfound">
-      <h1>404 Not Found</h1>
-      <br />
-      <p>Your visited page not found. You may go home page.</p>
-      <div style="text-align: center; margin-top: 50px">
-        <a href="index.html" class="btn-back">Back to home page</a>
+    <section class="address">
+      <div class="container">
+        <p>Account / <span id="proName">Havic HV G-92 Gamepad</span></p>
       </div>
-    </div>
+    </section>
 
+    <section class="imgAndDetailes">
+      <div class="container">
+        <div class="img">
+          <img src="images/keybad.png" alt="" id="proImg" />
+        </div>
+        <div class="detailes">
+          <h3 id="proname">Havic HV G-92 Gamepad</h3>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <p>(150 Reviews) |</p>
+            <p id="Available">in Stock</p>
+          </div>
+          <h3 id="sallery">$192.00</h3>
+          <p id="caption">
+            PlayStation 5 Controller Skin High quality vinyl with air channel
+            adhesive for easy bubble free install & mess free removal Pressure
+            sensitive.
+          </p>
+
+          <div class="size">
+            <h3>Size :</h3>
+            <div><p>XS</p></div>
+            <div><p>S</p></div>
+            <div><p>M</p></div>
+            <div><p>L</p></div>
+            <div><p>XL</p></div>
+          </div>
+
+          <div class="buyLove">
+            <div class="Number">
+              <div class="dec">-</div>
+              <div id="Num">0</div>
+              <div class="inc">+</div>
+            </div>
+            <button>Buy Now</button>
+            <div class="ico">
+              <i class="fa-regular fa-heart"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="RelatedItem">
+      <div class="container">
+        <div class="RelatedItemtext">
+          <span class="shape">.</span>
+          <p>Related Item</p>
+        </div>
+      </div>
+    </section>
     <!--Footer-->
     <footer>
       <div class="container">
@@ -236,6 +188,9 @@
         Copyright &copy;<span> STOREHUB </span>all right reserved
       </p>
     </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/darkmode.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,202 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet" />
     <title>Store Hub | Cart</title>
-</head>
+  </head>
 
-<body class="light cartt">
-     <header>
-        <div class="container">
-            <nav>
-                <h1>STOREHUB</h1>
-                <div class="linkes">
-                    <a href="index.html">
-                        <p>Home</p>
-                    </a>
-                    <a href="allproduct.html">
-                        <p>All Product</p>
-                    </a>
-                    <a href="about.html">
-                        <p>About</p>
-                    </a>
-                    <a href="contact.html">
-                        <p>Contact</p>
-                    </a>
-                </div>
-                <form class="header-form">
-                    <input type="search" placeholder="Seacrch" class="seacrch" />
-                    <i class="fa-regular fa-heart"></i>
-                    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                    <a href="account.html"><i class="fa-regular fa-user"></i></a>
-                    <input type="checkbox" id="toggle" />
-    
-                    <label class="toggle" for="toggle">
-                        <i class="bx bxs-sun"></i>
-                        <i class="bx bx-moon"></i>
-                        <span class="ball"></span>
-                    </label>
-                </form>
-            </nav>
-        </div>
+  <body class="light cartt">
+    <header>
+      <div class="container">
+        <nav>
+          <h1>STOREHUB</h1>
+          <div class="linkes">
+            <a href="index.html">
+              <p>Home</p>
+            </a>
+            <a href="allproduct.html">
+              <p>All Product</p>
+            </a>
+            <a href="about.html">
+              <p>About</p>
+            </a>
+            <a href="contact.html">
+              <p>Contact</p>
+            </a>
+          </div>
+          <form class="header-form">
+            <input type="search" placeholder="Seacrch" class="seacrch" />
+            <i class="fa-regular fa-heart"></i>
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="account.html"><i class="fa-regular fa-user"></i></a>
+            <input type="checkbox" id="toggle" />
+
+            <label class="toggle" for="toggle">
+              <i class="bx bxs-sun"></i>
+              <i class="bx bx-moon"></i>
+              <span class="ball"></span>
+            </label>
+          </form>
+        </nav>
+      </div>
     </header>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{% static 'js/test.js' %}"></script>
 
     <main class="cart-container">
-        <div class="breadcrumb-cart">
-            <a href="index.html" class="a1">Home</a>
-            <span class="a2">/</span>
-            <a href="cart.html" class="a2">Cart</a>
+      <div class="breadcrumb-cart">
+        <a href="index.html" class="a1">Home</a>
+        <span class="a2">/</span>
+        <a href="cart.html" class="a2">Cart</a>
+      </div>
+
+      <div class="cart-grid">
+        <div class="cart-header">
+          <div>Product</div>
+          <div>Price</div>
+          <div>Quantity</div>
+          <div>Subtotal</div>
         </div>
 
-        <div class="cart-grid">
-            <div class="cart-header">
-                <div>Product</div>
-                <div>Price</div>
-                <div>Quantity</div>
-                <div>Subtotal</div>
-            </div>
-
-            <div class="cart-item-row">
-                <div class="product-info">
-                    <i class="fa-solid fa-circle-xmark remove"></i>
-                    <img src="images/lcd.png" alt="LCD Monitor">
-                    <span>LCD Monitor</span>
-                </div>
-                <div>$650</div>
-                <div>
-                    <input type="number" class="quantity-input" value="1">
-                </div>
-                <div>$650</div>
-            </div>
-
-            <div class="cart-item-row">
-                <div class="product-info">
-                    <img src="images/game.png" alt="HI Gamepad">
-                    <span>HI Gamepad</span>
-                </div>
-                <div>$550</div>
-                <div>
-                    <input type="number" class="quantity-input" value="2">
-                </div>
-                <div>$1100</div>
-            </div>
+        <div class="cart-item-row">
+          <div class="product-info">
+            <i class="fa-solid fa-circle-xmark remove"></i>
+            <img src="images/lcd.png" alt="LCD Monitor" />
+            <span>LCD Monitor</span>
+          </div>
+          <div>$650</div>
+          <div>
+            <input type="number" class="quantity-input" value="1" />
+          </div>
+          <div>$650</div>
         </div>
 
-        <!--Button -->
-        <div class="cart-buttons">
-            <button class="btn btnn">Return To Shop</button>
-            <button class="btn btnn">Update Cart</button>
+        <div class="cart-item-row">
+          <div class="product-info">
+            <img src="images/game.png" alt="HI Gamepad" />
+            <span>HI Gamepad</span>
+          </div>
+          <div>$550</div>
+          <div>
+            <input type="number" class="quantity-input" value="2" />
+          </div>
+          <div>$1100</div>
+        </div>
+      </div>
+
+      <!--Button -->
+      <div class="cart-buttons">
+        <button class="btn btnn">Return To Shop</button>
+        <button class="btn btnn">Update Cart</button>
+      </div>
+
+      <div class="cart-bottom-section">
+        <div class="left-section">
+          <!--Coupon-->
+          <div class="coupon-section-cart">
+            <input
+              type="text"
+              class="coupon-input-cart"
+              placeholder="Coupon Code" />
+            <button class="btn btn-primary">Apply Coupon</button>
+          </div>
         </div>
 
-
-        <div class="cart-bottom-section">
-            <div class="left-section">
-                <!--Coupon-->
-                <div class="coupon-section-cart">
-                    <input type="text" class="coupon-input-cart" placeholder="Coupon Code">
-                    <button class="btn btn-primary ">Apply Coupon</button>
-                </div>
-            </div>
-
-            <!--Total-->
-            <div class="cart-total">
-                <h3>Cart Total</h3>
-                <div class="total-row row1">
-                    <span>Subtotal:</span>
-                    <span>$1750</span>
-                </div>
-                <div class="total-row row2">
-                    <span>Shipping:</span>
-                    <span>Free</span>
-                </div>
-                <div class="total-row">
-                    <span>Total:</span>
-                    <span>$1750</span>
-                </div>
-                <button class="btn btn-primary " style=" width: 100%; margin-top: 20px;">
-                    Process to checkout
-                </button>
-            </div>
+        <!--Total-->
+        <div class="cart-total">
+          <h3>Cart Total</h3>
+          <div class="total-row row1">
+            <span>Subtotal:</span>
+            <span>$1750</span>
+          </div>
+          <div class="total-row row2">
+            <span>Shipping:</span>
+            <span>Free</span>
+          </div>
+          <div class="total-row">
+            <span>Total:</span>
+            <span>$1750</span>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; margin-top: 20px">
+            Process to checkout
+          </button>
         </div>
+      </div>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="foot1">
-                <h3>STOREHUB</h3>
-                <a href="#">
-                    <p>Subscribe</p>
-                </a>
-                <a href="#">
-                    <p>Get 10% off your first order</p>
-                </a>
-                <input type="email" class="seacrch" placeholder="Enter Your Email : " />
-            </div>
-            <div class="foot2">
-                <h3>Support</h3>
-                <a href="#">
-                    <p>NATU - NEW ASSUIT</p>
-                </a>
-                <a href="#">
-                    <p>StoreHub@gmail.com</p>
-                </a>
-                <a href="#">
-                    <p>+201551803645</p>
-                </a>
-                <a href="#">
-                    <p>+201551954315</p>
-                </a>
-            </div>
-            <div class="foot3">
-                <h3>Account</h3>
-                <a href="account.html">
-                    <p>My Account</p>
-                </a>
-                <a href="login.html">
-                    <p>Login / Register</p>
-                </a>
-                <a href="cart.html">
-                    <p>Cart</p>
-                </a>
-                <a href="allproduct.html">
-                    <p>All Product</p>
-                </a>
-                <a href="#">
-                    <p>Shop</p>
-                </a>
-            </div>
-            <div class="foot4">
-                <h3>Quick Link</h3>
-                <a href="#">
-                    <p>Privacy Policy</p>
-                </a>
-                <a href="#">
-                    <p>Terms Of Use</p>
-                </a>
-                <a href="#">
-                    <p>FAQ</p>
-                </a>
-                <a href="contact.html">
-                    <p>Contact</p>
-                </a>
-            </div>
+      <div class="container">
+        <div class="foot1">
+          <h3>STOREHUB</h3>
+          <a href="#">
+            <p>Subscribe</p>
+          </a>
+          <a href="#">
+            <p>Get 10% off your first order</p>
+          </a>
+          <input
+            type="email"
+            class="seacrch"
+            placeholder="Enter Your Email : " />
         </div>
-        <p style="text-align: center; padding-bottom: 8px;">Copyright &copy;<span> STOREHUB </span>all right reserved</p>
+        <div class="foot2">
+          <h3>Support</h3>
+          <a href="#">
+            <p>NATU - NEW ASSUIT</p>
+          </a>
+          <a href="#">
+            <p>StoreHub@gmail.com</p>
+          </a>
+          <a href="#">
+            <p>+201551803645</p>
+          </a>
+          <a href="#">
+            <p>+201551954315</p>
+          </a>
+        </div>
+        <div class="foot3">
+          <h3>Account</h3>
+          <a href="account.html">
+            <p>My Account</p>
+          </a>
+          <a href="login.html">
+            <p>Login / Register</p>
+          </a>
+          <a href="cart.html">
+            <p>Cart</p>
+          </a>
+          <a href="allproduct.html">
+            <p>All Product</p>
+          </a>
+          <a href="#">
+            <p>Shop</p>
+          </a>
+        </div>
+        <div class="foot4">
+          <h3>Quick Link</h3>
+          <a href="#">
+            <p>Privacy Policy</p>
+          </a>
+          <a href="#">
+            <p>Terms Of Use</p>
+          </a>
+          <a href="#">
+            <p>FAQ</p>
+          </a>
+          <a href="contact.html">
+            <p>Contact</p>
+          </a>
+        </div>
+      </div>
+      <p style="text-align: center; padding-bottom: 8px">
+        Copyright &copy;<span> STOREHUB </span>all right reserved
+      </p>
     </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{% static 'js/test.js' %}"></script>
-    <script src="js/main.js"></script>
-</body>
-
+    <script src="js/darkmode.js"></script>
+  </body>
 </html>
