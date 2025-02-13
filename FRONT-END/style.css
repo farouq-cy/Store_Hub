@@ -3300,4 +3300,54 @@ body.dark .product-buttons button:hover {
 body.dark .product-card:hover .product-buttons {
   opacity: 1;
 }
+
+
+/* الموبايل*/
+@media (max-width: 480px) {
+  .top_page h1 {
+    font-size: 28px;
+  }
+  .top_page p {
+    width: 90%;
+    font-size: 14px;
+  }
+  .allproduct .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .allproduct .products_dev {
+    grid-template-columns: 1fr; /*علشان يبقوا ف عمود واحد*/
+  }
+  .product-card {
+    width: 100%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .top_page h1 {
+    font-size: 32px;
+  }
+  .top_page p {
+    width: 80%;
+  }
+  .allproduct .container {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .allproduct .products_dev {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .allproduct .products_dev {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .top_page p {
+    width: 70%;
+  }
+}
+
+
 /* ==> End All Product  <== */
