@@ -2674,7 +2674,6 @@ input[type="checkbox"]:checked::after {
   width: 60%;
 }
 
-
 .allproduct .container {
   display: flex;
   align-items: flex-start;
@@ -2694,7 +2693,6 @@ input[type="checkbox"]:checked::after {
   border-radius: 5px;
 }
 
-
 .allproduct .container .filter input:checked {
   accent-color: var(--main-color);
 }
@@ -2705,41 +2703,7 @@ input[type="checkbox"]:checked::after {
   padding-bottom: 10px;
   border-bottom: 1px solid #6666662a;
 }
-.allproduct .container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: start;
-  margin-bottom: 50px;
-  gap: 3%;
-  padding: 15px;
-}
 
-/* ضبط الفلتر ليكون في اليسار */
-.allproduct .container .filter {
-  background: #fff;
-  color: var(--text-color);
-  width: 230px;
-  text-transform: capitalize;
-  padding: 20px;
-  border: 1px solid #4646462a;
-  border-radius: 5px;
-  flex-shrink: 0;
-  margin-right: 10px;
-}
-
-.allproduct .container .filter h4 {
-  margin-bottom: 10px;
-  margin-top: 25px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #6666662a;
-}
-
-.allproduct .container .filter .filter_item .item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-}
 .allproduct .container .filter .filter_item .item {
   display: flex;
   justify-content: space-between;
@@ -2754,11 +2718,10 @@ input[type="checkbox"]:checked::after {
 }
 
 .allproduct .products_dev {
+  flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  justify-content: center;
-  width: 100%;
 }
 
 .product-card {
@@ -2948,41 +2911,4 @@ body.dark .product-buttons button:hover {
 body.dark .product-card:hover .product-buttons {
   opacity: 1;
 }
-.filter .filter_item .content {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; 
-}
-
-.filter .filter_item .content .item {
-  width: 100%; 
-  padding: 12px;
-  background-color: transparent;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  box-sizing: border-box; 
-  transition: all 0.3s ease;
-}
-
-.filter .filter_item .content .item:hover {
-  background-color: var(--main-color);
-  color: white;
-  border-color: var(--main-color);
-}
-
-.filter .filter_item .content .item a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.filter .filter_item .content .item.active {
-  background-color: var(--main-color);
-  color: white;
-  border-color: var(--main-color);
-}
-
-
-
 /* ==> End All Product  <== */

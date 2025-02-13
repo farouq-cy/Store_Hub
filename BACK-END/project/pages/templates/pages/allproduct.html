@@ -1,0 +1,99 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+
+{% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <title>Store Hub | Main</title>
+</head>
+<body class="light">
+    <!-- Hero Section -->
+         <section class="top_page">
+      <div class="container">
+        <h1>Experience the Future of Technology With Our Topico.</h1>
+        <p>
+          Find everything you need to transform your home into a smart, connected space. Our Topico store offers a wide
+          range of devices to fit your needs.
+        </p>
+      </div>
+    </section>
+    <section class="allproduct">
+      <div class="container">
+        <div class="filter">
+          <h2>Filter</h2>
+          <!-- Category Filter -->
+          <div class="filter_item">
+              <h4>Category</h4>
+              <div class="content">
+                  {% for category in categories %}
+                      <div class="item"><a href="?category={{ category.name }}">{{ category.name }}</a></div>
+                  {% endfor %}
+              </div>
+          </div>
+      </div>
+    
+    
+      
+          <!-- Product Cards -->
+          <div id="products-container" class="products_dev">
+              {% for product in products %}
+              <div class="product-card">
+                  <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image" />
+                  <div class="product-buttons">
+                      <button title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
+                      <button title="Like"><i class="fas fa-heart"></i></button>
+                      <button title="Share"><i class="fas fa-share-alt"></i></button>
+                  </div>
+                  <h3 class="product-title">{{ product.name }}</h3>
+                  <h3 class="product-title">${{ product.price }}</h3>
+                  <div class="rating">★★★★★{{ product.rating }}</div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+
+        <!-- Pagination -->
+      <div class="pagination">
+        {% if page_obj.has_previous %}
+            <button class="pagination-btn" title="Previous Page" onclick="window.location.href='?page={{ page_obj.previous_page_number }}'">
+                <i class="fas fa-angle-double-left"></i>
+            </button>
+        {% else %}
+            <button class="pagination-btn disabled" title="Previous Page" disabled>
+                <i class="fas fa-angle-double-left"></i>
+            </button>
+        {% endif %}
+    
+        {% for num in page_obj.paginator.page_range %}
+            <button class="pagination-number {% if page_obj.number == num %}active{% endif %}" onclick="window.location.href='?page={{ num }}'">
+                {{ num }}
+            </button>
+        {% endfor %}
+    
+        {% if page_obj.has_next %}
+            <button class="pagination-btn" title="Next Page" onclick="window.location.href='?page={{ page_obj.next_page_number }}'">
+                <i class="fas fa-angle-double-right"></i>
+            </button>
+        {% else %}
+            <button class="pagination-btn disabled" title="Next Page" disabled>
+                <i class="fas fa-angle-double-right"></i>
+            </button>
+        {% endif %}
+    </div>
+    
+  </section>
+  
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/test.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

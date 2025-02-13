@@ -1,0 +1,14 @@
+<div id="products-container" class="products_dev">
+    {% for product in products %}
+    <div class="product-card">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image" />
+        <div class="product-buttons">
+            <button title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
+            <button title="Like"><i class="fas fa-heart"></i></button>
+            <button title="Share"><i class="fas fa-share-alt"></i></button>
+        </div>
+        <h3 class="product-title">{{ product.name }}</h3>
+        <div class="rating">★★★★☆</div>
+    </div>
+    {% endfor %}
+</div>

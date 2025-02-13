@@ -1,0 +1,80 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<htm lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Store Hub | Contact</title>
+  </head>
+
+  <body class="light">
+    <!-- Start Contact -->
+    <div class="contact">
+      <div class="cont-text">
+        <a href="{% url 'index' %}" class="lin1">Home</a>
+        <span class="lin2">/</span>
+        <a href="{% url 'contact' %}" class="lin2">Contact</a>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="container-info">
+            <div class="info">
+              <div class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+                <h4>Call To Us</h4>
+              </div>
+              <p>We are available 24/7, 7 days a week.</p>
+              <p>Phone: +880161112222</p>
+            </div>
+            <hr class="contact-hr" />
+            <div class="info">
+              <div class="contact-icon">
+                <i class="fa-regular fa-envelope"></i>
+                <h4>Write To Us</h4>
+              </div>
+              <p>Fill out our form and we will contact you within 24 hours.</p>
+              <p>Emails: customer@exclusive.com</p>
+              <p>Emails: support@exclusive.com</p>
+            </div>
+          </div>
+        </div>
+        <form method="POST" class="contact-form">
+          {% csrf_token %}
+          <div class="container-form">
+              <div class="form">
+                  <input type="text" name="name" placeholder="Your Name" required />
+                  <input type="email" name="email" placeholder="Your Email" required />
+                  <input type="tel" name="phone" placeholder="Your Phone" required />
+              </div>
+              <div class="form-message">
+                  <textarea name="message" placeholder="Your Message" required></textarea>
+              </div>
+              <div class="contact-button">
+                  <button type="submit"><span>Send Message</span></button>
+              </div>
+          </div>
+      </form>      
+      </div>
+    </div>
+    <!-- End Contact -->
+    
+    <script src="{% static 'js/fady.js' %}"></script>
+  </body>
+</html>
+{% endblock %}
