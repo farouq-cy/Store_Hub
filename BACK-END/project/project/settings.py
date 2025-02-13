@@ -132,9 +132,14 @@ JAZZMIN_SETTINGS = {
     'site_header': "STOREHUB",
     'site_brand': "STOREHUB",
     'site_icon': 'images/logo.png',
-    "site_logo": 'images/logo.png',
-#التحكم في حجم الصوره
-    "site_logo_classes": "img-circle",
+    'site_logo': 'images/logo.png',
+    'login_logo': 'images/logo.png',
+    'login_logo_dark': 'images/logo.png',
+    'login_logo_light': 'images/logo.png',
+    'login_logo_small': 'images/logo.png',
+    'login_logo_small_dark': 'images/logo.png',
+    'login_logo_small_light': 'images/logo.png',
+    'login_logo_small_alt': 'images/logo.png',
     
     "welcome_sign": "Welcome to STOREHUB Admin Panel",  # رسالة الترحيب
 
@@ -223,6 +228,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-AUTH_USER_MODEL = 'pages.User'
+#AUTH_USER_MODEL = 'pages.User'
 
 

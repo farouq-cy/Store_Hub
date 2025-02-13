@@ -1,6 +1,6 @@
 from django.shortcuts import render , redirect
 from .models import *
-from django.db.models import Count , Max , Avg
+from django.db.models import Count , Max 
 from .forms import *
 from django.contrib import messages 
 from django.contrib.auth import login, authenticate
@@ -8,15 +8,13 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import JsonResponse
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
-
+from django.core.paginator import Paginator
 def index(request):
-    # جلب المنتجات الأكثر إعجابًا
+
     top_products = Product.objects.annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]
     
-    # جلب جميع العروض
     flash_sales = FlashSale.objects.all()
 
-    # تحديد أقرب وقت انتهاء بين كل العروض
     max_time = flash_sales.aggregate(max_end_time=Max('end_date'))['max_end_time'] if flash_sales else None
 
 
@@ -45,10 +43,10 @@ def user_login(request):
             
             user = authenticate(username=username, password=password)
 
-            if user and isinstance(user, User):  # تأكيد أن المستخدم من الموديل المخصص
+            if user and isinstance(user, User):
                 login(request, user)
                 messages.success(request, "تم تسجيل الدخول بنجاح!")
-                return redirect('index')  # غيرها باسم الصفحة الرئيسية عندك
+                return redirect('index')
             else:
                 messages.error(request, "اسم المستخدم أو كلمة المرور غير صحيحة.")
     else:
@@ -67,7 +65,6 @@ def register(request):
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
 
-            # تحقق من وجود اسم المستخدم والبريد الإلكتروني
             if User.objects.filter(username=username).exists():
                 messages.error(request, "اسم المستخدم هذا موجود بالفعل.")
                 return redirect('register')
@@ -76,19 +73,17 @@ def register(request):
                 messages.error(request, "البريد الإلكتروني هذا مسجل بالفعل.")
                 return redirect('register')
 
-            # إذا لم يكن هناك خطأ، قم بإنشاء المستخدم
             user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password1'])  # تأكيد الباسورد
+            user.set_password(form.cleaned_data['password1'])
             user.save()
 
             print(f"User Created: {user.username}, {user.email}, {user.role}, {user.PhoneNumber}")
 
-            # تسجيل الدخول بعد التسجيل
             login(request, user)
 
-            messages.success(request, "تم إنشاء الحساب بنجاح!")  # رسالة نجاح
+            messages.success(request, "تم إنشاء الحساب بنجاح!")  
 
-            return redirect('index')  # بعد التسجيل يمكنه الانتقال إلى صفحة تسجيل الدخول
+            return redirect('index')  
 
         else:
             print("Form Errors:", form.errors)
@@ -126,48 +121,37 @@ def contact_view(request):
 
 def allproducts(request):
     categories = Category.objects.all()
-    colors = [
-        ('red', 'Red'),
-        ('green', 'Green'),
-        ('yellow', 'Yellow'),
-        ('blue', 'Blue'),
-        ('orangered', 'OrangeRed'),
-        ('black', 'Black')
-    ]
+    colors = ['red', 'green', 'yellow', 'blue', 'orangered', 'black']
+
 
     products = Product.objects.all()
+    selected_category = request.GET.get('category')
+    selected_color = request.GET.get('color')
 
-    # استلام البيانات من `GET` لو الفلترة مفعلة
-    selected_categories = request.GET.getlist('category')
-    selected_colors = request.GET.getlist('color')
+    filters = Q()
+ 
+    if selected_category:
+        
+        filters &= Q(category__name=selected_category)
 
-    # تحسين الفلترة باستخدام Q object
-    if selected_categories:
-        category_filter = Q()
-        for cat_id in selected_categories:
-            category_filter |= Q(category_id=cat_id)
-        products = products.filter(category_filter)
+    if selected_color:
+        filters &= Q(color=selected_color)
 
-    if selected_colors:
-        products = products.filter(color__in=selected_colors)
+    if filters:
+        products = products.filter(filters)
 
-    # إضافة قائمة من الأرقام للتكرار 5 مرات في القالب
-    star_range = products.aggregate(Max('rating'))['rating__max']
-    if star_range is None:  # التعامل مع حالة عدم وجود تقييمات
-        star_range = 5
+    paginator = Paginator(products, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-    # إضافة أي عناصر أخرى للـ context
     context = {
         'categories': categories,
         'colors': colors,
-        'products': products,
+        'products': page_obj.object_list,
+        'page_obj': page_obj,
     }
 
-    # التحقق إذا كان الطلب هو AJAX
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        return render(request, 'pages/allproduct_list.html', context)
-
-    return render(request, 'pages/allproduct.html', context)
+    return render(request, 'pages/allproduct.html', context) 
 
 
 

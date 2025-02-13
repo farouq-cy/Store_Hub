@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import *
-
 # تسجيل نموذج User
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
