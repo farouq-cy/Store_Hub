@@ -107,18 +107,6 @@ var x = new Swiper(".categs", {
   },
 });
 
-// Start One Product Page
-let dec = document.querySelector(
-  ".imgAndDetailes .container .detailes .buyLove .dec"
-);
-let inc = document.querySelector(
-  ".imgAndDetailes .container .detailes .buyLove .inc"
-);
-let Num = document.querySelector(
-  ".imgAndDetailes .container .detailes .buyLove #Num"
-);
-let valu = Num.value;
-console.log(valu);
 
 
 
