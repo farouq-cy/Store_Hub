@@ -35,19 +35,20 @@ class ProductAdmin(admin.ModelAdmin):
     total_likes.short_description = 'Total Likes'  # عنوان العمود في الـ Admin
 
 
-admin.register(Category)
+@admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name')
-    search_fields = ('name')
+    list_display = ('name',)
+    search_fields = ('name',)
+
 
 
 # تسجيل نموذج Order
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'Product', 'Customer', 'Quantity', 'Status', 'OrderDate')  # الحقول المعروضة في القائمة
-    list_filter = ('Status', 'OrderDate')  # الفلاتر
-    search_fields = ('Product_name', 'Customer_username')  # البحث
-    list_display_links = ['Product']  # الروابط القابلة للنقر
+    list_filter = ('Status', 'OrderDate')  
+    search_fields = ('Product__name', 'Customer__username')
+    list_display_links = ('Product',)
     readonly_fields = ('OrderDate',)  # حقل للقراءة فقط
 
     # Action لتغيير حالة الطلبات
@@ -70,7 +71,7 @@ class ReportAdmin(admin.ModelAdmin):
 class DeliveryAssignmentAdmin(admin.ModelAdmin):
     list_display = ('id', 'Order', 'DeliveryAgent', 'Status', 'AssignedDate')  # الحقول المعروضة في القائمة
     list_filter = ('Status', 'AssignedDate')  # الفلاتر
-    search_fields = ('Order_id', 'DeliveryAgent_username')  # إمكانية البحث
+    search_fields = ('Order__id', 'DeliveryAgent__username')  # إمكانية البحث
     readonly_fields = ('AssignedDate',)  # حقل للقراءة فقط
 
     # Action لتغيير حالة التعيين
@@ -90,7 +91,7 @@ class ContactMessageAdmin(admin.ModelAdmin):
     list_filter = ('created_at',)
     search_fields = ('name', 'email', 'phone', 'message')
 
-admin.site.register(Category)
+
 
 # إعدادات عامة للـ Admin
 admin.site.site_header = 'STOREHUB'

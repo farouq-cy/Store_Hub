@@ -1,9 +1,7 @@
 {% extends 'pages/base.html' %}
-
 {% block content %}
-<!DOCTYPE html>
-{% load static %}
 <html lang="en">
+  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,34 +23,27 @@
     <!-- Start Login -->
     <div class="login">
       <div class="login-container">
-        <div class="login-image"></div>
+        <div class="login-image">
+          <img src="{% static 'images/login.png' %}" alt="Login Image">
+        </div>
         <div class="login-form">
           <h6>Login To Exclusive</h6>
           <p>Enter your details below</p>
 
-          <!-- عرض رسائل الخطأ إذا كانت موجودة -->
-          {% if messages %}
-            <div class="messages">
-              {% for message in messages %}
-                <div class="alert alert-danger">{{ message }}</div>
-              {% endfor %}
-            </div>
-          {% endif %}
-
-          <form method="post">
+          <form method="POST">
             {% csrf_token %}
 
             <div class="input-box">
               {{ form.username }}
-              <label for="id_username">Email or Phone Number</label>
-              <i class="fa-solid fa-envelope"></i>
+              <label for="id_username">Enter Your Username</label>
+              <i class="fa-solid fa-user"></i>
             </div>
 
             <div class="input-box">
               {{ form.password }}
               <label for="id_password">Password</label>
               <i class="fa-solid fa-lock"></i>
-            </div>
+            </div> 
 
             <div class="forgt-passwd">
               <a href="#">Forgot Password?</a>
@@ -62,11 +53,13 @@
               <button type="submit"><span>Login</span></button>
             </div>
           </form>
+
         </div>
       </div>
     </div>
     <!-- End Login -->
-    <script src="{% static 'js/fady.js' %}"></script>
+    
+    <script src="js/main.js"></script>
   </body>
 </html>
 {% endblock %}

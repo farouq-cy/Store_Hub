@@ -3,10 +3,11 @@ from .models import *
 from django.db.models import Count , Max , Avg
 from .forms import *
 from django.contrib import messages 
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.views.decorators.csrf import csrf_protect
 from django.http import JsonResponse
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     # جلب المنتجات الأكثر إعجابًا
@@ -34,20 +35,25 @@ def about(request):
 
 
 
-@csrf_protect
-def login_view(request):
-    if request.method == 'POST':
-        form = CustomLoginForm(request, data=request.POST)
+@csrf_exempt
+def user_login(request):
+    if request.method == "POST":
+        form = CustomLoginForm(request.POST)
         if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            messages.success(request, 'You have successfully logged in!')
-            return redirect('index')  # أو أي صفحة تانية بعد تسجيل الدخول
-        else:
-            messages.error(request, 'Invalid login credentials!')
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            
+            user = authenticate(username=username, password=password)
+
+            if user and isinstance(user, User):  # تأكيد أن المستخدم من الموديل المخصص
+                login(request, user)
+                messages.success(request, "تم تسجيل الدخول بنجاح!")
+                return redirect('index')  # غيرها باسم الصفحة الرئيسية عندك
+            else:
+                messages.error(request, "اسم المستخدم أو كلمة المرور غير صحيحة.")
     else:
         form = CustomLoginForm()
-
+    
     return render(request, 'pages/login.html', {'form': form})
 
 
@@ -82,7 +88,7 @@ def register(request):
 
             messages.success(request, "تم إنشاء الحساب بنجاح!")  # رسالة نجاح
 
-            return redirect('login')  # بعد التسجيل يمكنه الانتقال إلى صفحة تسجيل الدخول
+            return redirect('index')  # بعد التسجيل يمكنه الانتقال إلى صفحة تسجيل الدخول
 
         else:
             print("Form Errors:", form.errors)

@@ -2886,6 +2886,7 @@ input[type="checkbox"]:checked::after {
 /* ==> End Sign And Login  <== */
 
 
+
 /* ==> Start All Product  <== */
 .top_page {
   text-align: center;
@@ -2950,8 +2951,8 @@ input[type="checkbox"]:checked::after {
 
 .allproduct .products_dev {
   flex: 1;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -3103,7 +3104,6 @@ input[type="checkbox"]:checked::after {
 body.dark .top_page p {
   color: #ddd;
 }
-
 body.dark .product-card,
 body.dark .pagination-btn,
 body.dark .pagination-number,
@@ -3143,5 +3143,4 @@ body.dark .product-buttons button:hover {
 body.dark .product-card:hover .product-buttons {
   opacity: 1;
 }
-
 /* ==> End All Product  <== */
