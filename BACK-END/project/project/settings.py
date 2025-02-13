@@ -127,34 +127,33 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 JAZZMIN_SETTINGS = {
-    'copyright': "STOREHUB",
+    'copyright': 'FADY ASHRAF',
     'site_title': "STOREHUB",
     'site_header': "STOREHUB",
     'site_brand': "STOREHUB",
-    'site_icon': 'images/logo.png',
-    'site_logo': 'images/logo.png',
-    'login_logo': 'images/logo.png',
-    'login_logo_dark': 'images/logo.png',
-    'login_logo_light': 'images/logo.png',
-    'login_logo_small': 'images/logo.png',
-    'login_logo_small_dark': 'images/logo.png',
-    'login_logo_small_light': 'images/logo.png',
-    'login_logo_small_alt': 'images/logo.png',
+    'site_icon': 'images/LOGO1.png',
+    'site_logo': 'images/LOGO1.png',
+    'login_logo': 'images/LOGO1.png',
+    'login_logo_dark': 'images/LOGO1.png',
+    'login_logo_light': 'images/LOGO1.png',
+    'login_logo_small': 'images/LOGO1.png',
+    'login_logo_small_dark': 'images/LOGO1.png',
+    'login_logo_small_light': 'images/LOGO1.png',
+    'login_logo_small_alt': 'images/LOGO1.png',
     
     "welcome_sign": "Welcome to STOREHUB Admin Panel",  # رسالة الترحيب
 
-    # إعدادات القائمة الجانبية
-    "show_sidebar": True,  # إظهار القائمة الجانبية
-    "navigation_expanded": True,  # توسيع القائمة الجانبية تلقائيًا
+   
+    "show_sidebar": True, 
+    "navigation_expanded": True, 
 
-    # إعدادات الألوان
-    "theme": "dark",  # يمكنك استخدام "light" أو "dark"
+    "theme": "dark", 
 
-    # إعدادات الرسوم البيانية
+
     "charts": [
         {
             "title": "Sales Report",
-            "type": "bar",  # نوع الرسم (bar, line, pie, etc.)
+            "type": "bar", 
             "data": {
                 "labels": ["January", "February", "March", "April", "May", "June", "July"],
                 "datasets": [
@@ -177,7 +176,7 @@ JAZZMIN_SETTINGS = {
                 {
                     "label": "Sales",
                     "backgroundColor": "#79aec8",
-                    "data": [100, 200, 150],  # بيانات مأخوذة من موديلاتك
+                    "data": [100, 200, 150],  
                 }
             ],
         },
@@ -198,9 +197,9 @@ JAZZMIN_SETTINGS = {
         },
     ],
 
-    # إعدادات أخرى
-    "changeform_format": "horizontal_tabs",  # تنسيق صفحة التعديل
-    "related_modal_active": True,  # فتح النماذج ذات الصلة في نافذة منبثقة
+    
+    "changeform_format": "horizontal_tabs",  
+    "related_modal_active": True,
 }    
 
 JAZZMIN_UI_TWEAKS = {
