@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator
+
 def index(request):
 
     top_products = Product.objects.annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]

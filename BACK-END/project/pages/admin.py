@@ -1,8 +1,9 @@
 from django.contrib import admin
 from .models import *
+from django.contrib.auth.admin import UserAdmin
 # تسجيل نموذج User
 @admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(UserAdmin):
     list_display = ('username', 'email', 'role', 'PhoneNumber', 'CreatedAt')  # الحقول المعروضة في القائمة
     list_filter = ('role', 'CreatedAt')  # الفلاتر
     search_fields = ('username', 'email', 'PhoneNumber')  # إمكانية البحث

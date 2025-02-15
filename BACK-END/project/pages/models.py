@@ -12,7 +12,7 @@ class User(AbstractUser):
     PhoneNumber = models.CharField(max_length=15, blank=True, null=True)
     CreatedAt = models.DateTimeField(auto_now_add=True)
 
-    # تغيير related_name لتجنب التعارض
+   
     groups = models.ManyToManyField(
         'auth.Group',
         related_name='custom_user_groups',
@@ -28,7 +28,7 @@ class User(AbstractUser):
         help_text='Specific permissions for this user.',
     )
 
-    def __str__(self):  # تم تصحيح اسم الدالة هنا
+    def __str__(self): 
         return self.username
 
     class Meta:
