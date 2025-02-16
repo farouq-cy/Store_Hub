@@ -3416,3 +3416,109 @@ body.dark .product-card:hover .product-buttons {
 }
 
 /* ==> End All Product  <== */
+
+
+/* ==> Wishlist <==*/
+/* تنسيق العنوان وزر Move All To Bag */
+.wishlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.wishlist-header h2 {
+  margin: 0;
+}
+
+.move-all-btn {
+  background-color: white;
+  color: black;
+  padding: 10px 15px;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.move-all-btn:hover {
+  background-color: #e74c3c;
+}
+
+/* تصميم كل صف من المنتجات */
+.wishlist-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.just-for-you-section {
+  padding: 20px;
+}
+
+/* تنسيق العنوان وزر "See All" */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  color:#e74c3c;
+  margin: 0;
+}
+
+.see-all {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.see-all:hover {
+  background: #333;
+}
+
+/* تصميم كل منتج */
+.product {
+  background: white;
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+  width: 23%;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: red;
+  font-size: 14px;
+}
+
+.add-to-cart {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-to-cart:hover {
+  background-color: #333;
+}
+
