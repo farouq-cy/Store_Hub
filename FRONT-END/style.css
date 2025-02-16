@@ -3563,3 +3563,92 @@ body.dark .product-card:hover .product-buttons {
   background-color: #333;
 }
 
+<<<<<<< Updated upstream
+=======
+/* ==> End All Product  <== */
+
+
+
+
+/* wishlist*/
+.wishlist {
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.wishlist-title {
+  font-size: 2.5em;
+  font-weight: 600;
+ 
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+.move-all-btn {
+  background-color: #fff;
+  color: #000;
+  width: 150px;
+  padding: 12px 25px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 30px;
+  margin-left: 800px;
+}
+.move-all-btn:hover {
+  background-color: #e74c3c;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 0 20px;
+}
+.product {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.product:hover {
+  transform: translateY(-10px);
+}
+.product img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.name {
+  font-size: 1.4em;
+  margin: 10px 0;
+  font-weight: 500;
+}
+.price {
+  color: #e60000;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-left: 10px;
+  font-size: 1em;
+}
+.add-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+.add-btn:hover {
+  background-color: #333;
+}
+>>>>>>> Stashed changes
