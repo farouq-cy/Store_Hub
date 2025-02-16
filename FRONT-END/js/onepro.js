@@ -10,9 +10,18 @@ let inc = document.querySelector(
 let Num = document.getElementById("Num");
 
 dec.addEventListener("click", () => {
-    if(Num.innerHTML == '0') Num.innerHTML = '0';
-    else Num.innerHTML--;
+  if (Num.innerHTML == "0") Num.innerHTML = "0";
+  else Num.innerHTML--;
 });
 inc.addEventListener("click", () => {
-    Num.innerHTML++;
+  Num.innerHTML++;
+});
+
+window.addEventListener("load", function () {
+  let storedSrc = localStorage.getItem("imgsrc");
+  if (storedSrc) {
+    let imgInOnePro = document.querySelector(".imgAndDetailes .img img");
+    let attInImg = imgInOnePro.getAttribute("src");
+    if (storedSrc) imgInOnePro.setAttribute("src", storedSrc);
+  }
 });

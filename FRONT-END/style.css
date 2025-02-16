@@ -1136,9 +1136,12 @@ section#browseCat .container {
   width: 80%;
   background-color: rgba(0, 0, 0, 0.07);
   width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .imgAndDetailes .container .img img {
-  width: 100%;
+  width: 50%;
 }
 .imgAndDetailes .container .detailes {
   width: 30%;
