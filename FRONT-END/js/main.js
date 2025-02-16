@@ -112,9 +112,7 @@ document.querySelectorAll(".pro").forEach((div) => {
     if (img) {
       let imgSrc = img.getAttribute("src");
       localStorage.setItem("imgsrc", imgSrc);
-      console.log("تم حفظ الرابط في localStorage:", imgSrc);
       window.location.href = "onepro.html";
     }
   });
 });
-
