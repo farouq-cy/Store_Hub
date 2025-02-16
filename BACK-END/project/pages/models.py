@@ -1,39 +1,36 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import *
 
 
-class User(AbstractUser):
+class UserProfile(models.Model):
     ROLE_CHOICES = [
         ('user', 'User'),
         ('delivery_agent', 'Delivery Agent'),
         ('saler', 'Saler'),
+        ('admin', 'Admin'),  # إضافة رول جديد للأدمين
     ]
+    
+    user = models.OneToOneField(User, on_delete=models.CASCADE)  # ارتباط كل مستخدم ببروفايل خاص بيه
     role = models.CharField(max_length=50, choices=ROLE_CHOICES, default='user')
-    PhoneNumber = models.CharField(max_length=15, blank=True, null=True)
-    CreatedAt = models.DateTimeField(auto_now_add=True)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-   
-    groups = models.ManyToManyField(
-        'auth.Group',
-        related_name='custom_user_groups',
-        blank=True,
-        verbose_name='groups',
-        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
-    )
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        related_name='custom_user_permissions',
-        blank=True,
-        verbose_name='user permissions',
-        help_text='Specific permissions for this user.',
-    )
+    def save(self, *args, **kwargs):
+        """
+        إذا كان المستخدم أدمن، يتم جعله سوبر يوزر تلقائيًا.
+        """
+        if self.role == 'admin':
+            self.user.is_superuser = True
+            self.user.is_staff = True
+        else:
+            self.user.is_superuser = False
+            self.user.is_staff = False
 
-    def __str__(self): 
-        return self.username
+        self.user.save()
+        super().save(*args, **kwargs)
 
-    class Meta:
-        verbose_name = "مستخدم"
-        verbose_name_plural = "المستخدمين"
+    def __str__(self):
+        return f"{self.user.username} - {self.role}"
 
 #نموذج Product
 class Category(models.Model):

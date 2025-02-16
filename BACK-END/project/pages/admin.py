@@ -1,24 +1,62 @@
 from django.contrib import admin
 from .models import *
 from django.contrib.auth.admin import UserAdmin
-# تسجيل نموذج User
-@admin.register(User)
-class UserAdmin(UserAdmin):
-    list_display = ('username', 'email', 'role', 'PhoneNumber', 'CreatedAt')  # الحقول المعروضة في القائمة
-    list_filter = ('role', 'CreatedAt')  # الفلاتر
-    search_fields = ('username', 'email', 'PhoneNumber')  # إمكانية البحث
-    readonly_fields = ('CreatedAt',)  # حقل للقراءة فقط
+from django.contrib.auth.models import User
 
-    # Action لتغيير دور اليوزر
+# تسجيل نموذج User
+class UserProfileInline(admin.StackedInline):
+    model = UserProfile
+    can_delete = False
+    verbose_name_plural = "User Profiles"
+    
+
+    def get_created_at(self, obj):
+        return obj.created_at
+    get_created_at.short_description = "Created At"
+    readonly_fields = ('get_created_at',) 
+
+
+
+class CustomUserAdmin(UserAdmin):
+    inlines = (UserProfileInline,) 
+    
+    list_display = ('username', 'email', 'get_role', 'get_phone_number', 'get_created_at', 'is_staff', 'is_superuser')
+    list_filter = ('is_staff', 'is_superuser', 'userprofile__role')  
+    search_fields = ('username', 'email', 'userprofile__phone_number')
+
+
+    def get_role(self, obj):
+        return obj.userprofile.role
+    get_role.short_description = "Role"
+
+    def get_phone_number(self, obj):
+        return obj.userprofile.phone_number
+    get_phone_number.short_description = "Phone Number"
+
+    def get_created_at(self, obj):
+        return obj.userprofile.created_at
+    get_created_at.short_description = "Created At"
+
     actions = ['make_delivery_agent', 'make_saler']
 
     @admin.action(description="Mark selected users as Delivery Agent")
     def make_delivery_agent(self, request, queryset):
-        queryset.update(role='delivery_agent')
+        for user in queryset:
+            if hasattr(user, 'userprofile'):
+                user.userprofile.role = 'delivery_agent'
+                user.userprofile.save()
 
     @admin.action(description="Mark selected users as Saler")
     def make_saler(self, request, queryset):
-        queryset.update(role='saler')
+        for user in queryset:
+            if hasattr(user, 'userprofile'):
+                user.userprofile.role = 'saler'
+                user.userprofile.save()
+
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)
+
+
 
 # تسجيل نموذج Product
 @admin.register(Product)

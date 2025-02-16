@@ -1,6 +1,6 @@
 from django import forms
 from .models import *
-from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
+from django.contrib.auth.forms import *
 from django.contrib.auth import authenticate
 
 
@@ -12,29 +12,40 @@ class ContactForm(forms.ModelForm):
 
 
 class SignUpForm(UserCreationForm):
-    role = forms.ChoiceField(choices=User.ROLE_CHOICES, required=True)
+    role = forms.ChoiceField(choices=UserProfile.ROLE_CHOICES, required=True)
     PhoneNumber = forms.CharField(max_length=15, required=False)
 
     class Meta:
         model = User
-        fields = ['username', 'PhoneNumber', 'email', 'role', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2', 'PhoneNumber', 'role']
 
     def clean_PhoneNumber(self):
         phone_number = self.cleaned_data.get('PhoneNumber')
         if phone_number and not phone_number.isdigit():
-            raise forms.ValidationError("Phone number should contain only digits.")
+            raise forms.ValidationError("رقم الهاتف يجب أن يحتوي على أرقام فقط.")
         return phone_number
+
+    def save(self, commit=True):
+        user = super().save(commit=False)  # حفظ بيانات `User` بدون الحفظ النهائي
+        if commit:
+            user.save()  # حفظ المستخدم
+            UserProfile.objects.create(  # إنشاء ملف `UserProfile`
+                user=user,
+                role=self.cleaned_data['role'],
+                PhoneNumber=self.cleaned_data['PhoneNumber']
+            )
+        return user
     
 
 
 
 class CustomLoginForm(forms.Form):
     username = forms.CharField(
-        max_length=100, 
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': ''})
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': ' '})
     )
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': ''})
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': ' '})
     )
 
     def clean(self):
@@ -46,7 +57,7 @@ class CustomLoginForm(forms.Form):
             user = authenticate(username=username, password=password)
             if not user:
                 raise forms.ValidationError("اسم المستخدم أو كلمة المرور غير صحيحة.")
-            if not isinstance(user, User):  # التأكد إنه من الموديل المخصص
-                raise forms.ValidationError("هذا الحساب غير مسموح له بتسجيل الدخول.")
+            if not user.is_active:
+                raise forms.ValidationError("هذا الحساب غير مفعل.")
 
         return cleaned_data

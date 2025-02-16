@@ -78,7 +78,7 @@ def register(request):
             user.set_password(form.cleaned_data['password1'])
             user.save()
 
-            print(f"User Created: {user.username}, {user.email}, {user.role}, {user.PhoneNumber}")
+            #print(f"User Created: {user.username}, {user.email}, {user.role}, {user.PhoneNumber}")
 
             login(request, user)
 
