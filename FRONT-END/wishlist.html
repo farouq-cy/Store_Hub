@@ -190,7 +190,47 @@
   .wishlist-row .product .add-to-carts i {
     font-size: 18px;
   }
-  
+  .dark .wishlist-header h2,
+.dark .section-header h2,
+.dark .wishlist-row .price, 
+.dark.wishlist-row .old-price { 
+    color: white important; /* لون داكن للنصوص */
+}
+
+/* أيقونات القلب والعين */
+.dark .wishlist-icon, 
+.dark .view-icon {
+    background: #222; /* لون داكن */
+    color: white;
+}
+
+.dark .wishlist-icon:hover, 
+.dark .view-icon:hover {
+    background: var(--main-color);
+    color: #fff;
+}
+
+/* خصم المنتجات */
+.dark .wishlist-row .discount-badge {
+    background-color:#9f1239!important; /* الخصم يكون غامق */
+    color: #fff !important;
+}
+
+/* تحسين الصور */
+.dark.wishlist-row .product img {
+    filter: brightness(0.9); /* تقليل السطوع ليليق مع الدارك مود */
+    border-radius: 5px;
+}
+
+/* تعديل زر الإضافة للسلة */
+.dark .wishlist-row .product .add-to-carts {
+    background-color: #222;
+    color: white;
+}
+
+.dark.wishlist-row .product .add-to-carts:hover {
+    background-color: #9f1239;
+}
   
   </style>
 </style>
@@ -231,7 +271,7 @@
         </div>
       </header>
 
-      
+
 <div class="continer">
     <div class="wishlist-header">
         <h2>Wishlist (4)</h2>
@@ -344,6 +384,10 @@
     </div>
     </div>
 </div>
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
 
