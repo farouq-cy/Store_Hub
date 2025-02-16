@@ -3420,11 +3420,16 @@ body.dark .product-card:hover .product-buttons {
 
 /* ==> Wishlist <==*/
 /* تنسيق العنوان وزر Move All To Bag */
+
+.continer {
+  margin: 50px 50px 50px 50px;
+}
 .wishlist-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+
 }
 
 .wishlist-header h2 {
@@ -3496,16 +3501,42 @@ body.dark .product-card:hover .product-buttons {
   height: auto;
   border-radius: 5px;
 }
+.new-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: green;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
 
 .price {
   font-size: 18px;
   font-weight: bold;
+  color: #e71c37;
 }
 
 .old-price {
   text-decoration: line-through;
-  color: red;
+  color: gray;
   font-size: 14px;
+}
+.stars{
+  color: #ffc918;
+}
+.stars span{
+  color: gray;
 }
 
 .add-to-cart {
@@ -3516,7 +3547,17 @@ body.dark .product-card:hover .product-buttons {
   width: 100%;
   cursor: pointer;
   margin-top: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
+
+.add-to-cart i {
+  font-size: 18px;
+}
+
 
 .add-to-cart:hover {
   background-color: #333;
