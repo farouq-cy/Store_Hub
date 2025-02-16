@@ -9,11 +9,13 @@ class UserProfileInline(admin.StackedInline):
     can_delete = False
     verbose_name_plural = "User Profiles"
     
+    
 
     def get_created_at(self, obj):
         return obj.created_at
     get_created_at.short_description = "Created At"
     readonly_fields = ('get_created_at',) 
+    
 
 
 
@@ -45,6 +47,7 @@ class CustomUserAdmin(UserAdmin):
             if hasattr(user, 'userprofile'):
                 user.userprofile.role = 'delivery_agent'
                 user.userprofile.save()
+                user.save()
 
     @admin.action(description="Mark selected users as Saler")
     def make_saler(self, request, queryset):
@@ -52,6 +55,7 @@ class CustomUserAdmin(UserAdmin):
             if hasattr(user, 'userprofile'):
                 user.userprofile.role = 'saler'
                 user.userprofile.save()
+                user.save()
 
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)

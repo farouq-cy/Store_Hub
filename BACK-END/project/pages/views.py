@@ -65,6 +65,8 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
+            role = form.cleaned_data['role']
+            phone_number = form.cleaned_data['phone_number']
 
             if User.objects.filter(username=username).exists():
                 messages.error(request, "اسم المستخدم هذا موجود بالفعل.")
@@ -74,20 +76,24 @@ def register(request):
                 messages.error(request, "البريد الإلكتروني هذا مسجل بالفعل.")
                 return redirect('register')
 
-            user = form.save(commit=False)
+            user = form.save(commit=False)  # نحفظ المستخدم بدون حفظ نهائي
             user.set_password(form.cleaned_data['password1'])
-            user.save()
+            user.save()  # نحفظ المستخدم عشان يتسجل في الداتابيز
 
-            #print(f"User Created: {user.username}, {user.email}, {user.role}, {user.PhoneNumber}")
+            # إنشاء الـ UserProfile وربطه بالمستخدم
+            profile, created = UserProfile.objects.get_or_create(user=user)
+            profile.role = role
+            profile.phone_number = phone_number
+            profile.save()
 
+            # تسجيل الدخول للمستخدم
             login(request, user)
 
             messages.success(request, "تم إنشاء الحساب بنجاح!")  
-
             return redirect('index')  
 
         else:
-            print("Form Errors:", form.errors)
+            print("Form Errors:", form.errors) 
 
     else:
         form = SignUpForm()

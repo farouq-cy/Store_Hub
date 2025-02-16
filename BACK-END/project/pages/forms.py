@@ -2,6 +2,7 @@ from django import forms
 from .models import *
 from django.contrib.auth.forms import *
 from django.contrib.auth import authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 
 class ContactForm(forms.ModelForm):
@@ -13,27 +14,38 @@ class ContactForm(forms.ModelForm):
 
 class SignUpForm(UserCreationForm):
     role = forms.ChoiceField(choices=UserProfile.ROLE_CHOICES, required=True)
-    PhoneNumber = forms.CharField(max_length=15, required=False)
+    phone_number = forms.CharField(max_length=15, required=False)
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2', 'PhoneNumber', 'role']
+        fields = ['username', 'email', 'password1', 'password2', 'phone_number', 'role']
 
-    def clean_PhoneNumber(self):
-        phone_number = self.cleaned_data.get('PhoneNumber')
+    def clean_phone_number(self):
+        phone_number = self.cleaned_data.get('phone_number')
         if phone_number and not phone_number.isdigit():
             raise forms.ValidationError("رقم الهاتف يجب أن يحتوي على أرقام فقط.")
         return phone_number
 
     def save(self, commit=True):
-        user = super().save(commit=False)  # حفظ بيانات `User` بدون الحفظ النهائي
+        user = super().save(commit=False)  
         if commit:
-            user.save()  # حفظ المستخدم
-            UserProfile.objects.create(  # إنشاء ملف `UserProfile`
+            user.save()  # حفظ المستخدم أولًا
+
+            # إنشاء UserProfile إذا لم يكن موجودًا
+            profile, created = UserProfile.objects.get_or_create(
                 user=user,
-                role=self.cleaned_data['role'],
-                PhoneNumber=self.cleaned_data['PhoneNumber']
+                defaults={
+                    "role": self.cleaned_data['role'],
+                    "phone_number": self.cleaned_data['phone_number']
+                }
             )
+
+            # تأكيد تحديث القيم في حالة كان UserProfile موجودًا مسبقًا
+            if not created:
+                profile.role = self.cleaned_data['role']
+                profile.phone_number = self.cleaned_data['phone_number']
+                profile.save()
+
         return user
     
 

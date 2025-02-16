@@ -7,7 +7,7 @@ class UserProfile(models.Model):
         ('user', 'User'),
         ('delivery_agent', 'Delivery Agent'),
         ('saler', 'Saler'),
-        ('admin', 'Admin'),  # إضافة رول جديد للأدمين
+        ('admin', 'Admin'), 
     ]
     
     user = models.OneToOneField(User, on_delete=models.CASCADE)  # ارتباط كل مستخدم ببروفايل خاص بيه
@@ -19,6 +19,8 @@ class UserProfile(models.Model):
         """
         إذا كان المستخدم أدمن، يتم جعله سوبر يوزر تلقائيًا.
         """
+        print(f"Saving UserProfile: User={self.user.username}, Role={self.role}, Phone={self.phone_number}")
+
         if self.role == 'admin':
             self.user.is_superuser = True
             self.user.is_staff = True
@@ -26,8 +28,8 @@ class UserProfile(models.Model):
             self.user.is_superuser = False
             self.user.is_staff = False
 
-        self.user.save()
-        super().save(*args, **kwargs)
+        self.user.save()  
+        super().save(*args, **kwargs)  
 
     def __str__(self):
         return f"{self.user.username} - {self.role}"
