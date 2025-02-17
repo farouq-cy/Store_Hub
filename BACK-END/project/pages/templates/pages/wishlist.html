@@ -1,8 +1,8 @@
 {% extends 'pages/base.html' %}
 {% block content %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,44 +29,37 @@
           <img src="{{ product.image.url }}" alt="{{ product.name }}" onclick="window.location.href='/product/{{ product.id }}/'" >
           <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
           <p class="detail">{{ product.name }}</p>
-          <p class="price">${{ product.price }} <span class="old-price" id="old-price-{{ product.id }}"></span></p>
-          <script>
-            var price = {{ product.price }};
-            var oldPrice = price * 1.35;
-            document.getElementById("old-price-{{ product.id }}").textContent = "$" + oldPrice.toFixed(2);
-          </script>
+          <p class="price">${{ product.price }} <span class="old-price">${{ product.old_price|floatformat:2 }}</span></p>
         </div>
       {% endfor %}
-      
-
     </div>
+
     <div class="just-for-you-section">
         <h2>Just For You</h2>
         <a href="{% url 'allproducts' %}"><button class="see-all">See All</button></a>
     </div>
+
     <!-- الصف الثاني -->
-    
     <div class="wishlist-row">
-      <!-- تكرار عرض المنتجات -->
       {% for product in random_products %}
           <div class="product">
               <span class="discount-badge">{{ product.discount }}%</span>
               <i class="view-icon fa fa-eye"></i>
-              <img src="{{ product.image.url }}" alt="{{ product.name }}"  onclick="window.location.href='/product/{{ product.id }}/'">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" onclick="window.location.href='/product/{{ product.id }}/'">
               <button class="add-to-cart"> <i class="fas fa-shopping-cart"></i> Add To Cart</button>
               <p class="detail">{{ product.name }}</p>
-              <p class="price">${{ product.price }} <span class="old-price">${{ product.old_price }}</span></p>
+              <p class="price">${{ product.price }} <span class="old-price">${{ product.old_price|floatformat:2 }}</span></p>
               <div class="stars">
                 {% for _ in product.star_list %}
                     <i class="fa-solid fa-star"></i>  
                 {% endfor %}
-            
+
                 {% for _ in product.empty_stars %}
                     <i class="fa-regular fa-star"></i>  
                 {% endfor %}
-            
+
                 <span>({{ product.rating }})</span>  
-            </div>
+              </div>
           </div>
       {% endfor %}
   </div>
@@ -91,4 +84,5 @@
 </body>
 </html>
 {% endblock content %}
+
     
