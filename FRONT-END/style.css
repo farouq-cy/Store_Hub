@@ -3502,17 +3502,13 @@ body.dark .product-card:hover .product-buttons {
 }
 
 .wishlist-row .product {
-  display: flex;
-  flex-direction: column; 
-  justify-content: space-between; 
-  align-items: center;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 10px;
   text-align: center;
   width: 100%;
+  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 300px;
 }
 
 .wishlist-row .product:hover {
@@ -3521,13 +3517,9 @@ body.dark .product-card:hover .product-buttons {
 }
 
 .wishlist-row .product img {
-  width: 100%;
-  max-width: 200px;
-  max-height: 180px;
+  width: 70%;
   height: auto;
   border-radius: 5px;
-  object-fit: contain;
-  margin-bottom: 15px; 
 }
 
 .wishlist-row .discount-badge {
@@ -3564,7 +3556,6 @@ body.dark .product-card:hover .product-buttons {
 
 .wishlist-row .product .detail {
   color: var(--text-color);
-  flex-grow: 1; 
 }
 
 .wishlist-row .view-icon {
@@ -3602,12 +3593,12 @@ body.dark .product-card:hover .product-buttons {
 .wishlist-row .product .new-badge {
   position: absolute;
   background-color: #00FF66;
-  width: 51px;
-  height: 26px;
-  top: 10px;
-  left: 10px;
-  border-radius: 4px;
-  padding: 4px 12px;
+    width: 51;
+      height: 26;
+      top: 10px;
+      left: 10px;
+      border-radius: 4px;
+      padding: 4px 12px;
 }
 
 .wishlist-row .product .add-to-cart {
@@ -3633,11 +3624,6 @@ body.dark .product-card:hover .product-buttons {
 
 .wishlist-row .product .add-to-cart i {
   font-size: 18px;
-}
-
-.wishlist-row .product .detail,
-.wishlist-row .product .price {
-  margin-top: auto;
 }
 
 /* Dark Mode Wishlist */

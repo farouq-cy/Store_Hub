@@ -30,6 +30,7 @@
         <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
         <p class="detail">{{ product.name }}</p>
         <p class="price">${{ product.price }} <span class="old-price">$1160</span></p>
+        
     </div>{% endfor %}
 
     </div>
@@ -50,11 +51,16 @@
               <p class="detail">{{ product.name }}</p>
               <p class="price">${{ product.price }} <span class="old-price">${{ product.old_price }}</span></p>
               <div class="stars">
-                  {% for star in product.stars %}
-                      <i class="fa-solid fa-star"></i>
-                  {% endfor %}
-                  <span>({{ product.reviews_count }})</span>
-              </div>
+                {% for _ in product.star_list %}
+                    <i class="fa-solid fa-star"></i>  
+                {% endfor %}
+            
+                {% for _ in product.empty_stars %}
+                    <i class="fa-regular fa-star"></i>  
+                {% endfor %}
+            
+                <span>({{ product.rating }})</span>  
+            </div>
           </div>
       {% endfor %}
   </div>

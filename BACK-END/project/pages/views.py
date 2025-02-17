@@ -34,10 +34,13 @@ from django.shortcuts import get_object_or_404
 def wishlist(request):
     liked_products = Product.objects.filter(likes=request.user).select_related("saler")
     random_products = Product.objects.exclude(likes=request.user).order_by('?')[:4]
+    for product in random_products:
+        product.star_list = range(int(round(product.rating))) 
+
 
     return render(request, 'pages/wishlist.html', {
         'liked_products': liked_products,
-        'random_products': random_products 
+        'random_products': random_products
     })
 @login_required
 def toggle_like(request, product_id):
@@ -48,10 +51,27 @@ def toggle_like(request, product_id):
     else:
         product.likes.add(request.user)  
         liked = True
+    for product in product:
+        product.togel_like = range(int(round(product.rating))) 
     return JsonResponse({'liked': liked, 'likes_count': product.likes.count()})
 
 def about(request):
     return render(request, 'pages/about.html')
+
+
+
+
+
+def product(request, pk):
+    product = Product.objects.get(id=pk)
+    return render(request, 'pages/onepro.html', {'product': product})
+
+
+
+
+
+
+
 
 
 

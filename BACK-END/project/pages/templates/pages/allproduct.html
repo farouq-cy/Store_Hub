@@ -65,7 +65,7 @@
           <div id="products-container" class="products_dev">
             {% for product in products %}
             <div class="product-card" id="product-{{ product.id }}">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image" />
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image" onclick="window.location.href='/product/{{ product.id }}/'" />
                 <div class="product-buttons">
                     <button title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
                     
@@ -117,7 +117,7 @@
   
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="{% static 'js/test.js' %}"></script>
+    <script src="{% static 'js/fady.js' %}"></script>
 </body>
 </html>
 

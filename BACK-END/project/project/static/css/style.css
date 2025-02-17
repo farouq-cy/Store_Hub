@@ -3420,7 +3420,7 @@ body.dark .product-card:hover .product-buttons {
     gap: 20px;
   }
   .allproduct .products_dev {
-    grid-template-columns: 1fr; /*علشان يبقوا ف عمود واحد*/
+    grid-template-columns: 1fr;
   }
   .product-card {
     width: 100%;
