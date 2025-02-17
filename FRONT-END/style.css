@@ -3600,7 +3600,7 @@ body.dark .product-card:hover .product-buttons {
 }
 
 .wishlist-row .product:hover {
-  box-shadow: 0px 1px 13px 0px rgba(255, 254, 254, 0.05);
+  box-shadow: 0px 1px 13px 0px rgba(255, 254, 254, 0.248);
 }
 
 .dark .wishlist-row .product .add-to-cart {
