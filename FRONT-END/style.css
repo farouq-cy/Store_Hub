@@ -3479,7 +3479,7 @@ body.dark .product-card:hover .product-buttons {
 
 .wishlist-row .product:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.111);
 }
 
 .wishlist-row .product img {
@@ -3599,7 +3599,7 @@ body.dark .product-card:hover .product-buttons {
   color: var(--dark-color); 
 }
 
-.wishlist-row .product:hover {
+.dark .wishlist-row .product:hover {
   box-shadow: 0px 1px 13px 0px rgba(255, 254, 254, 0.248);
 }
 
@@ -3622,7 +3622,7 @@ body.dark .product-card:hover .product-buttons {
   .wishlist-header .move-all-btn,
   .just-for-you-section .see-all {
     padding: 10px 40px;
-      font-size: 12px;
+    font-size: 12px;
   }
 }
 /* ==> End Wishlist  <== */
