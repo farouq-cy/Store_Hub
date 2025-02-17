@@ -38,24 +38,49 @@
               </div>
           </div>
       </div>
+      <script>
+        function toggleLike(productId, btn) {
+            fetch(`/toggle-like/${productId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                let heartIcon = btn.querySelector("i");
+                if (data.liked) {
+                    heartIcon.classList.add("liked"); // إضافة اللون الأحمر عند اللايك
+                } else {
+                    heartIcon.classList.remove("liked"); // إزالة اللون الأحمر عند إلغاء اللايك
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
     
     
       
           <!-- Product Cards -->
           <div id="products-container" class="products_dev">
-              {% for product in products %}
-              <div class="product-card">
-                  <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image" />
-                  <div class="product-buttons">
-                      <button title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
-                      <button title="Like"><i class="fas fa-heart"></i></button>
-                      <button title="Share"><i class="fas fa-share-alt"></i></button>
-                  </div>
-                  <h3 class="product-title">{{ product.name }}</h3>
-                  <h3 class="product-title">${{ product.price }}</h3>
-                  <div class="rating">★★★★★{{ product.rating }}</div>
-              </div>
-              {% endfor %}
+            {% for product in products %}
+            <div class="product-card" id="product-{{ product.id }}">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image" />
+                <div class="product-buttons">
+                    <button title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
+                    
+                    <!-- زر اللايك -->
+                    <button title="Like" class="like-btn" onclick="toggleLike({{ product.id }}, this)">
+                        <i class="fas fa-heart {% if request.user in product.likes.all %}liked{% endif %}"></i>
+                    </button>
+        
+                    <button title="Share"><i class="fas fa-share-alt"></i></button>
+                </div>
+                <h3 class="product-title">{{ product.name }}</h3>
+                <h3 class="product-title">${{ product.price }}</h3>
+                <div class="rating">★★★★★{{ product.rating }}</div>
+            </div>
+        {% endfor %}
           </div>
       </div>
 

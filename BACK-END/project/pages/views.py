@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import *
 
 def index(request):
 
@@ -26,6 +27,28 @@ def index(request):
     })
 
 
+from django.shortcuts import get_object_or_404
+
+
+@login_required
+def wishlist(request):
+    liked_products = Product.objects.filter(likes=request.user).select_related("saler")
+    random_products = Product.objects.exclude(likes=request.user).order_by('?')[:4]
+
+    return render(request, 'pages/wishlist.html', {
+        'liked_products': liked_products,
+        'random_products': random_products 
+    })
+@login_required
+def toggle_like(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    if request.user in product.likes.all():
+        product.likes.remove(request.user)  
+        liked = False
+    else:
+        product.likes.add(request.user)  
+        liked = True
+    return JsonResponse({'liked': liked, 'likes_count': product.likes.count()})
 
 def about(request):
     return render(request, 'pages/about.html')
