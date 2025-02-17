@@ -3066,6 +3066,12 @@ input[type="checkbox"]:checked::after {
   background: #151d2a;
 }
 
+/* Dark Error Message  */
+
+.dark .error-message {
+  color: var(--text-color);
+}
+
 /* Responsive */
 
 @media (max-width: 1024px) {
