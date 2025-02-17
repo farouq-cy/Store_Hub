@@ -69,7 +69,7 @@
                 <div class="product-buttons">
                     <button title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
                     
-                    <!-- زر اللايك -->
+          
                     <button title="Like" class="like-btn" onclick="toggleLike({{ product.id }}, this)">
                         <i class="fas fa-heart {% if request.user in product.likes.all %}liked{% endif %}"></i>
                     </button>

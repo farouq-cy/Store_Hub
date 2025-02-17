@@ -10,10 +10,13 @@ from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import *
+from django.shortcuts import get_object_or_404
+
 
 def index(request):
 
-    top_products = Product.objects.annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]
+    top_products = Product.objects.filter(name="banner").annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]
+
     
     flash_sales = FlashSale.objects.all()
 
@@ -27,13 +30,14 @@ def index(request):
     })
 
 
-from django.shortcuts import get_object_or_404
 
 
 @login_required
 def wishlist(request):
     liked_products = Product.objects.filter(likes=request.user).select_related("saler")
-    random_products = Product.objects.exclude(likes=request.user).order_by('?')[:4]
+    random_products = Product.objects.exclude(likes=request.user).exclude(name="banner").order_by('?')[:4]
+
+
     for product in random_products:
         product.star_list = range(int(round(product.rating))) 
 
@@ -64,7 +68,26 @@ def about(request):
 
 def product(request, pk):
     product = Product.objects.get(id=pk)
-    return render(request, 'pages/onepro.html', {'product': product})
+    rating = getattr(product, 'rating', 0)
+    full_stars = int(rating)
+    empty_stars = 5 - full_stars  # عدد النجوم الفارغة
+
+    # المنتجات المشابهة
+    related_items = Product.objects.filter(category=product.category).exclude(id=pk)[:4]
+
+    # تجهيز بيانات النجوم للمنتجات المشابهة
+    for item in related_items:
+        item.star_list = range(int(item.rating))  # عدد النجوم الممتلئة
+        item.empty_stars = range(5 - int(item.rating))  # عدد النجوم الفارغة
+
+    return render(request, 'pages/onepro.html', {
+        'product': product,
+        'rating': rating,
+        'star_list': range(full_stars),
+        'empty_stars': range(empty_stars),
+        'related_items': related_items
+    })
+
 
 
 

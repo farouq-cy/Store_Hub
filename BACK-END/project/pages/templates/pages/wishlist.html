@@ -22,21 +22,27 @@
     </div>
     <!-- الصف الأول -->
     <div class="wishlist-row">
-      {% for product in liked_products %}
-    <div class="product" id="product-{{ product.id }}">
-        <span class="discount-badge">-35%</span>
-        <i class="wishlist-icon fa fa-trash" onclick="removeFromWishlist({{ product.id }})"></i>
-        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
-        <p class="detail">{{ product.name }}</p>
-        <p class="price">${{ product.price }} <span class="old-price">$1160</span></p>
-        
-    </div>{% endfor %}
+        {% for product in liked_products %}
+        <div class="product" id="product-{{ product.id }}">
+          <span class="discount-badge">-35%</span>
+          <i class="wishlist-icon fa fa-trash" onclick="removeFromWishlist( {{ product.id }} )"></i>
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" onclick="window.location.href='/product/{{ product.id }}/'" >
+          <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
+          <p class="detail">{{ product.name }}</p>
+          <p class="price">${{ product.price }} <span class="old-price" id="old-price-{{ product.id }}"></span></p>
+          <script>
+            var price = {{ product.price }};
+            var oldPrice = price * 1.35;
+            document.getElementById("old-price-{{ product.id }}").textContent = "$" + oldPrice.toFixed(2);
+          </script>
+        </div>
+      {% endfor %}
+      
 
     </div>
     <div class="just-for-you-section">
         <h2>Just For You</h2>
-        <a href="allproduct.html"><button class="see-all">See All</button></a>
+        <a href="{% url 'allproducts' %}"><button class="see-all">See All</button></a>
     </div>
     <!-- الصف الثاني -->
     
@@ -46,7 +52,7 @@
           <div class="product">
               <span class="discount-badge">{{ product.discount }}%</span>
               <i class="view-icon fa fa-eye"></i>
-              <img src="{{ product.image.url }}" alt="{{ product.name }}">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}"  onclick="window.location.href='/product/{{ product.id }}/'">
               <button class="add-to-cart"> <i class="fas fa-shopping-cart"></i> Add To Cart</button>
               <p class="detail">{{ product.name }}</p>
               <p class="price">${{ product.price }} <span class="old-price">${{ product.old_price }}</span></p>
