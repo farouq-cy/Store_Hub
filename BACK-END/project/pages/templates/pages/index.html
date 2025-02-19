@@ -112,11 +112,13 @@
                 <i class="fa-regular fa-eye" onclick="window.location.href='/product/{{ pro.product.id }}/'; return false;" ></i>
               </div>
             </div>
-            <div class="addcart">
+
+            <div class="addcart" data-id="{{ pro.product.id }}">
               <div class="text">
                 <p>Add To Cart</p>
               </div>
             </div>
+            
             <div class="img">
               <a href="/product/{{ pro.product.id }}/" onclick="window.location.href='/product/{{ pro.product.id }}/'; return false;">
                 <img src="{{ pro.product.image.url }}" alt="{{ pro.product.name }}" />
@@ -233,11 +235,12 @@
                 <i class="fa-regular fa-eye" onclick="window.location.href='/product/{{ product.id }}/'" ></i>
               </div>
             </div>
-            <div class="addcart">
+            <div class="addcart" data-id="{{ product.id }}">
               <div class="text">
                 <p>Add To Cart</p>
               </div>
             </div>
+            
             <div class="img"  >
               <a href="/product/{{ product.id }}/">
                 <img src="{{ product.image.url }}" alt=""  onclick="window.location.href='/product/{{ product.id }}/'"  />

@@ -127,3 +127,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+document.querySelectorAll(".addcart").forEach(button => {
+  button.addEventListener("click", function() {
+      let productId = this.dataset.id;
+
+      fetch(`/add-to-cart/?product_id=${productId}`)
+      .then(response => response.json())
+      .then(data => {
+          console.log("🔍 Response from server:", data);
+          if (data.status === "success") {
+              alert("✅ المنتج تم إضافته بنجاح!");
+              window.location.href = "/cart/"
+          } else {
+              alert("❌ حدث خطأ أثناء الإضافة!");
+          }
+      })
+      .catch(error => console.error('❌ Fetch Error:', error));
+  });
+});

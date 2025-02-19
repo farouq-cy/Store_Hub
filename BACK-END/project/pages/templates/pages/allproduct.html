@@ -50,9 +50,9 @@
             .then(data => {
                 let heartIcon = btn.querySelector("i");
                 if (data.liked) {
-                    heartIcon.classList.add("liked"); // إضافة اللون الأحمر عند اللايك
+                    heartIcon.classList.add("liked"); 
                 } else {
-                    heartIcon.classList.remove("liked"); // إزالة اللون الأحمر عند إلغاء اللايك
+                    heartIcon.classList.remove("liked");
                 }
             })
             .catch(error => console.error('Error:', error));
@@ -67,14 +67,14 @@
             <div class="product-card" id="product-{{ product.id }}">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image" onclick="window.location.href='/product/{{ product.id }}/'" />
                 <div class="product-buttons">
-                    <button title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
+                    <button class="add-to-cart" data-id="{{ product.id }}" title="Add to Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                      </button>
                     
           
                     <button title="Like" class="like-btn" onclick="toggleLike({{ product.id }}, this)">
                         <i class="fas fa-heart {% if request.user in product.likes.all %}liked{% endif %}"></i>
                     </button>
-        
-                    <button title="Share"><i class="fas fa-share-alt"></i></button>
                 </div>
                 <h3 class="product-title">{{ product.name }}</h3>
                 <h3 class="product-title">${{ product.price }}</h3>
@@ -118,7 +118,31 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{% static 'js/fady.js' %}"></script>
+    <script>
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", function() {
+                let productId = this.dataset.id;
+
+                fetch(`/add-to-cart/?product_id=${productId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("🔍 Response from server:", data);
+                    if (data.status === "success") {
+                        let quantity = data.cart[productId].quantity;
+                        alert(`✅ المنتج تم إضافته بنجاح! الكمية الحالية: ${quantity}`);
+                        window.location.href = "/cart/";
+                        
+                    } else {
+                        alert("❌ حدث خطأ أثناء الإضافة!");
+                    }
+                })
+                .catch(error => console.error('❌ Fetch Error:', error));
+            });
+        });
+
+    </script>
 </body>
 </html>
+
 
 {% endblock %}

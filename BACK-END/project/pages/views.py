@@ -12,6 +12,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import *
 from django.shortcuts import get_object_or_404
 from decimal import Decimal
+import json
 
 def index(request):
     top_products = Product.objects.filter(name="banner").annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]
@@ -29,8 +30,6 @@ def index(request):
         'max_time': max_time,
         'username': username,  
     })
-
-
 
 
 @login_required
@@ -79,9 +78,6 @@ def about(request):
     return render(request, 'pages/about.html')
 
 
-
-
-
 def product(request, pk):
     product = Product.objects.get(id=pk)
     rating = getattr(product, 'rating', 0)
@@ -105,17 +101,6 @@ def product(request, pk):
     })
 
 
-
-
-
-
-
-
-
-
-
-
-
 @csrf_exempt
 def user_login(request):
     if request.method == "POST":
@@ -137,10 +122,7 @@ def user_login(request):
     else:
         form = CustomLoginForm()
 
-    return render(request, 'pages/login.html', {'form': form})
-
-
-
+    return render(request, 'pages/account/login.html', {'form': form})
 
 
 def register(request):
@@ -188,9 +170,7 @@ def register(request):
     else:
         form = SignUpForm()
 
-    return render(request, 'pages/signUp.html', {'form': form})
-
-
+    return render(request, 'pages/account/signUp.html', {'form': form})
 
 
 def contact_view(request):
@@ -210,10 +190,6 @@ def contact_view(request):
         return redirect('contact')
 
     return render(request, 'pages/contact.html')
-
-
-
-
 
 
 def allproducts(request):
@@ -250,7 +226,50 @@ def allproducts(request):
 
     return render(request, 'pages/allproduct.html', context) 
 
+    
+@csrf_exempt
+def remove_from_cart(request, product_id):
+    if request.method == "POST":
+        cart = request.session.get('cart', {})
+        if product_id in cart:
+            del cart[product_id]  
+            request.session['cart'] = cart 
+            return JsonResponse({"success": True})
+        return JsonResponse({"success": False, "error": "Product not found"})
+    return JsonResponse({"success": False, "error": "Invalid request method"})
 
+
+
+def add_to_cart(request):
+    product_id = str(request.GET.get('product_id'))  
+    product = get_object_or_404(Product, id=product_id)
+    cart = request.session.get('cart', {})
+
+    if product_id in cart:
+        cart[product_id]['quantity'] += 1
+    else:
+        cart[product_id] = {
+            'name': product.name,
+            'price': float(product.price),
+            'image': product.image.url,
+            'quantity': 1, 
+        }
+
+    request.session['cart'] = cart
+    request.session.modified = True
+
+    return JsonResponse({'status': 'success', 'cart': cart})
+
+
+def cart(request):
+    cart = request.session.get('cart', {})
+    total = 0
+
+    for product_id, item in cart.items():
+        item['subtotal'] = float(item['price']) * int(item['quantity'])  # حساب الـ subtotal
+        total += item['subtotal']
+
+    return render(request, 'pages/payment/cart.html', {'cart': cart, 'total': total})
 
 
 
