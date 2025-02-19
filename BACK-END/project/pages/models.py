@@ -49,6 +49,8 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255, verbose_name="اسم المنتج", blank=True, null=True, default="منتج بدون اسم")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="السعر", default=0.00)
+    description = models.TextField(verbose_name="الوصف", blank=True, null=True)
+    quantity = models.PositiveIntegerField(verbose_name="الكمية", default=0)
     saler = models.ForeignKey(User, on_delete=models.CASCADE, related_name='products', null=True, blank=True)
     image = models.ImageField(upload_to='products/', default='default.jpg', verbose_name="صورة المنتج", blank=True, null=True)
     color = models.CharField(max_length=50, verbose_name="اللون", blank=True, null=True)
@@ -159,7 +161,6 @@ class FlashSale(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
-    #سعر المنتج القديم و السعر بعد الخصم يورثه من كلاس برودكت
     old_price = models.DecimalField(max_digits=10, decimal_places=2)
     new_price = models.DecimalField(max_digits=10, decimal_places=2)
     rating = models.DecimalField(max_digits=2, decimal_places=1)
