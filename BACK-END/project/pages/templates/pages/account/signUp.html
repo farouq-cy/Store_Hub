@@ -99,18 +99,22 @@
             </div>
             
           </form>
-          <div class="input-box">
-            <a href="{% provider_login_url 'google' site_id=1 %}?next=index/" class="google-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48">
-                <path fill="#EA4335" d="M24 9.5c3.54 0 6.69 1.22 9.19 3.21l6.85-6.85C36.13 2.15 30.4 0 24 0 14.66 0 6.8 5.58 2.98 13.59l7.97 6.2C12.82 13.7 17.9 9.5 24 9.5z"/>
-                <path fill="#4285F4" d="M46.5 24.5c0-1.55-.14-3.04-.4-4.5H24v9h12.65c-.54 2.9-2.15 5.36-4.59 7.02l7.04 5.46C43.85 37.8 46.5 31.74 46.5 24.5z"/>
-                <path fill="#FBBC05" d="M10.95 28.79c-1.13-3.38-1.13-7.2 0-10.59l-7.97-6.2c-3.47 6.93-3.47 15.05 0 21.98l7.97-6.19z"/>
-                <path fill="#34A853" d="M24 46c6.4 0 12.13-2.12 16.59-5.77l-7.04-5.46c-2.07 1.39-4.72 2.2-7.55 2.2-6.1 0-11.28-4.2-13.1-9.8l-7.97 6.19C6.8 42.42 14.66 48 24 48z"/>
-                <path fill="none" d="M0 0h48v48H0z"/>
-              </svg>
-              <span>Sign Up with Google</span>
-            </a>
-          </div>
+          <form method="POST" action="{% provider_login_url 'google' site_id=1 %}?next=index/">
+            {% csrf_token %}
+            <div class="input-box">
+              <button type="submit" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48">
+                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.69 1.22 9.19 3.21l6.85-6.85C36.13 2.15 30.4 0 24 0 14.66 0 6.8 5.58 2.98 13.59l7.97 6.2C12.82 13.7 17.9 9.5 24 9.5z"/>
+                  <path fill="#4285F4" d="M46.5 24.5c0-1.55-.14-3.04-.4-4.5H24v9h12.65c-.54 2.9-2.15 5.36-4.59 7.02l7.04 5.46C43.85 37.8 46.5 31.74 46.5 24.5z"/>
+                  <path fill="#FBBC05" d="M10.95 28.79c-1.13-3.38-1.13-7.2 0-10.59l-7.97-6.2c-3.47 6.93-3.47 15.05 0 21.98l7.97-6.19z"/>
+                  <path fill="#34A853" d="M24 46c6.4 0 12.13-2.12 16.59-5.77l-7.04-5.46c-2.07 1.39-4.72 2.2-7.55 2.2-6.1 0-11.28-4.2-13.1-9.8l-7.97 6.19C6.8 42.42 14.66 48 24 48z"/>
+                  <path fill="none" d="M0 0h48v48H0z"/>
+                </svg>
+                <span>Sign Up with Google</span>
+              </button>
+            </div>
+          </form>
+          
           
           <div class="already-account">
             Already have an account? <a href="{% url 'login' %}">Login</a>
