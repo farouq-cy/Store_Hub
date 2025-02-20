@@ -3,7 +3,7 @@ from .models import *
 from django.db.models import Count , Max 
 from .forms import *
 from django.contrib import messages 
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate ,logout
 from django.views.decorators.csrf import csrf_protect
 from django.http import JsonResponse
 from django.db.models import Q
@@ -13,6 +13,17 @@ from django.contrib.auth.decorators import *
 from django.shortcuts import get_object_or_404
 from decimal import Decimal
 import json
+
+
+
+
+
+
+
+
+
+
+
 
 def index(request):
     top_products = Product.objects.filter(name="banner").annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]
@@ -30,6 +41,13 @@ def index(request):
         'max_time': max_time,
         'username': username,  
     })
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("/login")
+    
+
 
 
 @login_required
@@ -259,6 +277,24 @@ def add_to_cart(request):
     request.session.modified = True
 
     return JsonResponse({'status': 'success', 'cart': cart})
+
+def update_cart(request):
+    if request.method == "POST":
+        try:
+            cart = request.session.get("cart", {})
+            data = json.loads(request.body)
+
+            for product_id, new_quantity in data.items():
+                if product_id in cart:
+                    cart[product_id]["quantity"] = int(new_quantity)
+
+            request.session["cart"] = cart  # تحديث الجلسة
+            request.session.modified = True  # تأكيد حفظ التغييرات
+
+            return JsonResponse({"status": "success", "cart": cart})
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=400)
+    return JsonResponse({"status": "error", "message": "Invalid request"}, status=400)
 
 
 def cart(request):

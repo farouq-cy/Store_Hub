@@ -37,30 +37,7 @@
                   {% endfor %}
               </div>
           </div>
-      </div>
-      <script>
-        function toggleLike(productId, btn) {
-            fetch(`/toggle-like/${productId}/`, {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': '{{ csrf_token }}'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                let heartIcon = btn.querySelector("i");
-                if (data.liked) {
-                    heartIcon.classList.add("liked"); 
-                } else {
-                    heartIcon.classList.remove("liked");
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    </script>
-    
-    
-      
+      </div>  
           <!-- Product Cards -->
           <div id="products-container" class="products_dev">
             {% for product in products %}
@@ -112,6 +89,7 @@
             </button>
         {% endif %}
     </div>
+    
     
   </section>
   
