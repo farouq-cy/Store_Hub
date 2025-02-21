@@ -14,21 +14,6 @@ from django.shortcuts import get_object_or_404
 from decimal import Decimal
 import json
 
-from allauth.account.views import PasswordResetFromKeyView
-
-class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
-    template_name = 'account/password_reset_from_key.html'
-
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        messages.success(self.request, "Your password has been reset successfully.")
-        return response
-
-
-
-
-
-
 
 
 
