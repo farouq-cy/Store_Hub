@@ -16,5 +16,5 @@ urlpatterns = [
     path("remove_from_cart/<str:product_id>/", remove_from_cart, name="remove_from_cart"),
     path("update-cart/", update_cart, name="update_cart"),
     path("logout/", views.logout_view, name="logout"),
-
+    path('accounts/password/reset/key/<uidb36>-<key>/', CustomPasswordResetFromKeyView.as_view(), name='account_reset_password_from_key'),
 ]

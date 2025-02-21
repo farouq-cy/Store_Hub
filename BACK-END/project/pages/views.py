@@ -14,6 +14,15 @@ from django.shortcuts import get_object_or_404
 from decimal import Decimal
 import json
 
+from allauth.account.views import PasswordResetFromKeyView
+
+class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
+    template_name = 'account/password_reset_from_key.html'
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Your password has been reset successfully.")
+        return response
 
 
 
@@ -23,8 +32,7 @@ import json
 
 
 
-
-
+@login_required
 def index(request):
     top_products = Product.objects.filter(name="banner").annotate(likes_count=Count('likes__id')).order_by('-likes_count')[:5]
 
@@ -209,7 +217,7 @@ def contact_view(request):
 
     return render(request, 'pages/contact.html')
 
-
+@login_required
 def allproducts(request):
     categories = Category.objects.all()
     colors = ['red', 'green', 'yellow', 'blue', 'orangered', 'black']
@@ -296,7 +304,7 @@ def update_cart(request):
             return JsonResponse({"status": "error", "message": str(e)}, status=400)
     return JsonResponse({"status": "error", "message": "Invalid request"}, status=400)
 
-
+@login_required
 def cart(request):
     cart = request.session.get('cart', {})
     total = 0

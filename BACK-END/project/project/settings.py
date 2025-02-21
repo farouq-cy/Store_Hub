@@ -169,7 +169,7 @@ JAZZMIN_SETTINGS = {
     'login_logo_small_light': 'images/LOGO1.png',
     'login_logo_small_alt': 'images/LOGO1.png',
     
-    "welcome_sign": "Welcome to STOREHUB Admin Panel",  # رسالة الترحيب
+    "welcome_sign": "Welcome to STOREHUB Admin Panel",  
 
    
     "show_sidebar": True, 
@@ -273,3 +273,10 @@ AUTHENTICATION_BACKENDS = [
 
 LOGIN_REDIRECT_URL = '/index'
 LOGOUT_REDIRECT_URL = '/login'
+LOGIN_URL = '/login'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'e05d8f8bf91b6e'
+EMAIL_HOST_PASSWORD = '5b0be7f03fd05b'
+EMAIL_USE_TLS = True
