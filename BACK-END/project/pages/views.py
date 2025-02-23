@@ -167,6 +167,7 @@ def register(request):
             profile.save()
 
             # تسجيل الدخول للمستخدم بعد إنشاء الحساب
+            user.backend = 'django.contrib.auth.backends.ModelBackend'
             login(request, user)
 
             # رسالة نجاح

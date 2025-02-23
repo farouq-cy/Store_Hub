@@ -154,6 +154,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
+#admin panel
 JAZZMIN_SETTINGS = {
     'copyright': 'FADY ASHRAF',
     'site_title': "STOREHUB",
@@ -255,7 +257,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
+#auth
+LOGIN_REDIRECT_URL = '/index'
+LOGOUT_REDIRECT_URL = '/login'
+LOGIN_URL = '/login'
 
+
+
+
+
+#messages on forget password
 from django.contrib.messages import constants as message_constants
 MESSAGE_TAGS = {
     message_constants.DEBUG: 'alert-info',
@@ -271,9 +282,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend', 
 ]
 
-LOGIN_REDIRECT_URL = '/index'
-LOGOUT_REDIRECT_URL = '/login'
-LOGIN_URL = '/login'
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_PORT = 587
