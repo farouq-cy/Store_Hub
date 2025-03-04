@@ -202,7 +202,146 @@
       </p>
     </footer>
 
-    
+    <script>
+      // Function to check and reload Boxicons CSS if not loaded properly
+      function checkBoxiconsLoaded() {
+        const boxiconsLoaded = document.querySelector('link[href*="boxicons"]');
+        if (!boxiconsLoaded) {
+          console.error("Boxicons CSS failed to load. Attempting to reload...");
+          const boxiconsLink = document.createElement("link");
+          boxiconsLink.rel = "stylesheet";
+          boxiconsLink.href =
+            "https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css";
+          document.head.appendChild(boxiconsLink);
+        }
+      }
+
+      // Initialize Boxicons check when DOM is ready
+      document.addEventListener("DOMContentLoaded", checkBoxiconsLoaded);
+
+      // Initialize products array from localStorage or empty array if none exists
+      let products = JSON.parse(localStorage.getItem("products")) || [];
+      // Track current product being deleted
+      let currentDeleteIndex = null;
+
+      // Render products table with optional filtering
+      function renderProducts(filteredProducts = products) {
+        const tbody = document.getElementById("productsListManag");
+        tbody.innerHTML = filteredProducts
+          .map(
+            (product, index) => `
+        <tr>
+           <td data-label="Image"><img src="${product.image}" class="product-image-manag" alt="${product.name}"></td>
+            <td data-label="Name">${product.name}</td>
+            <td data-label="Price">${product.price} $</td>
+            <td data-label="Actions">
+                <div class="action-buttons">
+                    <button class="edit-btn" onclick="openEditModal(${index})">Modify</button>
+                    <button class="delete-btn" onclick="openDeleteModal(${index})">Delete</button>
+                </div>
+          </td>
+        </tr>
+      `
+          )
+          .join("");
+      }
+
+      // Search functionality implementation
+      document
+        .getElementById("searchBox")
+        .addEventListener("input", function (e) {
+          const searchTerm = e.target.value.toLowerCase();
+          const filtered = products.filter((product) =>
+            product.name.toLowerCase().includes(searchTerm)
+          );
+          renderProducts(filtered);
+        });
+
+      // Open edit modal with product details
+      function openEditModal(index) {
+        const product = products[index];
+        document.getElementById("editId").value = index;
+        document.getElementById("editName").value = product.name;
+        document.getElementById("editColor").value = product.color;
+        document.getElementById("editPrice").value = product.price;
+        document.getElementById("editModal").style.display = "flex";
+      }
+
+      // Open delete confirmation modal
+      function openDeleteModal(index) {
+        currentDeleteIndex = index;
+        document.getElementById("deleteModal").style.display = "flex";
+      }
+
+      // Handle edit form submission
+      document
+        .getElementById("editForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const index = document.getElementById("editId").value;
+          const file = document.getElementById("editImage").files[0];
+
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              updateProduct(index, e.target.result);
+            };
+            reader.readAsDataURL(file);
+          } else {
+            updateProduct(index);
+          }
+        });
+
+      // Update product in localStorage and UI
+      function updateProduct(index, newImage) {
+        products[index] = {
+          ...products[index],
+          name: document.getElementById("editName").value,
+          price: document.getElementById("editPrice").value,
+          image: newImage || products[index].image,
+        };
+
+        localStorage.setItem("products", JSON.stringify(products));
+        renderProducts();
+        closeModal();
+      }
+
+      // Handle product deletion
+      function confirmDelete() {
+        if (currentDeleteIndex !== null) {
+          products.splice(currentDeleteIndex, 1);
+          localStorage.setItem("products", JSON.stringify(products));
+          renderProducts();
+          closeModal();
+        }
+      }
+
+      // Close all modals and reset delete index
+      function closeModal() {
+        document.querySelectorAll(".modal-modify").forEach((modal) => {
+          modal.style.display = "none";
+        });
+        currentDeleteIndex = null;
+      }
+
+      // Close modal when clicking outside
+      window.addEventListener("click", (event) => {
+        if (event.target.classList.contains("modal-modify")) {
+          closeModal();
+        }
+      });
+
+      // Initial render of products
+      renderProducts();
+
+      // Listen for changes in localStorage from other tabs/windows
+      window.addEventListener("storage", function (e) {
+        if (e.key === "products") {
+          products = JSON.parse(e.newValue);
+          renderProducts();
+        }
+      });
+    </script>
     <script src="darkmode.js"></script>
   </body>
 </html>
