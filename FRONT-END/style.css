@@ -4097,6 +4097,60 @@ body.dark .product-card:hover .product-buttons {
   z-index: 2;
 }
 
+/* Product added successfully */
+
+.product-add {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-content {
+  background: var(--white-color);
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  animation: modalOpen 0.3s ease-out;
+}
+
+.add-content h2 {
+  margin-bottom: 20px;
+  color: var(--main-color);
+  text-align: center;
+}
+
+.add-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.add-buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-buttons button:first-child {
+  background: #95a5a6;
+  color: white;
+}
+
+.add-buttons button:last-child {
+  background: var(--main-color);
+  color: white;
+}
+
 
 /* ==> End Seller <== */
 
