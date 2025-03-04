@@ -4151,6 +4151,68 @@ body.dark .product-card:hover .product-buttons {
   color: white;
 }
 
+/* Dark Mode */
+
+.dark .seller {
+  background: #151d2a;
+}
+
+.dark .cont-seller {
+  background: #151d2a;
+  box-shadow: 1px 10px 10px 13px rgba(255, 254, 254, 0.05);
+}
+
+.dark .h-seller {
+  color: var(--text-color);
+}
+
+.dark .form-input-seller {
+  background: #151d2a;
+  color: var(--text-color);
+}
+
+.dark .form-input-seller:focus {
+  border-color: var(--main-color);
+}
+
+.dark .form-group-seller input,
+.dark .form-group-seller select,
+.dark .form-group-seller textarea,
+.dark .file-upload-box {
+  border: 2px solid #6c757d;
+}
+
+.dark .form-label-seller {
+  background: #151d2a;
+  color: var(--text-color);
+}
+
+.dark .form-input-seller:focus ~ .form-label-seller,
+.dark .form-input-seller:hover ~ .form-label-seller,
+.dark .form-input-seller.not-empty ~ .form-label-seller {
+  background: #151d2a;
+  color: var(--main-color);
+}
+.dark .file-input {
+  border: none;
+}
+
+.dark .file-name {
+  color: var(--text-color);
+}
+
+.dark .btn-seller {
+  background: #151d2a;
+  color: var(--text-color);
+}
+
+.dark .btn-seller:hover {
+  color: var(--dark-color);
+}
+
+.dark .btn-seller:hover::before {
+  background: var(--main-color);
+}
 
 /* ==> End Seller <== */
 
