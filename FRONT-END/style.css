@@ -3881,5 +3881,88 @@ body.dark .product-card:hover .product-buttons {
   border: 2px solid #6c757d;
 }
 
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+  .cont-product-manag {
+    padding: 15px;
+  }
+
+  .head-product-manag {
+    padding: 15px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .h-product-manag {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .search-product-manag {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+
+  .table-product-manag {
+    display: table;
+    font-size: 14px;
+  }
+
+  .table-product-manag th,
+  .table-product-manag td {
+    padding: 10px 5px;
+  }
+
+  .product-image-manag {
+    width: 40px;
+    height: 40px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 8px;
+    font-size: 12px;
+    width: 100%;
+    margin: 2px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .table-product-manag {
+    font-size: 12px;
+  }
+
+  .product-image-manag {
+    width: 35px;
+    height: 35px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 6px;
+    width: 100%;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+
+  .confirm-btn,
+  .cancel-btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
 
 /* ==> End Product Management <== */
