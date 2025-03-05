@@ -126,7 +126,7 @@
       </div>
     </div>
 
-    <!-- Product added successfully-->
+    <!-- Product added successfully -->
 
     <div class="product-add" id="productAdd">
       <div class="add-content">
@@ -224,52 +224,6 @@
           document.getElementById("fileNameSeller").textContent = fileName;
         });
 
-      // Handle form submission for adding new product
-      document
-        .getElementById("productForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          // Collect form data
-          const formData = {
-            name: document.getElementById("productName").value,
-            category: document.getElementById("productCategory").value,
-            price: document.getElementById("productPrice").value,
-            image: document.getElementById("productImage").files[0],
-          };
-
-          // Validate image is selected
-          if (!formData.image) {
-            alert("Please select a product image");
-            return;
-          }
-
-          // Convert image to base64 and save product
-          const reader = new FileReader();
-          reader.onload = function (e) {
-            // Create new product object with additional data
-            const newProduct = {
-              ...formData,
-              id: Date.now(),
-              image: e.target.result,
-              date: new Date().toISOString(),
-            };
-
-            // Save to localStorage
-            let products = JSON.parse(localStorage.getItem("products")) || [];
-            products.push(newProduct);
-            localStorage.setItem("products", JSON.stringify(products));
-
-            // Reset form and show success message
-            document.getElementById("productForm").reset();
-            document.getElementById("fileNameSeller").textContent =
-              "No file chosen";
-            alert("Product added successfully!");
-          };
-
-          reader.readAsDataURL(formData.image);
-        });
-
       // Add input animation for form fields
       document.querySelectorAll(".form-input-seller").forEach((input) => {
         input.addEventListener("input", function () {
@@ -290,7 +244,7 @@
         document.getElementById("productAdd").style.display = "none";
       }
 
-      // Alternative form submit handler with modal
+      // Handle form submission for adding new product
       document
         .getElementById("productForm")
         .addEventListener("submit", function (e) {
