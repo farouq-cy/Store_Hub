@@ -73,3 +73,4 @@ class CustomLoginForm(forms.Form):
                 raise forms.ValidationError("هذا الحساب غير مفعل.")
 
         return cleaned_data
+    #this for test
