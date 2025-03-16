@@ -36,14 +36,15 @@
           <h3>مرحبًا بك في متجرنا!</h3>
         {% endif %}
       </div>
-      <a href="#">Men's Fashion</a>
-      <a href="#">Woman's Fashion</a>
-      <a href="#">Electronics</a>
-      <a href="#">Medicine</a>
-      <a href="#">Phone & Tablet</a>
-      <a href="#">Sportes & Outdoor</a>
-      <a href="#">Fashion & Clothings</a>
-      <a href="#">TV & Audio</a>
+      <a href="{% url 'allproducts' %}?category=Men's Fashion">Men's Fashion</a>
+      <a href="{% url 'allproducts' %}?category=Woman's Fashion">Woman's Fashion</a>
+      <a href="{% url 'allproducts' %}?category=Electronics">Electronics</a>
+      <a href="{% url 'allproducts' %}?category=Medicine">Medicine</a>
+      <a href="{% url 'allproducts' %}?category=Phone & Tablet">Phone & Tablet</a>
+      <a href="{% url 'allproducts' %}?category=Sportes & Outdoor">Sportes & Outdoor</a>
+      <a href="{% url 'allproducts' %}?category=Fashion & Clothings">Fashion & Clothings</a>
+      <a href="{% url 'allproducts' %}?category=TV & Audio">TV & Audio</a>
+
     </div>
     <div class="swiper">
       <div class="swiper-wrapper">
